@@ -1,0 +1,91 @@
+LOCUS       CY113680                1537 bp                         09-JUN-2022
+DEFINITION  Influenza A virus (A/Beijing/32/1992(H3N2)) nucleocapsid protein
+            (NP) gene, complete cds.
+ACCESSION   CY113680
+VERSION     CY113680.1
+KEYWORDS    .
+SOURCE      Influenza A virus (A/Beijing/32/1992(H3N2))
+  ORGANISM  Influenza A virus (A/Beijing/32/1992(H3N2))
+            Viruses; ssRNA viruses; ssRNA negative-strand viruses;
+            Orthomyxoviridae; Influenzavirus A.
+REFERENCE   1  (bases 1 to 1537)
+  AUTHORS   Wentworth,D.E., Dugan,V., Halpin,R., Lin,X., Bera,J., Ghedin,E.,
+            Fedorova,N., Overton,L., Tsitrin,T., Stockwell,T., Amedeo,P.,
+            Bishop,B., Chen,H., Edworthy,P., Gupta,N., Katzel,D., Li,K.,
+            Schobel,S., Shrivastava,S., Thovarai,V., Wang,S., Westgeest,K.B.,
+            van Beek,R., Bestebroer,T.M., de Jong,J.C., Rimmelzwaan,G.F.,
+            Osterhaus,A.D.M.E., Fouchier,R.A.M., Bao,Y., Sanders,R.,
+            Dernovoy,D., Kiryutin,B., Lipman,D.J. and Tatusova,T.
+  TITLE     The NIAID Influenza Genome Sequencing Project
+  JOURNAL   Unpublished
+REFERENCE   2  (bases 1 to 1537)
+  CONSRTM   The NIAID Influenza Genome Sequencing Consortium
+  TITLE     Direct Submission
+  JOURNAL   Submitted (04-APR-2012) on behalf of JCVI/Erasmus Medical
+            College/NCBI, National Center for Biotechnology Information, NIH,
+            Bethesda, MD 20894, USA
+COMMENT     This work was supported by the National Institute of Allergy and
+            Infectious Diseases (NIAID), Genome Sequencing Centers for
+            Infectious Diseases (GSCID) program.
+EMBL_ID     CY113680                1537 bp    DNA              VRL 04-APR-2012
+UNIMARK     CY113680 features
+            CY113680
+FEATURES             Location/Qualifiers
+     source          1..1537
+                     /bio_material="CEIRS#CIP047BE3292#"
+                     /collection_date=1992
+                     /country="China: Beijing"
+                     /db_xref="taxon:380950"
+                     /host="Homo sapiens"
+                     /lab_host="xtMK3 MDCK1 passage(s)"
+                     /mol_type="viral cRNA"
+                     /organism="Influenza A virus (A/Beijing/32/1992(H3N2))"
+                     /segment=5
+                     /serotype="H3N2"
+                     /strain="A/Beijing/32/1992"
+     misc_feature    1..1537
+                     /db_xref="IRD:NIGSP_CEIRS_CIP047_RFH3_00116.NP"
+     gene            31..1527
+                     /gene="NP"
+     CDS             31..1527
+                     /codon_start=1
+                     /gene="NP"
+                     /product="nucleocapsid protein"
+                     /protein_id="AFG99681.1"
+                     /translation="MASQGTKRSYEQMETDGERQNATEIRASVGKMIDGIGRFYIQMC
+                     TELKLSDYEGRLIQNSLTIERMVLSAFDERRNRYLEEHPSAGKDPKKTGGPIYKRVDG
+                     RWMRELVLYDKEEIRRIWRQANNGDDATAGLTHMMIWHSNLNDTTYQRTRALVRTGMD
+                     PRMCSLMQGSTLPRRSGAAGAAVKGIGTMVMELIRMIKRGINDRNFWRGENGRKTRSA
+                     YERMCNILKGKFQTAAQRAMMDQVRESRNPGNAEIEDLIFSARSALILRGSVAHKSCL
+                     PACVYGPAVSSGYDFEKEGYSLVGIDPFKLLQNSQVYSLIRPNENPAHKSQLVWMACH
+                     SAAFEDLRLLSFIRGTKVSPRGKLSTRGVQIASNENMDNMESSTLELRSRYWAIRTRS
+                     GGNTNQQRASAGQISVQPTFSVQRNLPFEKSTVMAAFTGNTEGRTSDMRAEIIRMMEG
+                     AKPEEVSFRGRGVFELSDEKATNPIVPSFDMSNEGSYFFGDNAEEYDN"
+ORIGIN
+        1 AATAATCACT CACTGAGTGA CATCAAAATC ATGGCGTCCC AAGGCACCAA ACGGTCTTAT
+       61 GAACAGATGG AAACTGATGG AGATCGCCAG AATGCAACTG AGATTAGGGC ATCCGTCGGG
+      121 AAGATGATTG ATGGAATTGG GAGATTCTAC ATCCAAATGT GCACTGAACT TAAACTCAGT
+      181 GATCATGAAG GACGGTTGAT CCAAAATAGC TTGACAATAG AGAAAATGGT ACTCTCTGCT
+      241 TTTGATGAAA GAAGGAATAA ATACCTGGAA GAACACCCCA GCGCGGGGAA AGATCCCAAG
+      301 AAAACTGGGG GGCCCATATA CAGAAGAGTC GATGGAAAAT GGATGAGGGA ACTCGTCCTT
+      361 TATGACAAAG AGGAAATAAG GCGAATCTGG CGCCAAGCCA ACAATGGTGA GGATGCTACA
+      421 TCTGGTCTAA CCCACATGAT GATTTGGCAT TCCAATTTGA ATGATGCGAC ATACCAGAGG
+      481 ACAAGAGCTC TTGTTCGGAC TGGAATGGAT CCCAGAATGT GCTCTCTGAT GCAGGGGTCG
+      541 ACTCTCCCTA GAAGGTCCGG AGCTGCAGGT GCTGCAGTCA AAGGAATCGG AACAATGGTG
+      601 ATGGAACTGA TCAGGATGAT CAAACGGGGG ATCAACGATC GAAATTTTTG GAGAGGTGAG
+      661 AATGGGCGGA AAACAAGAAG TGCTTATGAT AGAATGTGCA ACATTCTTAA AGGAAAATTT
+      721 CAAACAGCTG CACAAAGAGC AATGGTGGAT CAAGTTAGAG AAAGTCGGAA CCCAGGAAAC
+      781 GCTGAGATCG AAGATCTCAT ATTTTTAGCA AGATCTGCAC TGATATTGAG AGGATCAGTT
+      841 GCTCACAAAT CTTGCCTACC TGCCTGTGCA TATGGACCTG CAGTATCCAG TGGTTACGAC
+      901 TTTGAAAAAG AGGGATATTC CTTGGTGGGA ATAGACCCTT TCAAACTACT TCAAAATAGC
+      961 CAAATATACA GCTTAATCAG ACCTAATGAG AATCCAGCAC ACAAGAGTCA GCTGGTGTGG
+     1021 ATGGCATGCC ATTCTGCTGC ATTTGAAGAT TTAAGATTGT TAAGTTTCAT CAGAGGGACA
+     1081 AAAGTATCTC CTCGGGGGAA ACTGTCAACT AGAGGAGTAC AAATTGCTTC AAATGAGAAC
+     1141 ATGGATAATA TGGGATCAAG CACTCTTGAA CTGAGAAGCG GGTACTGGGC CATAAGGACC
+     1201 AGGAGCGGAG GAAACACTAA TCAACAGAGG GCCTCCGCAG GCCAAACCAG TGTGCAACCT
+     1261 ACGTTTTCTG TACAAAGAAA CATCCCATTT GAAAAGTCAA CCATCATGGC AGCATTCACT
+     1321 GGAAATACGG AGGGAAGAAC TTCAGACATG AGGGCAGAAA TCATAAGGAT GATGGAAGGT
+     1381 GCAAAACCAG AAGAAGTGTC ATTCCGGGGG AGGGGAGTTT TCGAGCTCTC AGACGAGAAG
+     1441 GCAGCGAACC CGATCGTGCC CTCTTTTGAT ATGAGTAACG AAGGATCTTA TTTCTTCGGA
+     1501 GACAATGCAG AAGAGTACGA CAATTAAGAA AAAAATA
+//

@@ -1,0 +1,242 @@
+##sequence-region U26830.1 1 1701
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=380950
+U26830.1	Genbank	region	1	1701	.	+	.	ID=U26830.1:1..1701;Dbxref=taxon:380950;gbkey=Src;lab-host=MDBK cells;mol_type=genomic RNA;nat-host=Homo sapiens;serotype=H3N2;strain=A/Beijing/32/1992
+U26830.1	Genbank	CDS	1	1701	.	+	0	ID=cds-AAA87553.1;Dbxref=NCBI_GP:AAA87553.1;Name=AAA87553.1;gbkey=CDS;product=hemagglutinin;protein_id=AAA87553.1
+
+##sequence-region CY113678.1 1 999
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=380950
+CY113678.1	Genbank	region	1	999	.	+	.	ID=CY113678.1:1..999;Dbxref=taxon:380950;Name=7;bio-material=CEIRS#CIP047BE3292#;collection-date=1992;country=China: Beijing;gbkey=Src;lab-host=xtMK3 MDCK1 passage(s);mol_type=viral cRNA;nat-host=human;segment=7;serotype=H3N2;strain=A/Beijing/32/1992
+CY113678.1	Genbank	sequence_feature	1	999	.	+	.	ID=id-CY113678.1:1..999;Dbxref=IRD:NIGSP_CEIRS_CIP047_RFH3_00116.MP;gbkey=misc_feature
+CY113678.1	Genbank	gene	11	992	.	+	.	ID=gene-M2;Name=M2;gbkey=Gene;gene=M2;gene_biotype=protein_coding
+CY113678.1	Genbank	CDS	11	36	.	+	0	ID=cds-AFG99679.1;Parent=gene-M2;Dbxref=NCBI_GP:AFG99679.1;Name=AFG99679.1;gbkey=CDS;gene=M2;product=matrix protein 2;protein_id=AFG99679.1
+CY113678.1	Genbank	CDS	725	992	.	+	1	ID=cds-AFG99679.1;Parent=gene-M2;Dbxref=NCBI_GP:AFG99679.1;Name=AFG99679.1;gbkey=CDS;gene=M2;product=matrix protein 2;protein_id=AFG99679.1
+CY113678.1	Genbank	gene	11	769	.	+	.	ID=gene-M1;Name=M1;gbkey=Gene;gene=M1;gene_biotype=protein_coding
+CY113678.1	Genbank	CDS	11	769	.	+	0	ID=cds-AFG99678.1;Parent=gene-M1;Dbxref=NCBI_GP:AFG99678.1;Name=AFG99678.1;gbkey=CDS;gene=M1;product=matrix protein 1;protein_id=AFG99678.1
+
+##sequence-region CY113679.1 1 1436
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=380950
+CY113679.1	Genbank	region	1	1436	.	+	.	ID=CY113679.1:1..1436;Dbxref=taxon:380950;Name=6;bio-material=CEIRS#CIP047BE3292#;collection-date=1992;country=China: Beijing;gbkey=Src;lab-host=xtMK3 MDCK1 passage(s);mol_type=viral cRNA;nat-host=human;segment=6;serotype=H3N2;strain=A/Beijing/32/1992
+CY113679.1	Genbank	sequence_feature	1	1436	.	+	.	ID=id-CY113679.1:1..1436;Dbxref=IRD:NIGSP_CEIRS_CIP047_RFH3_00116.NA;gbkey=misc_feature
+CY113679.1	Genbank	gene	4	1413	.	+	.	ID=gene-NA;Name=NA;gbkey=Gene;gene=NA;gene_biotype=protein_coding
+CY113679.1	Genbank	CDS	4	1413	.	+	0	ID=cds-AFG99680.1;Parent=gene-NA;Dbxref=NCBI_GP:AFG99680.1;Name=AFG99680.1;gbkey=CDS;gene=NA;product=neuraminidase;protein_id=AFG99680.1
+
+##sequence-region CY113680.1 1 1537
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=380950
+CY113680.1	Genbank	region	1	1537	.	+	.	ID=CY113680.1:1..1537;Dbxref=taxon:380950;Name=5;bio-material=CEIRS#CIP047BE3292#;collection-date=1992;country=China: Beijing;gbkey=Src;lab-host=xtMK3 MDCK1 passage(s);mol_type=viral cRNA;nat-host=human;segment=5;serotype=H3N2;strain=A/Beijing/32/1992
+CY113680.1	Genbank	sequence_feature	1	1537	.	+	.	ID=id-CY113680.1:1..1537;Dbxref=IRD:NIGSP_CEIRS_CIP047_RFH3_00116.NP;gbkey=misc_feature
+CY113680.1	Genbank	gene	31	1527	.	+	.	ID=gene-NP;Name=NP;gbkey=Gene;gene=NP;gene_biotype=protein_coding
+CY113680.1	Genbank	CDS	31	1527	.	+	0	ID=cds-AFG99681.1;Parent=gene-NP;Dbxref=NCBI_GP:AFG99681.1;Name=AFG99681.1;gbkey=CDS;gene=NP;product=nucleocapsid protein;protein_id=AFG99681.1
+
+##sequence-region CY113681.1 1 864
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=380950
+CY113681.1	Genbank	region	1	864	.	+	.	ID=CY113681.1:1..864;Dbxref=taxon:380950;Name=8;bio-material=CEIRS#CIP047BE3292#;collection-date=1992;country=China: Beijing;gbkey=Src;lab-host=xtMK3 MDCK1 passage(s);mol_type=viral cRNA;nat-host=human;segment=8;serotype=H3N2;strain=A/Beijing/32/1992
+CY113681.1	Genbank	sequence_feature	1	864	.	+	.	ID=id-CY113681.1:1..864;Dbxref=IRD:NIGSP_CEIRS_CIP047_RFH3_00116.NS;gbkey=misc_feature
+CY113681.1	Genbank	gene	12	849	.	+	.	ID=gene-NEP;Name=NEP;gbkey=Gene;gene=NEP;gene_biotype=protein_coding;gene_synonym=NS2
+CY113681.1	Genbank	CDS	12	41	.	+	0	ID=cds-AFG99683.1;Parent=gene-NEP;Dbxref=NCBI_GP:AFG99683.1;Name=AFG99683.1;Note=nonstructural protein 2;gbkey=CDS;gene=NEP;product=nuclear export protein;protein_id=AFG99683.1
+CY113681.1	Genbank	CDS	514	849	.	+	0	ID=cds-AFG99683.1;Parent=gene-NEP;Dbxref=NCBI_GP:AFG99683.1;Name=AFG99683.1;Note=nonstructural protein 2;gbkey=CDS;gene=NEP;product=nuclear export protein;protein_id=AFG99683.1
+CY113681.1	Genbank	gene	12	704	.	+	.	ID=gene-NS1;Name=NS1;gbkey=Gene;gene=NS1;gene_biotype=protein_coding
+CY113681.1	Genbank	CDS	12	704	.	+	0	ID=cds-AFG99682.1;Parent=gene-NS1;Dbxref=NCBI_GP:AFG99682.1;Name=AFG99682.1;gbkey=CDS;gene=NS1;product=nonstructural protein 1;protein_id=AFG99682.1
+
+##sequence-region CY113682.1 1 2192
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=380950
+CY113682.1	Genbank	region	1	2192	.	+	.	ID=CY113682.1:1..2192;Dbxref=taxon:380950;Name=3;bio-material=CEIRS#CIP047BE3292#;collection-date=1992;country=China: Beijing;gbkey=Src;lab-host=xtMK3 MDCK1 passage(s);mol_type=viral cRNA;nat-host=human;segment=3;serotype=H3N2;strain=A/Beijing/32/1992
+CY113682.1	Genbank	sequence_feature	1	2192	.	+	.	ID=id-CY113682.1:1..2192;Dbxref=IRD:NIGSP_CEIRS_CIP047_RFH3_00116.PA;gbkey=misc_feature
+CY113682.1	Genbank	gene	11	2161	.	+	.	ID=gene-PA;Name=PA;gbkey=Gene;gene=PA;gene_biotype=protein_coding
+CY113682.1	Genbank	CDS	11	2161	.	+	0	ID=cds-AFG99684.1;Parent=gene-PA;Dbxref=NCBI_GP:AFG99684.1;Name=AFG99684.1;gbkey=CDS;gene=PA;product=polymerase PA;protein_id=AFG99684.1
+
+##sequence-region CY113683.1 1 2311
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=380950
+CY113683.1	Genbank	region	1	2311	.	+	.	ID=CY113683.1:1..2311;Dbxref=taxon:380950;Name=2;bio-material=CEIRS#CIP047BE3292#;collection-date=1992;country=China: Beijing;gbkey=Src;lab-host=xtMK3 MDCK1 passage(s);mol_type=viral cRNA;nat-host=human;segment=2;serotype=H3N2;strain=A/Beijing/32/1992
+CY113683.1	Genbank	sequence_feature	1	2311	.	+	.	ID=id-CY113683.1:1..2311;Dbxref=IRD:NIGSP_CEIRS_CIP047_RFH3_00116.PB1;gbkey=misc_feature
+CY113683.1	Genbank	gene	10	2283	.	+	.	ID=gene-PB1;Name=PB1;gbkey=Gene;gene=PB1;gene_biotype=protein_coding
+CY113683.1	Genbank	CDS	10	2283	.	+	0	ID=cds-AFG99685.1;Parent=gene-PB1;Dbxref=NCBI_GP:AFG99685.1;Name=AFG99685.1;gbkey=CDS;gene=PB1;product=polymerase PB1;protein_id=AFG99685.1
+CY113683.1	Genbank	gene	104	376	.	+	.	ID=gene-PB1-F2;Name=PB1-F2;gbkey=Gene;gene=PB1-F2;gene_biotype=protein_coding
+CY113683.1	Genbank	CDS	104	376	.	+	0	ID=cds-AFG99686.1;Parent=gene-PB1-F2;Dbxref=NCBI_GP:AFG99686.1;Name=AFG99686.1;gbkey=CDS;gene=PB1-F2;product=PB1-F2 protein;protein_id=AFG99686.1
+
+##sequence-region CY113684.1 1 2310
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=380950
+CY113684.1	Genbank	region	1	2310	.	+	.	ID=CY113684.1:1..2310;Dbxref=taxon:380950;Name=1;bio-material=CEIRS#CIP047BE3292#;collection-date=1992;country=China: Beijing;gbkey=Src;lab-host=xtMK3 MDCK1 passage(s);mol_type=viral cRNA;nat-host=human;segment=1;serotype=H3N2;strain=A/Beijing/32/1992
+CY113684.1	Genbank	sequence_feature	1	2310	.	+	.	ID=id-CY113684.1:1..2310;Dbxref=IRD:NIGSP_CEIRS_CIP047_RFH3_00116.PB2;gbkey=misc_feature
+CY113684.1	Genbank	gene	13	2292	.	+	.	ID=gene-PB2;Name=PB2;gbkey=Gene;gene=PB2;gene_biotype=protein_coding
+CY113684.1	Genbank	CDS	13	2292	.	+	0	ID=cds-AFG99687.1;Parent=gene-PB2;Dbxref=NCBI_GP:AFG99687.1;Name=AFG99687.1;gbkey=CDS;gene=PB2;product=polymerase PB2;protein_id=AFG99687.1
+
+##sequence-region CY121680.1 1 1752
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=641809
+CY121680.1	Genbank	region	1	1752	.	+	.	ID=CY121680.1:1..1752;Dbxref=taxon:641809;Name=4;collection-date=2009;country=USA: California;gbkey=Src;lab-host=Egg passage(s);mol_type=viral cRNA;nat-host=human;segment=4;serotype=H1N1;strain=A/California/07/2009
+CY121680.1	Genbank	sequence_feature	1	1752	.	+	.	ID=id-CY121680.1:1..1752;Dbxref=IRD:NIGSP_BUCA_00080.HA;gbkey=misc_feature
+CY121680.1	Genbank	gene	21	1721	.	+	.	ID=gene-HA;Name=HA;gbkey=Gene;gene=HA;gene_biotype=protein_coding
+CY121680.1	Genbank	CDS	21	1721	.	+	0	ID=cds-AFM72832.1;Parent=gene-HA;Dbxref=NCBI_GP:AFM72832.1;Name=AFM72832.1;gbkey=CDS;gene=HA;product=hemagglutinin;protein_id=AFM72832.1
+CY121680.1	Genbank	signal_peptide	21	71	.	+	.	ID=id-AFM72832.1:1..17;gbkey=Prot
+CY121680.1	Genbank	mature_protein_region	72	1052	.	+	.	ID=id-AFM72832.1:18..344;gbkey=Prot
+CY121680.1	Genbank	mature_protein_region	1053	1718	.	+	.	ID=id-AFM72832.1:345..566;gbkey=Prot
+
+##sequence-region CY121681.1 1 1002
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=641809
+CY121681.1	Genbank	region	1	1002	.	+	.	ID=CY121681.1:1..1002;Dbxref=taxon:641809;Name=7;collection-date=2009;country=USA: California;gbkey=Src;lab-host=Egg passage(s);mol_type=viral cRNA;nat-host=human;segment=7;serotype=H1N1;strain=A/California/07/2009
+CY121681.1	Genbank	sequence_feature	1	1002	.	+	.	ID=id-CY121681.1:1..1002;Dbxref=IRD:NIGSP_BUCA_00080.MP;gbkey=misc_feature
+CY121681.1	Genbank	gene	13	994	.	+	.	ID=gene-M2;Name=M2;gbkey=Gene;gene=M2;gene_biotype=protein_coding
+CY121681.1	Genbank	CDS	13	38	.	+	0	ID=cds-AFM72834.1;Parent=gene-M2;Dbxref=NCBI_GP:AFM72834.1;Name=AFM72834.1;gbkey=CDS;gene=M2;product=matrix protein 2;protein_id=AFM72834.1
+CY121681.1	Genbank	CDS	727	994	.	+	1	ID=cds-AFM72834.1;Parent=gene-M2;Dbxref=NCBI_GP:AFM72834.1;Name=AFM72834.1;gbkey=CDS;gene=M2;product=matrix protein 2;protein_id=AFM72834.1
+CY121681.1	Genbank	gene	13	771	.	+	.	ID=gene-M1;Name=M1;gbkey=Gene;gene=M1;gene_biotype=protein_coding
+CY121681.1	Genbank	CDS	13	771	.	+	0	ID=cds-AFM72833.1;Parent=gene-M1;Dbxref=NCBI_GP:AFM72833.1;Name=AFM72833.1;gbkey=CDS;gene=M1;product=matrix protein 1;protein_id=AFM72833.1
+
+##sequence-region CY121682.1 1 1432
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=641809
+CY121682.1	Genbank	region	1	1432	.	+	.	ID=CY121682.1:1..1432;Dbxref=taxon:641809;Name=6;collection-date=2009;country=USA: California;gbkey=Src;lab-host=Egg passage(s);mol_type=viral cRNA;nat-host=human;segment=6;serotype=H1N1;strain=A/California/07/2009
+CY121682.1	Genbank	sequence_feature	1	1432	.	+	.	ID=id-CY121682.1:1..1432;Dbxref=IRD:NIGSP_BUCA_00080.NA;gbkey=misc_feature
+CY121682.1	Genbank	gene	9	1418	.	+	.	ID=gene-NA;Name=NA;gbkey=Gene;gene=NA;gene_biotype=protein_coding
+CY121682.1	Genbank	CDS	9	1418	.	+	0	ID=cds-AFM72835.1;Parent=gene-NA;Dbxref=NCBI_GP:AFM72835.1;Name=AFM72835.1;gbkey=CDS;gene=NA;product=neuraminidase;protein_id=AFM72835.1
+
+##sequence-region CY121683.1 1 1541
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=641809
+CY121683.1	Genbank	region	1	1541	.	+	.	ID=CY121683.1:1..1541;Dbxref=taxon:641809;Name=5;collection-date=2009;country=USA: California;gbkey=Src;lab-host=Egg passage(s);mol_type=viral cRNA;nat-host=human;segment=5;serotype=H1N1;strain=A/California/07/2009
+CY121683.1	Genbank	sequence_feature	1	1541	.	+	.	ID=id-CY121683.1:1..1541;Dbxref=IRD:NIGSP_BUCA_00080.NP;gbkey=misc_feature
+CY121683.1	Genbank	gene	34	1530	.	+	.	ID=gene-NP;Name=NP;gbkey=Gene;gene=NP;gene_biotype=protein_coding
+CY121683.1	Genbank	CDS	34	1530	.	+	0	ID=cds-AFM72836.1;Parent=gene-NP;Dbxref=NCBI_GP:AFM72836.1;Name=AFM72836.1;gbkey=CDS;gene=NP;product=nucleocapsid protein;protein_id=AFM72836.1
+
+##sequence-region CY121684.1 1 865
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=641809
+CY121684.1	Genbank	region	1	865	.	+	.	ID=CY121684.1:1..865;Dbxref=taxon:641809;Name=8;collection-date=2009;country=USA: California;gbkey=Src;lab-host=Egg passage(s);mol_type=viral cRNA;nat-host=human;segment=8;serotype=H1N1;strain=A/California/07/2009
+CY121684.1	Genbank	sequence_feature	1	865	.	+	.	ID=id-CY121684.1:1..865;Dbxref=IRD:NIGSP_BUCA_00080.NS;gbkey=misc_feature
+CY121684.1	Genbank	gene	15	852	.	+	.	ID=gene-NEP;Name=NEP;gbkey=Gene;gene=NEP;gene_biotype=protein_coding;gene_synonym=NS2
+CY121684.1	Genbank	CDS	15	44	.	+	0	ID=cds-AFM72838.1;Parent=gene-NEP;Dbxref=NCBI_GP:AFM72838.1;Name=AFM72838.1;Note=nonstructural protein 2;gbkey=CDS;gene=NEP;product=nuclear export protein;protein_id=AFM72838.1
+CY121684.1	Genbank	CDS	517	852	.	+	0	ID=cds-AFM72838.1;Parent=gene-NEP;Dbxref=NCBI_GP:AFM72838.1;Name=AFM72838.1;Note=nonstructural protein 2;gbkey=CDS;gene=NEP;product=nuclear export protein;protein_id=AFM72838.1
+CY121684.1	Genbank	gene	15	674	.	+	.	ID=gene-NS1;Name=NS1;gbkey=Gene;gene=NS1;gene_biotype=protein_coding
+CY121684.1	Genbank	CDS	15	674	.	+	0	ID=cds-AFM72837.1;Parent=gene-NS1;Dbxref=NCBI_GP:AFM72837.1;Name=AFM72837.1;gbkey=CDS;gene=NS1;product=nonstructural protein 1;protein_id=AFM72837.1
+
+##sequence-region CY121685.1 1 2192
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=641809
+CY121685.1	Genbank	region	1	2192	.	+	.	ID=CY121685.1:1..2192;Dbxref=taxon:641809;Name=3;collection-date=2009;country=USA: California;gbkey=Src;lab-host=Egg passage(s);mol_type=viral cRNA;nat-host=human;segment=3;serotype=H1N1;strain=A/California/07/2009
+CY121685.1	Genbank	sequence_feature	1	2192	.	+	.	ID=id-CY121685.1:1..2192;Dbxref=IRD:NIGSP_BUCA_00080.PA;gbkey=misc_feature
+CY121685.1	Genbank	gene	5	2155	.	+	.	ID=gene-PA;Name=PA;gbkey=Gene;gene=PA;gene_biotype=protein_coding
+CY121685.1	Genbank	CDS	5	2155	.	+	0	ID=cds-AFM72839.1;Parent=gene-PA;Dbxref=NCBI_GP:AFM72839.1;Name=AFM72839.1;gbkey=CDS;gene=PA;product=polymerase PA;protein_id=AFM72839.1
+CY121685.1	Genbank	gene	5	704	.	+	.	ID=gene-PA-X;Name=PA-X;gbkey=Gene;gene=PA-X;gene_biotype=protein_coding
+CY121685.1	Genbank	CDS	5	577	.	+	0	ID=cds-AFP55028.1;Parent=gene-PA-X;Dbxref=NCBI_GP:AFP55028.1;Name=AFP55028.1;exception=ribosomal slippage;gbkey=CDS;gene=PA-X;product=PA-X protein;protein_id=AFP55028.1
+CY121685.1	Genbank	CDS	579	704	.	+	0	ID=cds-AFP55028.1;Parent=gene-PA-X;Dbxref=NCBI_GP:AFP55028.1;Name=AFP55028.1;exception=ribosomal slippage;gbkey=CDS;gene=PA-X;product=PA-X protein;protein_id=AFP55028.1
+
+##sequence-region CY121686.1 1 2317
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=641809
+CY121686.1	Genbank	region	1	2317	.	+	.	ID=CY121686.1:1..2317;Dbxref=taxon:641809;Name=2;collection-date=2009;country=USA: California;gbkey=Src;lab-host=Egg passage(s);mol_type=viral cRNA;nat-host=human;segment=2;serotype=H1N1;strain=A/California/07/2009
+CY121686.1	Genbank	sequence_feature	1	2317	.	+	.	ID=id-CY121686.1:1..2317;Dbxref=IRD:NIGSP_BUCA_00080.PB1;gbkey=misc_feature
+CY121686.1	Genbank	gene	13	2286	.	+	.	ID=gene-PB1;Name=PB1;gbkey=Gene;gene=PB1;gene_biotype=protein_coding
+CY121686.1	Genbank	CDS	13	2286	.	+	0	ID=cds-AFM72840.1;Parent=gene-PB1;Dbxref=NCBI_GP:AFM72840.1;Name=AFM72840.1;gbkey=CDS;gene=PB1;product=polymerase PB1;protein_id=AFM72840.1
+CY121686.1	Genbank	gene	107	379	.	+	.	ID=gene-PB1-F2;Name=PB1-F2;gbkey=Gene;gene=PB1-F2;gene_biotype=other
+CY121686.1	Genbank	sequence_feature	107	379	.	+	.	ID=id-PB1-F2;Note=nonfunctional PB1-F2 protein due to mutation;gbkey=misc_feature;gene=PB1-F2
+
+##sequence-region CY121687.1 1 2316
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=641809
+CY121687.1	Genbank	region	1	2316	.	+	.	ID=CY121687.1:1..2316;Dbxref=taxon:641809;Name=1;collection-date=2009;country=USA: California;gbkey=Src;lab-host=Egg passage(s);mol_type=viral cRNA;nat-host=human;segment=1;serotype=H1N1;strain=A/California/07/2009
+CY121687.1	Genbank	sequence_feature	1	2316	.	+	.	ID=id-CY121687.1:1..2316;Dbxref=IRD:NIGSP_BUCA_00080.PB2;gbkey=misc_feature
+CY121687.1	Genbank	gene	16	2295	.	+	.	ID=gene-PB2;Name=PB2;gbkey=Gene;gene=PB2;gene_biotype=protein_coding
+CY121687.1	Genbank	CDS	16	2295	.	+	0	ID=cds-AFM72841.1;Parent=gene-PB2;Dbxref=NCBI_GP:AFM72841.1;Name=AFM72841.1;gbkey=CDS;gene=PB2;product=polymerase PB2;protein_id=AFM72841.1
+
+##sequence-region CY018813.1 1 1842
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=416687
+CY018813.1	Genbank	region	1	1842	.	+	.	ID=CY018813.1:1..1842;Dbxref=taxon:416687;Name=4;collection-date=15-Feb-1993;country=Hong Kong: Hong Kong;gbkey=Src;lab-host=MDCK 4 passage(s);mol_type=viral cRNA;nat-host=Human;segment=4;strain=Influenza B virus (B/Hong Kong/02/1993)
+CY018813.1	Genbank	gene	12	1769	.	+	.	ID=gene-HA;Name=HA;gbkey=Gene;gene=HA;gene_biotype=protein_coding
+CY018813.1	Genbank	CDS	12	1769	.	+	0	ID=cds-ABL77321.1;Parent=gene-HA;Dbxref=NCBI_GP:ABL77321.1;Name=ABL77321.1;gbkey=CDS;gene=HA;product=hemagglutinin;protein_id=ABL77321.1
+
+##sequence-region CY018814.1 1 1150
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=416687
+CY018814.1	Genbank	region	1	1150	.	+	.	ID=CY018814.1:1..1150;Dbxref=taxon:416687;Name=7;collection-date=15-Feb-1993;country=Hong Kong: Hong Kong;gbkey=Src;lab-host=MDCK 4 passage(s);mol_type=viral cRNA;nat-host=Human;segment=7;strain=Influenza B virus (B/Hong Kong/02/1993)
+CY018814.1	Genbank	gene	4	750	.	+	.	ID=gene-M1;Name=M1;gbkey=Gene;gene=M1;gene_biotype=protein_coding
+CY018814.1	Genbank	CDS	4	750	.	+	0	ID=cds-ABL77322.1;Parent=gene-M1;Dbxref=NCBI_GP:ABL77322.1;Name=ABL77322.1;gbkey=CDS;gene=M1;product=matrix protein 1;protein_id=ABL77322.1
+CY018814.1	Genbank	gene	750	1079	.	+	.	ID=gene-BM2;Name=BM2;gbkey=Gene;gene=BM2;gene_biotype=protein_coding
+CY018814.1	Genbank	CDS	750	1079	.	+	0	ID=cds-ABL77323.1;Parent=gene-BM2;Dbxref=NCBI_GP:ABL77323.1;Name=ABL77323.1;gbkey=CDS;gene=BM2;product=BM2 protein;protein_id=ABL77323.1
+
+##sequence-region CY018815.1 1 1516
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=416687
+CY018815.1	Genbank	region	1	1516	.	+	.	ID=CY018815.1:1..1516;Dbxref=taxon:416687;Name=6;collection-date=15-Feb-1993;country=Hong Kong: Hong Kong;gbkey=Src;lab-host=MDCK 4 passage(s);mol_type=viral cRNA;nat-host=Human;segment=6;strain=Influenza B virus (B/Hong Kong/02/1993)
+CY018815.1	Genbank	gene	24	326	.	+	.	ID=gene-NB;Name=NB;gbkey=Gene;gene=NB;gene_biotype=protein_coding
+CY018815.1	Genbank	CDS	24	326	.	+	0	ID=cds-ABL77324.1;Parent=gene-NB;Dbxref=NCBI_GP:ABL77324.1;Name=ABL77324.1;gbkey=CDS;gene=NB;product=NB protein;protein_id=ABL77324.1
+CY018815.1	Genbank	gene	31	1431	.	+	.	ID=gene-NA;Name=NA;gbkey=Gene;gene=NA;gene_biotype=protein_coding
+CY018815.1	Genbank	CDS	31	1431	.	+	0	ID=cds-ABL77325.1;Parent=gene-NA;Dbxref=NCBI_GP:ABL77325.1;Name=ABL77325.1;gbkey=CDS;gene=NA;product=neuraminidase;protein_id=ABL77325.1
+
+##sequence-region CY018816.1 1 1810
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=416687
+CY018816.1	Genbank	region	1	1810	.	+	.	ID=CY018816.1:1..1810;Dbxref=taxon:416687;Name=5;collection-date=15-Feb-1993;country=Hong Kong: Hong Kong;gbkey=Src;lab-host=MDCK 4 passage(s);mol_type=viral cRNA;nat-host=Human;segment=5;strain=Influenza B virus (B/Hong Kong/02/1993)
+CY018816.1	Genbank	gene	46	1728	.	+	.	ID=gene-NP;Name=NP;gbkey=Gene;gene=NP;gene_biotype=protein_coding
+CY018816.1	Genbank	CDS	46	1728	.	+	0	ID=cds-ABL77326.1;Parent=gene-NP;Dbxref=NCBI_GP:ABL77326.1;Name=ABL77326.1;gbkey=CDS;gene=NP;product=nucleoprotein;protein_id=ABL77326.1
+
+##sequence-region CY018817.1 1 1058
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=416687
+CY018817.1	Genbank	region	1	1058	.	+	.	ID=CY018817.1:1..1058;Dbxref=taxon:416687;Name=8;collection-date=15-Feb-1993;country=Hong Kong: Hong Kong;gbkey=Src;lab-host=MDCK 4 passage(s);mol_type=viral cRNA;nat-host=Human;segment=8;strain=Influenza B virus (B/Hong Kong/02/1993)
+CY018817.1	Genbank	gene	23	1046	.	+	.	ID=gene-NS2;Name=NS2;gbkey=Gene;gene=NS2;gene_biotype=protein_coding
+CY018817.1	Genbank	CDS	23	55	.	+	0	ID=cds-ABL77328.1;Parent=gene-NS2;Dbxref=NCBI_GP:ABL77328.1;Name=ABL77328.1;gbkey=CDS;gene=NS2;product=nonstructural protein 2;protein_id=ABL77328.1
+CY018817.1	Genbank	CDS	711	1046	.	+	0	ID=cds-ABL77328.1;Parent=gene-NS2;Dbxref=NCBI_GP:ABL77328.1;Name=ABL77328.1;gbkey=CDS;gene=NS2;product=nonstructural protein 2;protein_id=ABL77328.1
+CY018817.1	Genbank	gene	23	868	.	+	.	ID=gene-NS1;Name=NS1;gbkey=Gene;gene=NS1;gene_biotype=protein_coding
+CY018817.1	Genbank	CDS	23	868	.	+	0	ID=cds-ABL77327.1;Parent=gene-NS1;Dbxref=NCBI_GP:ABL77327.1;Name=ABL77327.1;gbkey=CDS;gene=NS1;product=nonstructural protein 1;protein_id=ABL77327.1
+
+##sequence-region CY018818.1 1 2273
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=416687
+CY018818.1	Genbank	region	1	2273	.	+	.	ID=CY018818.1:1..2273;Dbxref=taxon:416687;Name=3;collection-date=15-Feb-1993;country=Hong Kong: Hong Kong;gbkey=Src;lab-host=MDCK 4 passage(s);mol_type=viral cRNA;nat-host=Human;segment=3;strain=Influenza B virus (B/Hong Kong/02/1993)
+CY018818.1	Genbank	gene	15	2195	.	+	.	ID=gene-PA;Name=PA;gbkey=Gene;gene=PA;gene_biotype=protein_coding
+CY018818.1	Genbank	CDS	15	2195	.	+	0	ID=cds-ABL77329.1;Parent=gene-PA;Dbxref=NCBI_GP:ABL77329.1;Name=ABL77329.1;gbkey=CDS;gene=PA;product=polymerase PA;protein_id=ABL77329.1
+
+##sequence-region CY018819.1 1 2328
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=416687
+CY018819.1	Genbank	region	1	2328	.	+	.	ID=CY018819.1:1..2328;Dbxref=taxon:416687;Name=1;collection-date=15-Feb-1993;country=Hong Kong: Hong Kong;gbkey=Src;lab-host=MDCK 4 passage(s);mol_type=viral cRNA;nat-host=Human;segment=1;strain=Influenza B virus (B/Hong Kong/02/1993)
+CY018819.1	Genbank	gene	2	2260	.	+	.	ID=gene-PB1;Name=PB1;gbkey=Gene;gene=PB1;gene_biotype=protein_coding
+CY018819.1	Genbank	CDS	2	2260	.	+	0	ID=cds-ABL77330.1;Parent=gene-PB1;Dbxref=NCBI_GP:ABL77330.1;Name=ABL77330.1;gbkey=CDS;gene=PB1;product=polymerase PB1;protein_id=ABL77330.1
+
+##sequence-region CY018820.1 1 2355
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=416687
+CY018820.1	Genbank	region	1	2355	.	+	.	ID=CY018820.1:1..2355;Dbxref=taxon:416687;Name=2;collection-date=15-Feb-1993;country=Hong Kong: Hong Kong;gbkey=Src;lab-host=MDCK 4 passage(s);mol_type=viral cRNA;nat-host=Human;segment=2;strain=Influenza B virus (B/Hong Kong/02/1993)
+CY018820.1	Genbank	gene	2	2314	.	+	.	ID=gene-PB2;Name=PB2;gbkey=Gene;gene=PB2;gene_biotype=protein_coding
+CY018820.1	Genbank	CDS	2	2314	.	+	0	ID=cds-ABL77331.1;Parent=gene-PB2;Dbxref=NCBI_GP:ABL77331.1;Name=ABL77331.1;gbkey=CDS;gene=PB2;product=polymerase PB2;protein_id=ABL77331.1
+
+##sequence-region CY019707.1 1 1840
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=416695
+CY019707.1	Genbank	region	1	1840	.	+	.	ID=CY019707.1:1..1840;Dbxref=taxon:416695;Name=4;collection-date=10-May-1994;country=Singapore: Singapore;gbkey=Src;isolation-source=gender:M;lab-host=MDCK 4 passage(s);mol_type=viral cRNA;nat-host=Human;segment=4;strain=Influenza B virus (B/Singapore/11/1994)
+CY019707.1	Genbank	gene	12	1766	.	+	.	ID=gene-HA;Name=HA;gbkey=Gene;gene=HA;gene_biotype=protein_coding
+CY019707.1	Genbank	CDS	12	1766	.	+	0	ID=cds-ABN50712.1;Parent=gene-HA;Dbxref=NCBI_GP:ABN50712.1;Name=ABN50712.1;gbkey=CDS;gene=HA;product=hemagglutinin;protein_id=ABN50712.1
+
+##sequence-region CY019708.1 1 1147
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=416695
+CY019708.1	Genbank	region	1	1147	.	+	.	ID=CY019708.1:1..1147;Dbxref=taxon:416695;Name=7;collection-date=10-May-1994;country=Singapore: Singapore;gbkey=Src;isolation-source=gender:M;lab-host=MDCK 4 passage(s);mol_type=viral cRNA;nat-host=Human;segment=7;strain=Influenza B virus (B/Singapore/11/1994)
+CY019708.1	Genbank	gene	5	751	.	+	.	ID=gene-M1;Name=M1;gbkey=Gene;gene=M1;gene_biotype=protein_coding
+CY019708.1	Genbank	CDS	5	751	.	+	0	ID=cds-ABN50713.1;Parent=gene-M1;Dbxref=NCBI_GP:ABN50713.1;Name=ABN50713.1;gbkey=CDS;gene=M1;product=matrix protein 1;protein_id=ABN50713.1
+CY019708.1	Genbank	gene	751	1080	.	+	.	ID=gene-BM2;Name=BM2;gbkey=Gene;gene=BM2;gene_biotype=protein_coding
+CY019708.1	Genbank	CDS	751	1080	.	+	0	ID=cds-ABN50714.1;Parent=gene-BM2;Dbxref=NCBI_GP:ABN50714.1;Name=ABN50714.1;gbkey=CDS;gene=BM2;product=BM2 protein;protein_id=ABN50714.1
+
+##sequence-region CY019709.1 1 1516
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=416695
+CY019709.1	Genbank	region	1	1516	.	+	.	ID=CY019709.1:1..1516;Dbxref=taxon:416695;Name=6;collection-date=10-May-1994;country=Singapore: Singapore;gbkey=Src;isolation-source=gender:M;lab-host=MDCK 4 passage(s);mol_type=viral cRNA;nat-host=Human;segment=6;strain=Influenza B virus (B/Singapore/11/1994)
+CY019709.1	Genbank	gene	24	326	.	+	.	ID=gene-NB;Name=NB;gbkey=Gene;gene=NB;gene_biotype=protein_coding
+CY019709.1	Genbank	CDS	24	326	.	+	0	ID=cds-ABN50715.1;Parent=gene-NB;Dbxref=NCBI_GP:ABN50715.1;Name=ABN50715.1;gbkey=CDS;gene=NB;product=NB protein;protein_id=ABN50715.1
+CY019709.1	Genbank	gene	31	1431	.	+	.	ID=gene-NA;Name=NA;gbkey=Gene;gene=NA;gene_biotype=protein_coding
+CY019709.1	Genbank	CDS	31	1431	.	+	0	ID=cds-ABN50716.1;Parent=gene-NA;Dbxref=NCBI_GP:ABN50716.1;Name=ABN50716.1;gbkey=CDS;gene=NA;product=neuraminidase;protein_id=ABN50716.1
+
+##sequence-region CY019710.1 1 1809
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=416695
+CY019710.1	Genbank	region	1	1809	.	+	.	ID=CY019710.1:1..1809;Dbxref=taxon:416695;Name=5;collection-date=10-May-1994;country=Singapore: Singapore;gbkey=Src;isolation-source=gender:M;lab-host=MDCK 4 passage(s);mol_type=viral cRNA;nat-host=Human;segment=5;strain=Influenza B virus (B/Singapore/11/1994)
+CY019710.1	Genbank	gene	45	1727	.	+	.	ID=gene-NP;Name=NP;gbkey=Gene;gene=NP;gene_biotype=protein_coding
+CY019710.1	Genbank	CDS	45	1727	.	+	0	ID=cds-ABN50717.1;Parent=gene-NP;Dbxref=NCBI_GP:ABN50717.1;Name=ABN50717.1;gbkey=CDS;gene=NP;product=nucleoprotein;protein_id=ABN50717.1
+
+##sequence-region CY019711.1 1 1046
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=416695
+CY019711.1	Genbank	region	1	1046	.	+	.	ID=CY019711.1:1..1046;Dbxref=taxon:416695;Name=8;collection-date=10-May-1994;country=Singapore: Singapore;gbkey=Src;isolation-source=gender:M;lab-host=MDCK 4 passage(s);mol_type=viral cRNA;nat-host=Human;segment=8;strain=Influenza B virus (B/Singapore/11/1994)
+CY019711.1	Genbank	gene	11	1034	.	+	.	ID=gene-NS2;Name=NS2;gbkey=Gene;gene=NS2;gene_biotype=protein_coding
+CY019711.1	Genbank	CDS	11	43	.	+	0	ID=cds-ABN50719.1;Parent=gene-NS2;Dbxref=NCBI_GP:ABN50719.1;Name=ABN50719.1;gbkey=CDS;gene=NS2;product=nonstructural protein 2;protein_id=ABN50719.1
+CY019711.1	Genbank	CDS	699	1034	.	+	0	ID=cds-ABN50719.1;Parent=gene-NS2;Dbxref=NCBI_GP:ABN50719.1;Name=ABN50719.1;gbkey=CDS;gene=NS2;product=nonstructural protein 2;protein_id=ABN50719.1
+CY019711.1	Genbank	gene	11	856	.	+	.	ID=gene-NS1;Name=NS1;gbkey=Gene;gene=NS1;gene_biotype=protein_coding
+CY019711.1	Genbank	CDS	11	856	.	+	0	ID=cds-ABN50718.1;Parent=gene-NS1;Dbxref=NCBI_GP:ABN50718.1;Name=ABN50718.1;gbkey=CDS;gene=NS1;product=nonstructural protein 1;protein_id=ABN50718.1
+
+##sequence-region CY019712.1 1 2269
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=416695
+CY019712.1	Genbank	region	1	2269	.	+	.	ID=CY019712.1:1..2269;Dbxref=taxon:416695;Name=3;collection-date=10-May-1994;country=Singapore: Singapore;gbkey=Src;isolation-source=gender:M;lab-host=MDCK 4 passage(s);mol_type=viral cRNA;nat-host=Human;segment=3;strain=Influenza B virus (B/Singapore/11/1994)
+CY019712.1	Genbank	gene	14	2194	.	+	.	ID=gene-PA;Name=PA;gbkey=Gene;gene=PA;gene_biotype=protein_coding
+CY019712.1	Genbank	CDS	14	2194	.	+	0	ID=cds-ABN50720.1;Parent=gene-PA;Dbxref=NCBI_GP:ABN50720.1;Name=ABN50720.1;gbkey=CDS;gene=PA;product=polymerase PA;protein_id=ABN50720.1
+
+##sequence-region CY019713.1 1 2324
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=416695
+CY019713.1	Genbank	region	1	2324	.	+	.	ID=CY019713.1:1..2324;Dbxref=taxon:416695;Name=1;collection-date=10-May-1994;country=Singapore: Singapore;gbkey=Src;isolation-source=gender:M;lab-host=MDCK 4 passage(s);mol_type=viral cRNA;nat-host=Human;segment=1;strain=Influenza B virus (B/Singapore/11/1994)
+CY019713.1	Genbank	gene	6	2264	.	+	.	ID=gene-PB1;Name=PB1;gbkey=Gene;gene=PB1;gene_biotype=protein_coding
+CY019713.1	Genbank	CDS	6	2264	.	+	0	ID=cds-ABN50721.1;Parent=gene-PB1;Dbxref=NCBI_GP:ABN50721.1;Name=ABN50721.1;gbkey=CDS;gene=PB1;product=polymerase PB1;protein_id=ABN50721.1
+
+##sequence-region CY019714.1 1 2352
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=416695
+CY019714.1	Genbank	region	1	2352	.	+	.	ID=CY019714.1:1..2352;Dbxref=taxon:416695;Name=2;collection-date=10-May-1994;country=Singapore: Singapore;gbkey=Src;isolation-source=gender:M;lab-host=MDCK 4 passage(s);mol_type=viral cRNA;nat-host=Human;segment=2;strain=Influenza B virus (B/Singapore/11/1994)
+CY019714.1	Genbank	gene	2	2314	.	+	.	ID=gene-PB2;Name=PB2;gbkey=Gene;gene=PB2;gene_biotype=protein_coding
+CY019714.1	Genbank	CDS	2	2314	.	+	0	ID=cds-ABN50722.1;Parent=gene-PB2;Dbxref=NCBI_GP:ABN50722.1;Name=ABN50722.1;gbkey=CDS;gene=PB2;product=polymerase PB2;protein_id=ABN50722.1
+

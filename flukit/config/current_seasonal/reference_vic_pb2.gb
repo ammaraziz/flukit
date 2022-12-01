@@ -1,0 +1,114 @@
+LOCUS       MK995672                2367 bp    cRNA    linear   VRL 05-JUN-2019
+DEFINITION  Influenza B virus (B/Washington/02/2019) segment 2 polymerase PB2
+            (PB2) gene, complete cds.
+ACCESSION   MK995672
+VERSION     MK995672.1
+DBLINK      BioProject: PRJNA37813
+KEYWORDS    .
+SOURCE      Influenza B virus
+  ORGANISM  Influenza B virus
+            Viruses; Riboviria; Orthornavirae; Negarnaviricota;
+            Polyploviricotina; Insthoviricetes; Articulavirales;
+            Orthomyxoviridae; Betainfluenzavirus.
+REFERENCE   1  (bases 1 to 2367)
+  AUTHORS   Jernigan,D., Wentworth,D., Katz,J., Barnes,J., Garten,R. and Xu,X.
+  TITLE     Influenza Sequencing Activity group
+  JOURNAL   Unpublished
+REFERENCE   2  (bases 1 to 2367)
+  AUTHORS   Jernigan,D., Wentworth,D., Katz,J., Barnes,J., Garten,R. and Xu,X.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (31-MAY-2019) WHO Collaborating Center for Surveillance,
+            Epidemiology and Control of Influenza, Influenza Division, Centers
+            for Disease Control and Prevention, 1600 Clifton Road, N.E.,
+            Atlanta, GA 30333, USA
+COMMENT     ##FluData-START##
+            EPI_ISOLATE_ID   :: EPI_ISL_352076
+            NAME             :: B/Washington/02/2019
+            TYPE             :: B
+            Segment_name     :: PB2
+            HOST_AGE         :: 5
+            HOST_GENDER      :: F
+            PASSAGE          :: E2 (2019-03-29)
+            LOCATION         :: United States / Washington
+            COLLECT_DATE     :: 19-Jan-2019
+            Lineage          :: Victoria
+            SPECIMEN_ID      :: WA0318207-ORIGINAL
+            SENDER_LAB       :: Washington State Public Health Laboratory
+            SEQLAB_SAMPLE_ID :: 3026019537
+            EPI_SEQUENCE_ID  :: EPI1422449
+            ##FluData-END##
+FEATURES             Location/Qualifiers
+     source          1..2367
+                     /organism="Influenza B virus"
+                     /mol_type="viral cRNA"
+                     /strain="B/Washington/02/2019"
+                     /host="Homo sapiens"
+                     /db_xref="taxon:11520"
+                     /segment="2"
+                     /country="USA: Washington"
+                     /collection_date="19-Jan-2019"
+                     /note="passage details:E2 (2019-03-29);
+                     type: Victoria"
+     gene            10..2322
+                     /gene="PB2"
+     CDS             10..2322
+                     /gene="PB2"
+                     /codon_start=1
+                     /product="polymerase PB2"
+                     /protein_id="QCW09562.1"
+                     /translation="MTLAKIELLKQLLRDNEAKTVLKQTTVDQYNIIRKFNTSRIEKN
+                     PSLRMKWAMCSSFPLALTKGDMANRIPLEYKGIQLKTNAEDIGTKGQMCSIAAVTWWN
+                     TYGPIGDTEGFERVYESFFLRKMRLDNATWGRITFGPVERVRKRVLLNPLTKEMPPDE
+                     ASNVIMEILFPKEAGIPRESTWIHRELIKEKREKLKGTMITPIVLAYMLERELVARRR
+                     FLPVAGATSAEFIEMLHCLQGENWRQIYHPGGNKLTESRSQSMIVACRKIIRRSIVAS
+                     NPLELAVEIANKTVIDTEPLKSCLAAIDGGDVACDIIRAALGLKIRQRQRFGRLELKR
+                     ISGRGFKNDEEILIGNGTIQKIGIWDGEEEFHVRCGECRGILKKSKMKLEKLLINSAK
+                     KEDMRDLIILCMVFSQDTRMFQGVRGEINFLNRAGQLLSPMYQLQRYFLNRSNDLFDQ
+                     WGYEESPKASELHGINESMNASDYTLKGIVVTRNVIDDFSSTETEKVSITKNLSLIKR
+                     TGEVIMGANDVSELESQAQLMITYDTPKMWEMGTTKELVQNTYQWVLKNLVTLKAQFL
+                     LGKEDMFQWDAFEAFESIIPQKMAGQYSGFARAVLKQMRDQEVMKTDQFIKLLPFCFS
+                     PPKLRSNGEPYQFLKLVLKGGGENFIEVRKGSPLFSYNPQTEVLTICGRMMSLKGKIE
+                     DEERNRSMGNAVLAGFLVSGKYDPDLGDFKTIEELEKLKPGEKANILLYQGKPVKVVK
+                     RKRYSALSNDISQGIKRQRMTVESMGWALS"
+ORIGIN      
+        1 gttttcaaga tgacattagc caaaattgaa ttgttaaaac aactgctaag ggacaatgag
+       61 gccaaaacag ttttgaagca aacaacagta gaccaatata acataataag aaaattcaat
+      121 acatcaagga ttgaaaagaa cccttcacta aggatgaagt gggccatgtg ttctagcttt
+      181 cccttggctc taaccaaggg cgatatggca aacagaatcc ccttggaata caaagggata
+      241 caacttaaaa caaatgctga agacatagga accaaaggcc aaatgtgctc aatagcagca
+      301 gttacttggt ggaatacata tggaccaata ggagacactg aaggttttga aagggtctac
+      361 gaaagctttt ttctcagaaa aatgagactt gacaacgcca cctggggccg gataactttt
+      421 ggcccagttg aaagagtgag aaaaagagta ctactaaacc ctctcaccaa ggaaatgcct
+      481 ccggatgagg cgagcaatgt gataatggaa atattgttcc ctaaagaagc aggaatacca
+      541 agagaatcca cttggataca tagggaactg ataaaagaaa aaagagaaaa attgaaaggg
+      601 acaatgataa ctccaatcgt actagcatac atgcttgaaa gagaactggt tgctcgaaga
+      661 agattcttgc cagtggcagg agcaacatca gctgagttca tagaaatgct acactgctta
+      721 caaggtgaaa attggagaca aatatatcac ccaggaggga ataaattaac tgagtccagg
+      781 tctcaatcaa tgatagtagc ttgtaggaaa ataatcagaa gatcaatagt cgcttcaaac
+      841 ccactggagc tagctgtaga gattgcaaac aagactgtga tagatactga acctctaaag
+      901 tcatgtctgg cagccataga cggaggtgat gtagcttgtg acataataag agctgcatta
+      961 ggactaaaga tcagacaaag acaaagattt ggacggcttg agctaaaaag aatatcagga
+     1021 agaggattca aaaatgatga agaaatatta atagggaacg gaacaataca gaagattgga
+     1081 atatgggacg gggaagagga gttccatgta agatgtggtg aatgcagggg aatattaaaa
+     1141 aagagtaaaa tgaaactgga aaaactactg ataaattcag ccaaaaagga agatatgaga
+     1201 gacttaataa tcttatgcat ggtattttct caagacacta ggatgttcca aggggtgaga
+     1261 ggagaaataa atttccttaa tcgagcaggc caacttttat ctccaatgta ccaactccaa
+     1321 cgatattttt tgaatagaag caacgacctt tttgatcaat gggggtatga ggaatcaccc
+     1381 aaagcaagtg aactacatgg gataaatgaa tcaatgaatg catctgacta tacattgaaa
+     1441 gggattgtag tgacaagaaa tgtaattgac gactttagct ctactgaaac agaaaaagta
+     1501 tccataacaa aaaatcttag cttaataaaa aggactgggg aagtcataat gggagctaat
+     1561 gacgtgagtg aattagaatc acaagcacag ctgatgataa catatgatac acctaaaatg
+     1621 tgggagatgg gaacaaccaa agaactggtg caaaacactt atcaatgggt gctaaaaaac
+     1681 ttggtgacac tgaaggctca gtttcttcta ggaaaagagg acatgttcca atgggatgca
+     1741 tttgaagcat ttgagagcat aattcctcag aagatggctg gtcaatacag tggatttgca
+     1801 agagcagtgc tcaaacaaat gagagaccag gaggttatga aaactgacca gttcataaag
+     1861 ttgctgcctt tttgtttctc accaccaaaa ttaaggagca atggggagcc ttatcaattc
+     1921 ttaaaacttg tattgaaagg aggaggggaa aatttcatcg aagtaaggaa agggtctcct
+     1981 ctattttcct ataatccaca aacagaagtc ttaactatat gcggcagaat gatgtcatta
+     2041 aaagggaaaa ttgaagatga agaaagaaat agatcaatgg ggaatgcagt attggcaggt
+     2101 tttctcgtta gtggcaagta tgacccagat cttggagatt tcaaaactat tgaagaactt
+     2161 gaaaagctga aaccagggga aaaggcaaac atcttgcttt atcaaggaaa accagttaaa
+     2221 gtagtgaaaa ggaaaaggta tagtgctttg tccaatgaca tttcacaagg aattaagaga
+     2281 caaagaatga cagttgagtc tatggggtgg gccttgagct aatataaatt tatccattaa
+     2341 ttcaatgaac gcaattgagt gaaaaat
+//

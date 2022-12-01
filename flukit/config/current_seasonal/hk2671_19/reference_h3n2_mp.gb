@@ -1,0 +1,59 @@
+LOCUS       A/Hong_Kong/2671/2019_mp                999 bp    DNA              VRL 04-APR-2012
+
+DEFINITION  Influenza A virus (A/Hong_Kong/2671/2019(H3N2)) hemagglutinin gene,
+            complete cds.
+FEATURES             Location/Qualifiers
+     source          1..999
+                     /bio_material="CEIRS#CIP047BE3292#"
+                     /collection_date="1992"
+                     /country="China: Beijing"
+                     /db_xref="taxon:380950"
+                     /host="Homo sapiens"
+                     /lab_host="xtMK3 MDCK1 passage(s)"
+                     /mol_type="viral cRNA"
+                     /organism="Influenza A virus (A/Beijing/32/1992(H3N2))"
+                     /segment="7"
+                     /serotype="H3N2"
+                     /strain="A/Beijing/32/1992"
+     misc_feature    1..999
+                     /db_xref="IRD:NIGSP_CEIRS_CIP047_RFH3_00116.MP"
+     gene            11..992
+                     /gene="M2"
+     CDS             join(11..36,725..992)
+                     /codon_start=1
+                     /gene="M2"
+                     /product="matrix protein 2"
+                     /protein_id="AFG99679.1"
+                     /translation="MSLLTEVETPIRNEWGCRCNDSSDPLVVAASIIGILHLILWILDR
+                     LFFKCIYRLFKHGLKRGPSTEGVPESMREEYRKEQQNAVDADDSHFVSIELE"
+     gene            11..769
+                     /gene="M1"
+     CDS             11..769
+                     /codon_start=1
+                     /gene="M1"
+                     /product="matrix protein 1"
+                     /protein_id="AFG99678.1"
+                     /translation="MSLLTEVETYVLSIVPSGPLKAEIAQRLEDVFAGKNTDLEALMEW
+                     LKTRPILSPLTKGILGFVFTLTVPSERGLQRRRFVQNALNGNGDPNNMDRAVKLYRKLK
+                     REITFHGAKEIALSYSAGALASCMGLIYNRMGAVTTEVAFGLVCATCEQIADSQHRSHR
+                     QMVATTNPLIRHENRMVLASTTAKAMEQMAGSSEQAAEAMEIASQARQMVQAMRAIGTH
+                     PSSSAGLKDDLLENLQTYQKRMGVQMQRFK"
+ORIGIN
+        1 ATATTGAAAG ATGAGCCTTC TTACCGAGGT CGAAACGTAT GTTCTCTCTA TCGTTCCATC
+       61 AGGCCCCCTC AAAGCCGAGA TCGCGCAGAG ACTTGAAGAT GTCTTTGCTG GGAAAAACAC
+      121 AGATCTTGAG GCTCTCATGG AATGGCTAAA GACAAGACCA ATTCTGTCAC CTTTGACTAA
+      181 GGGGATTTTA GGATTTGTTT TCACGCTCAC CGTGCCCAGT GAGCGAGGAC TGCAGCGTAG
+      241 ACGCTTTGTC CAAAATGCCC TCAATGGGAA TGGAGACCCA AATAACATGG ACAAAGCAGT
+      301 TAAACTGTAT AGGAAACTTA AGAGGGAGAT AACGTTCCAT GGGGCCAAAG AAATAGCTCT
+      361 CAGTTATTCT GCTGGTGCAC TTGCCAGTTG CATGGGCCTC ATATACAATA GGATGGGGGC
+      421 TGTAACCACT GAAGTGGCAT TTGGCCTGGT GTGTGCAACA TGTGAGCAGA TTGCTGATTC
+      481 CCAGCACAGG TCTCATAGGC AGATGGTGGC AACAACCAAT CCATTAATAA AACATGAGAA
+      541 CAGAATGGTT TTGGCCAGCA CTACAGCTAA GGCTATGGAG CAAATGGCTG GATCAAGTGA
+      601 GCAGGCAGCG GAGGCCATGG AGATTGCTAG TCAGGCCAGG CAGATGGTGC AGGCAATGAG
+      661 AGCCATTGGG ACTCATCCTA GTTCCAGCAC TGGTCTAAGA GATGATCTTC TTGAAAATTT
+      721 ACAGACCTAT CAGAAACGAA TGGGGGTGCA GATGCAACGA TTCAAGTGAC CCGCTTGTTG
+      781 TTGCCGCGAA TATCATTGGG ATCTTGCACT TGATATTGTG GATTCTTGAT CGTCTTTTTT
+      841 TCAAATGCGT CTATCGACTC CTCAAACACG GCCTTAAAAG AGGCCCTTCT ACGGAGGGAG
+      901 TACCTGAGTC TATGAGGGAA GAATACCGAA AGGAACAGCA GAATGCTGTA GATGCTGACG
+      961 ACAGTCATTT TGTCAGCATA GAATTGGAGT AAAAAACTA
+//

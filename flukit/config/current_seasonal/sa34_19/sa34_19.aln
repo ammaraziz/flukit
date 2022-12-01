@@ -1,0 +1,138 @@
+CLUSTAL W 2.0 multiple sequence alignment
+
+A/South_Australia/34/2019_PB2      AGCAAAAGCAGGTCAATTATATTCAGCATGGAAAGAATAAAAGAACTACGGAATCTAATGTCGCAGTCTC 70
+clipboard_4                        ATGGAGAGAATAAAAGAGCTGAGAGATCTAATGTCGCAGTCCCGCACTCGCGAGATACTCACTAAGACCA 70
+                                   *   * ** *    *    *        *                   **  *  ** *  *  ** *  
+
+A/South_Australia/34/2019_PB2      GCACTCGCGAGATACTGACGAAAACCACAGTGGACCATATGGCCATAATTAAGAAGTACACATCGGGGAG 140
+clipboard_4                        CTGTGGACCATATGGCCATCATCAAAAAGTACACATCGGGAAGGCAAGAGAAGAACCCCGCGCTCAGGAT 140
+                                          * * **    *  *  *  *                   *   *****   * *     *** 
+
+A/South_Australia/34/2019_PB2      ACAGGAAAAGAACCCGTCACTTAGGATGAAATGGATGATGGCAATGAAATATCCAATTACTGCTGACAAA 210
+clipboard_4                        GAAGTGGATGATGGCAATGAAATACCCAATTACGGCAGACAAGAGAATAATGGACATAATCCCAGAGAGG 210
+                                     **   * **   *             *    *         *  * *      ** *   * ** *  
+
+A/South_Australia/34/2019_PB2      AGGATAACAGAAATGGTTCCGGAGAGGAATGAACAAGGACAAACTCTGTGGAGCAAAATGAGTGATGCTG 280
+clipboard_4                        AATAACAAGGACAAACCCTCTGGAGCAAAATGAACGATGCTGGATCAGACCGAGTGATGGTATCACCTCT 280
+                                   *  *  *  ** *      * *     **   *      *    ** *        *  *  * *     
+
+A/South_Australia/34/2019_PB2      GATCAGACAGAGTGATGGTATCACCTTTGGCTGTAACATGGTGGAATAGGAATGGACCCGTGACAAATAC 350
+clipboard_4                        GGCAGTAACATGGTGGAATAGGAGTGGTCCAACAACAAGTACAGTTCATTACCCTAAGGTATATAAAACT 350
+                                   *     *    *      **  *    *      *  *     *   *  *    *      * ***   
+
+A/South_Australia/34/2019_PB2      GGTCCATTACCCAAAAGTGTACAAAACTTATTTCGACAAAGTCGAAAGGTTAAAACATGGAACCTTTGGC 420
+clipboard_4                        TATTTCGAAAAGGTCGAAAGGTTAAAACATGGTACCTTCGGCCCTGTCCACTTCAGAAATCAAGTTAAAA 420
+                                     *     *              ***      *       * *           * *    *  **    
+
+A/South_Australia/34/2019_PB2      CCTGTCCATTTTAGAAATCAAGTCAAGATACGAAGAAGAGTAGACATAAACCCTGGTCATGCAGACCTCA 490
+clipboard_4                        TAAGGAGGAGAGTTGATACAAACCCTGGCCATGCAGATCTCAGTGCCAAGGAGGCACAGGATGTGATTAT 490
+                                      *           *  ***  *  *         *    **    **                  *  
+
+A/South_Australia/34/2019_PB2      GTGCCAAAGAGGCACAAGATGTAATTATGGAAGTTGTTTTTCCCAATGAAGTGGGAGCCAGAATACTAAC 560
+clipboard_4                        GGAAGTTGTTTTCCCAAATGAAGTGGGGGCAAGAATACTGACATCAGAGTCACAGCTGGCAATAACAAAA 560
+                                   *           * ***           * ***     *  *   *        *      *  ** ** 
+
+A/South_Australia/34/2019_PB2      ATCAGAATCACAGCTAACAATAACTAAAGAGAAAAAAGAAGAACTCCGAGATTGCAAAATTTCTCCCTTG 630
+clipboard_4                        GAGAAGAAAGAAGAGCTCCAGAATTGTAAAATTGCTCCCTTGATGGTGGCGTACATGCTAGAAAGAGAAT 630
+                                      *  *    **    * * ** *  * *            *    *   *                  
+
+A/South_Australia/34/2019_PB2      ATGGTCGCATACATGCTAGAGAGAGAACTTGTGCGGAAAACAAGATTTCTCCCAGTTGCTGGCGGAACAA 700
+clipboard_4                        TGGTCCGTAAAACAAGGTTTCTCCCAGTACCGGTGGGACAAGCAGTGTTTATATTGAGGTGTTGCACTTG 700
+                                     *  ** * *              *      * ** * *     * * *       * **  * *    
+
+A/South_Australia/34/2019_PB2      GCAGTATATACATTGAAGTTTTACATTTGACTCAAGGAACGTGTTGGGAACAAATGTACACTCCAGGTGG 770
+clipboard_4                        ACCCAAGGGACGTGCTGGGAGCAGATGTACACTCCAGGAGGAGAAGTGAGAAATGATGACGTTGACCAAA 770
+                                    *   *   ** *    *    * ** *        * * * *  * **  **   *    *  *     
+
+A/South_Australia/34/2019_PB2      AGGAGTGAGGAATGACGATGTTGACCAAAGCCTAATTATTGCGGCCAGGAACATAGTAAGAAGAGCCGCA 840
+clipboard_4                        GCTTGATTATCGCTGCTAGAAACATAGTAAGAAGAGCAGCAGTGTCAGCAGACCCATTAGCATCTCTCTT 840
+                                       *          * *     *    *     *  *     * *** *      * ** *   *    
+
+A/South_Australia/34/2019_PB2      GTGTCAGCAGATCCACTCGCATCTTTATTGGAGATGTGCCACAGCACGCAAATTGGCGGAACAAGGATGG 910
+clipboard_4                        GGAGATGTGCCACAGCACACAGATTGGAGGTGTGAAGATGGTGGACATCCTTAAACAGAATCCAACTGAG 910
+                                   *     *     *  * * **  **    *             *    *        * * * *     *
+
+A/South_Australia/34/2019_PB2      TGGACATTCTTAGACAGAACCCGACTGAAGAACAAGCTGTGGATATATGCAAAGCTGCAATGGGATTGAG 980
+clipboard_4                        GAGCAAGCCGTAGACATATGCAAGGCAGCAATAGGGTTGAGGATCAGCTCATCTTTCAGTTTTGGTGGGT 980
+                                     *  *  * ****** *  *         *    * ** ****     **    *    *  * * *  
+
+A/South_Australia/34/2019_PB2      AATCAGCTCATCTTTCAGCTTTGGTGGCTTTACATTTAAAAGAACGAGCGGGTCGTCAGTCAAAAGAGAG 1050
+clipboard_4                        TCACTTTCAAAAGGACAAGCGGATCATCAGTCAAGAAAGAAGAGGAAATGCTAACGGGCAACCTCCAAAC 1050
+                                      *     *     **          *  *  *   * ****   *  *                * * 
+
+A/South_Australia/34/2019_PB2      GAAGAGGTTCTTACAGGCAATCTCCAGACATTGAGAATAAGAGTACATGAGGGATATGAGGAGTTCACAA 1120
+clipboard_4                        ACTGAAATTAAGGGTACATGAAGGGTATGAAGAATTCACAATGGTTGGGAGAAGAGCAACAGCTATTCTC 1120
+                                      **  **                    *   *     *  *     ***       *    *   *  
+
+A/South_Australia/34/2019_PB2      TGGTGGGGAAAAGAGCAACAGCTATACTAAGAAAAGCAACCAGAAGACTGGTTCAACTCATAGTGAGTGG 1190
+clipboard_4                        AGAAAGGCAACCAGAAGATTGATCCAATTAATAGTAAGCGGGAGAGACGAGCAGTCAATAGCTGAAGCAA 1190
+                                    *   ** **       *  * *  * * *  *           ****  *        *     **   
+
+A/South_Australia/34/2019_PB2      GAGAGACGAACAGTCAATAGCCGAAGCAATAATCGTGGCCATGGTGTTTTCACAAGAAGATTGCGTGATA 1260
+clipboard_4                        TAATTGTGGCCATGGTTTTCTCACAAGAGGATTGCATGATCAAAGCAGTTAGGGGCGATCTGAACTTTGT 1260
+                                    *     *  **     *   *  *  *  * *    *          **       *  *    *    
+
+A/South_Australia/34/2019_PB2      AAAGCAGTTAGAGGTGACCTGAATTTTGTCAACAGAGCAAATCAGCGGTTGAACCCCATGCATCAGCTTT 1330
+clipboard_4                        CAATAGGGCAAATCAGAGACTGAATCCCATGCACCAACTCTTGAGGCATTTCCAAAAAGATGCAAAGGTG 1330
+                                    **   *  * *   **     * *          * *   * **   **       *      *   * 
+
+A/South_Australia/34/2019_PB2      TAAGGCATTTTCAGAAAGATGCGAAAGTGCTCTTTCAAAATTGGGGAGTTGAACACATCGACAGTGTGAT 1400
+clipboard_4                        CTTTTCCAGAACTGGGGAATTGAAACCATCGACAATGTGATGGGAATGATCGGAATACTGCCCGACATGA 1400
+                                        *     * *    **   **    *         ** **   * *    * *  * * *      
+
+A/South_Australia/34/2019_PB2      GGGAATGGTTGGAGTATTACCAGATATGACTCCAAGCACAGAGATGTCAATGAGAGGAATAAGAGTCAGC 1470
+clipboard_4                        CCCCAAGCACGGAGATGTCACTGAGAGGAATAAGAGTCAGCAAGATGGGAGTAGATGAATACTCCAGCAC 1470
+                                       * *   ****   *  * ** * ** *   **     *       *  *** *****        *
+
+A/South_Australia/34/2019_PB2      AAAATGGGTGTGGATGAATACTCCAGTACAGAGAGGGTGGTGGTTAGCATTGATCGGTTTTTGAGAGTTC 1540
+clipboard_4                        GGAGAGAGTGGTAGTGAGTATTGACCGATTTTTGAGGGTTAGAGATCAAAGAGGAAACGTACTATTGTCT 1540
+                                     *  * ***    *** ** *     *       **    *      *          *   *  **  
+
+A/South_Australia/34/2019_PB2      GAGATCAACGTGGGAATGTATTATTATCTCCTGAGGAGGTCAGTGAAACACAGGGAACTGAAAGACTGAC 1610
+clipboard_4                        CCCGAAGAAGTCAGTGAAACGCAAGGAACTGAGAAGTTGACAATAACTTATTCGTCATCAATGATGTGGG 1610
+                                          * **  *        *         ** *  * ** * *   *   *  *   *     **  
+
+A/South_Australia/34/2019_PB2      CATAACTTATTCATCATCGATGATGTGGGAGATTAACGGTCCTGAGTCGGTTTTGGTCAATACCTATCAA 1680
+clipboard_4                        AAATCAACGGCCCTGAGTCAGTGCTAGTCAACACTTATCAATGGATAATCAGAAACTGGGAAATTGTGAA 1680
+                                    *         * * *   *      *  *             **           *    *  * * **
+
+A/South_Australia/34/2019_PB2      TGGATCATCAGGAATTGGGAAGCTGTCAAAATTCAATGGTCTCAGAACCCTTCAATGTTGTACAACAAAA 1750
+clipboard_4                        AATTCAATGGTCACAAGACCCCACCATGTTATACAACAAAATGGAATTTGAACCATTTCAGTCTCTTGTT 1750
+                                         **    *   *             ** ***     *   *      * ** *    *       
+
+A/South_Australia/34/2019_PB2      TGGAATTTGAACCATTTCAATCTTTAGTCCCCAAGGCCACTAGAAGCCAATACAGTGGGTTTGTCAGAAC 1820
+clipboard_4                        CCTAAGGCAACCAGAAGCCGGTACAGTGGATTCGTAAGGACACTGTTCCAGCAAATGAGGGATGTGCTTG 1820
+                                      **    * *     *                       *     * *   * ** *           
+
+A/South_Australia/34/2019_PB2      TCTATTCCAACAAATGAGAGACGTACTTGGGACATTTGACACTGCCCAGATAATAAAGCTTCTCCCTTTT 1890
+clipboard_4                        GGACATTTGACACTGTCCAAATAATAAAACTTCTCCCCTTTGCTGCTGCTCCACCAGAACAGAGCAGGAT 1890
+                                        *   ***      * *           *            *      *  *        *    *
+
+A/South_Australia/34/2019_PB2      GCAGCTGCTCCACCGAAGCAAAGCAGAATGCAGTTCTCTTCACTGACTGTGAATGTGAGGGGATCAGGGA 1960
+clipboard_4                        GCAATTTTCTTCATTAACTGTGAATGTGAGAGGATCAGGGTTAAGGATACTGGTAAGAGGCAATTCTCCA 1960
+                                   ***  *         **        *   *  * **        *  *     *  ****  **     *
+
+A/South_Australia/34/2019_PB2      TGAGAATACTTGTAAGGGGCAATTCTCCTGTATTCAACTACAACAAGACCACTAAAAGGCTAACAATTCT 2030
+clipboard_4                        GTATTCAATTATAACAAGGCAACCAAACGACTTACGATTCTTGGAAAGGATGCAGGTGCATTGAATGAAG 2030
+                                     *    * *   *   *****     *    * * * *     **       *   *  *   *     
+
+A/South_Australia/34/2019_PB2      TGGAAAAGATGCCGGCACTTTAATTGAAGACCCAGATGAAAGCACATCCGGAGTGGAGTCCGCCGTCTTG 2100
+clipboard_4                        ATCCAGATGAAGGCACATCTGGGGTGGAGTCTGCTGTCCTGAGAGGATTCCTCATTTTAGGCAAAGAAGA 2100
+                                       * *        **  *    ** ** *     *      *                          
+
+A/South_Australia/34/2019_PB2      AGAGGGTTCCTCATTATAGGTAAAGAAGACAGAAGATACGGACCAGCATTAAGCATCAATGAACTGAGTA 2170
+clipboard_4                        CAAGAGGTATGGCCCAGCATTAAGCATCAATGAACTGAGCAATCTTGCTAAAGGAGAGAAAGCTAATGTG 2170
+                                     ** * *       *    ***  *  *  ***   *   * *    * *** *   *        ** 
+
+A/South_Australia/34/2019_PB2      ACCTTGCAAAAGGGGAAAAGGCTAATGTGCTAATTGGGCAAGGAGACGTGGTGTTGGTAATGAAACGGAA 2240
+clipboard_4                        CTAATTGGGCAGGGGGACATAGTGTTGGTAATGAAACGAAAACGGGACTCTAGCATACTTACTGACAGCC 2240
+                                       *     ***** * *   *  **          * **   *   *   *           ** *  
+
+A/South_Australia/34/2019_PB2      ACGGGACTCTAGTATACTTACTGACAGCCAGACAGCGACCAAAAGAATTCGGATGGCCATCAATTAATAC 2310
+clipboard_4                        AGACAGCGACCAAAAGAATTCGAATGGCCATCAATTAG-------------------------------- 2310
+                                   *     *      *    * *  *  ****   *                                    
+
+A/South_Australia/34/2019_PB2      TGAATAGTTTAAAAACGACCTTGTTTCTACT 2341
+clipboard_4                        ------------------------------- 2341
+                                                                  
+

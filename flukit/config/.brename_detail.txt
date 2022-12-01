@@ -1,0 +1,8 @@
+reference_h1n1pdm_ha.gb	_shenwei356-brename_	reference_h1n1_ha.gb
+reference_h1n1pdm_ma.gb	_shenwei356-brename_	reference_h1n1_ma.gb
+reference_h1n1pdm_na.gb	_shenwei356-brename_	reference_h1n1_na.gb
+reference_h1n1pdm_np.gb	_shenwei356-brename_	reference_h1n1_np.gb
+reference_h1n1pdm_ns.gb	_shenwei356-brename_	reference_h1n1_ns.gb
+reference_h1n1pdm_pa.gb	_shenwei356-brename_	reference_h1n1_pa.gb
+reference_h1n1pdm_pb1.gb	_shenwei356-brename_	reference_h1n1_pb1.gb
+reference_h1n1pdm_pb2.gb	_shenwei356-brename_	reference_h1n1_pb2.gb
