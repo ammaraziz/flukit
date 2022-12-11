@@ -146,5 +146,5 @@ def get_variants(input_record, lineage):
 def get_vacc_ref(lineage):
     vacc = {"h1n1" : "A/California/07/2009" , 
     "h3n2" : "A/Beijing/32/1992",
-    "bvic" : "B/Hong Kong/02/1993"}
+    "vic" : "B/Hong Kong/02/1993"}
     return(vacc[lineage])
