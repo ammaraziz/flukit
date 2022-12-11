@@ -3,9 +3,9 @@ from Bio import SeqIO, Seq
 from collections import defaultdict
 from pandas import read_csv
 import numpy as np
-import pkg_resources
+from importlib_resources import files
 
-data_path = pkg_resources.resource_filename("flukit", 'config')
+data_path = files('flukit').joinpath('config')
 
 def load_features(reference, feature_names=None):
     # read in appropriately whether GFF or Genbank
