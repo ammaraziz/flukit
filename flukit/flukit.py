@@ -10,7 +10,7 @@ from Bio import SeqIO
 
 app = typer.Typer(help = "flukit - the influenza surveillance toolkit... kinda")
 
-version = 0.0.1
+version = "0.0.1"
 
 @app.command()
 def main(
