@@ -8,31 +8,33 @@ from rich.progress import track
 from rich import print
 from Bio import SeqIO
 
-app = typer.Typer(help = "flukit - the influenza surveillance toolkit... kinda")
+app = typer.Typer(
+    help = "flukit - the influenza surveillance toolkit... kinda",
+    add_completion=False)
 
 version = "0.0.1"
 
-@app.command()
+@app.command(no_args_is_help=True, )
 def main(
     sequences: Path = typer.Option(
-        None,
+        ...,
         "-s",
         "--sequences",
         help="Path to sequences."), 
     lineage: str = typer.Option(
-        "",
+        ...,
         "-l",
         "--lineage",
         help="lineage options are: h1n1, h3n2, vic."),
     output: Path = typer.Option(
-        None,
+        ...,
         "-o",
         "--output",
         help="output path"
 
     ),
     batchNumber: str = typer.Option(
-        None,
+        ...,
         "-b",
         "--batchNumber",
         help="prefix used for output files, optional.")
@@ -85,9 +87,3 @@ def main(
     print("[bold green]All done![/bold green]")
     # write out
     sample_records.to_csv(results_out, sep=',', index_label="seqno")
-
-
-# use main for execution of sub commands
-# if __name__ == "__main__":
-#     typer.run(main)
-#     #app()
