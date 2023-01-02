@@ -8,7 +8,7 @@ setup(name='flukit',
       license='GPL3',
       packages=['flukit', 'flukit.utils', 'flukit.config'],
       package_data={'flukit': ['config/*']},
-      install_requires=['biopython', 'pandas', 'numpy', 'typer', 'rich'],
+      install_requires=['biopython', 'pandas', 'numpy', 'typer', 'rich', 'importlib_resources'],
       include_package_data=True,
       entry_points={"console_scripts": ["flukit = flukit.flukit:app"]}
       )

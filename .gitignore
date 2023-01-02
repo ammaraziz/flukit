@@ -1,6 +1,5 @@
-
+build/*
 flukit/.vscode/
-
 *.todo
-
 flukit/launch.json
+*.egg-info/
