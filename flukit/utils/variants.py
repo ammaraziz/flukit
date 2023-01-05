@@ -2,16 +2,25 @@
 '''
 Variant calling for influenza gene segement. 
 '''
+from Bio import SeqRecord
+from typing import List, Tuple
 from .codon_align import get_cds, codon_align, safe_translate
-from flukit.utils.utils import get_reference
+from flukit.utils.utils import get_reference, read_in_mutations
 
-def set_gene(seqdict):
+seqTogene = {
+    '1': 'PB2', 
+    '2': 'PB1', 
+    '3': 'PA', 
+    '4': 'HA',
+    '5': 'NP', 
+    '6': 'NA', 
+    '7': 'MP', 
+    '8': 'NS'}
+
+def set_gene(seqdict: dict) -> dict:
     '''
     Modify dict with SeqRecords adding gene info
     '''
-    seqTogene = {'1': 'PB2', '2': 'PB1', '3': 'PA', '4': 'HA',
-                 '5': 'NP', '6': 'NA', '7': 'MP', '8': 'NS'}
-
     for record in seqdict:
         try:
             seqdict[record].gene = seqTogene[seqdict[record].id.split('.')[1]]
@@ -20,28 +29,31 @@ def set_gene(seqdict):
                 f"{seqdict[record].gene} has no segemnt number. Check input seqs")
     return(seqdict)
 
-def get_gene(SeqRecord):
-    seqTogene = {'1': 'PB2', '2': 'PB1', '3': 'PA', '4': 'HA',
-                 '5': 'NP', '6': 'NA', '7': 'MP', '8': 'NS'}
+def get_gene(SeqRecord: SeqRecord) -> str:
+    '''
+    converts gene number (.4) to gene abbr (HA) 
+    '''
     return(seqTogene[SeqRecord.id.split('.')[1]])
 
-def get_id(SeqRecord):
+def get_id(SeqRecord: SeqRecord) -> str:
+    '''
+    get sequence id eg N100500
+    '''
     return(SeqRecord.id.split('.')[0])
 
-def align(lineage, input_record):
+def align(lineage: str, input_record: SeqRecord) -> Tuple[str, str]:
     '''
     align gene to reference
     returns seq_aa and refAA
     '''
-    gene = input_record.gene
 
-    refname, ref = get_reference(lineage, gene)
+    refname, ref = get_reference(lineage, input_record.gene)
     refstr, refCDS, refAA, cds_start, cds_end = get_cds(
-        ref=ref, refname=refname, input_gene=gene)
+        ref=ref, refname=refname, input_gene=input_record.gene)
     try:
         seq_aln = codon_align(input_record, refCDS, refAA, 0, cds_end)
         if seq_aln is None:
-            raise ValueError("didn't translate properly")
+            raise ValueError(f"didn't translate properly - {input_record}")
 
     except Exception:
         raise ValueError("Sequence didn't align, check lineage input")
@@ -50,7 +62,7 @@ def align(lineage, input_record):
 
     return(seq_aa, refAA)
 
-def all_variants(sample, ref):
+def get_ha_snps(sample: SeqRecord, ref: SeqRecord) -> Tuple[str, ...]:
     '''
     Get SNPs from on aligned sequence. Takes one input at a time.
 
@@ -69,17 +81,37 @@ def all_variants(sample, ref):
     for index in range(0, len(ref)):
         nuc = set([ref[index], sample[index]])
         if len(nuc) != 1:
-            variant = ref[index] + str(index+1) + sample[index]
-            snps.append(variant)
+            if sample[index] != '-':
+                variant = ref[index] + str(index+1) + sample[index]
+                snps.append(variant)
 
-    return(snps)
+    return(tuple(snps))
 
-def specific_variants(sample, gene, lineage):
+def get_pa_snps(
+    sample: SeqRecord, 
+    ref: SeqRecord, 
+    gene: str, 
+    lineage: str) -> Tuple[str, ...]:
+    '''
+    get PA mutations of interest
+    '''
+
+    gene_pos = read_in_mutations(lineage)
+    pa_pos = gene_pos[gene]
+
+    pa_snps = []
+    for pos in pa_pos:
+        variant = ref[pos] + str(pos+1) + sample[pos]
+        pa_snps.append(variant)
+
+    return(tuple(pa_snps))
+
+def specific_variants(sample: SeqRecord, gene: str, lineage: str) -> List[str]:
     '''
     Get aa from aligned sequence.
         NA      H275Y
-        PA      S31N
-        MP      I38X, 22, 33
+        MP      S31N
+        PA      I38X, 22, 33
 
     Parameters
         sample : SeqRecord
@@ -93,58 +125,51 @@ def specific_variants(sample, gene, lineage):
         'H' or 'Y', 'S' or 'N', 'I' or 'X'
     '''
 
-    if lineage == 'h3n2':
-        #gene_pos = {'NA': [273], 'PA': [22, 33, 35, 37, 118, 198], 'MP': [30]}
-        gene_pos = {'NA': [273], 'PA': [37], 'MP': [30]}
-    else:
-        #gene_pos = {'NA': [274], 'PA': [22, 33, 35, 37, 118, 198], 'MP': [30]}
-        gene_pos = {'NA': [274], 'PA': [37], 'MP': [30]}
-    
-    # check input of gene
+    gene_pos = read_in_mutations(lineage)
     if gene.upper() not in gene_pos.keys():
-        raise ValueError("Unrecognised Gene:" + gene.upper() + "only NA, PA, MP are allowed")
+        raise ValueError("Unrecognised Gene: " + gene.upper() + ". Only NA, PA, MP are allowed")
+    mutations = [sample[val] for val in gene_pos[gene]]
 
-    nuc = [sample[val] for val in gene_pos[gene]]
-    # combine position and aa togther
-    #nuc_out = [str(m+1)+n for m, n in zip(gene_pos[gene], nuc)]
-    return(nuc)
+    return(mutations)
 
 
-def get_variants(input_record, lineage):
+def get_variants(input_record: SeqRecord, lineage: str) -> List:
     '''
     Get variants for any gene segment
 
     Parameters
-        input_record  :  Seq.Record of reference 
-        lineage  :  str of lineage
+        input_record  :  SeqRecord of reference 
+        lineage       :  str of lineage
     Return
-        list  :  amino acid varants
+        list          :  amino acid varants
     '''
 
     gene = input_record.gene
     if gene in ['PB2', 'PB1', 'NS', 'NP']:
         return()
     try:
-        seq_aa, refAA = align(lineage = lineage, input_record = input_record)
+        seqAA, refAA = align(lineage = lineage, input_record = input_record)
     except Exception as e:
         print(f'can not align {e}')
         return()
 
     if gene == 'HA':
-        snps_all = all_variants(seq_aa, refAA)
+        snps_all = get_ha_snps(seqAA, refAA)
         return(";".join(snps_all))
     if gene == 'PA':
-        pa = specific_variants(seq_aa, input_record.gene, lineage)
+        pa = get_pa_snps(seqAA, refAA, input_record.gene, lineage)
         return(";".join(pa))
     if gene == 'NA':
-        na = specific_variants(seq_aa, input_record.gene, lineage)
+        na = specific_variants(seqAA, input_record.gene, lineage)
         return(";".join(na))
     if gene == 'MP':
-        mp = specific_variants(seq_aa, input_record.gene, lineage)
+        mp = specific_variants(seqAA, input_record.gene, lineage)
         return(";".join(mp))
 
-def get_vacc_ref(lineage):
-    vacc = {"h1n1" : "A/California/07/2009" , 
-    "h3n2" : "A/Beijing/32/1992",
-    "vic" : "B/Hong Kong/02/1993"}
+def get_vacc_ref(lineage: str) -> str:
+    vacc = {
+        "h1n1" : "A/California/07/2009" , 
+        "h3n2" : "A/Beijing/32/1992",
+        "vic" : "B/Hong Kong/02/1993"
+        }
     return(vacc[lineage])

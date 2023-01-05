@@ -1,12 +1,13 @@
 import os
-from Bio import SeqIO, Seq
+from Bio import SeqIO, Seq, SeqRecord
 from collections import defaultdict
 from pandas import read_csv
+from pathlib import Path
 import numpy as np
 from importlib_resources import files
 
 data_path = files('flukit').joinpath('config')
-
+print(data_path)
 def load_features(reference, feature_names=None):
     # read in appropriately whether GFF or Genbank
     # checks explicitly for GFF otherwise assumes Genbank
@@ -161,7 +162,7 @@ def read_in_clade_definitions(clade_file):
     '''
 
     clades = defaultdict(list)
-    df = read_csv(clade_file, sep='\t' if clade_file.endswith('.tsv') else ',')
+    df = read_csv(clade_file, sep='\t')
     for index, row in df.iterrows():
         allele = (row.gene, row.site-1, row.alt)
         clades[row.clade].append(allele)
@@ -170,7 +171,7 @@ def read_in_clade_definitions(clade_file):
     return clades
 
 
-def is_node_in_clade(clade_alleles, node, ref):
+def is_node_in_clade(clade_alleles: list, node, ref) -> bool:
     '''
     Determines whether a node matches the clade definition based on sequence
     For any condition, will first look in mutations stored in node.sequences,
@@ -205,7 +206,7 @@ def is_node_in_clade(clade_alleles, node, ref):
     return all(conditions)
 
 
-def get_reference(input_lineage, input_gene):
+def get_reference(input_lineage: str, input_gene: str) -> SeqRecord:
     '''
     Parameters
         input_lineage : str
@@ -232,7 +233,7 @@ def get_reference(input_lineage, input_gene):
 
     return(refname, ref)
 
-def get_likeness(seq, provanence, clades_relatives, internal_clades):
+def get_likeness(seq: SeqRecord, provanence: list, clades_relatives: dict, internal_clades: dict):
     '''
     get_likeness - finds closest virus relative (-like)
 
@@ -252,7 +253,6 @@ def get_likeness(seq, provanence, clades_relatives, internal_clades):
     out : str
         string formatted for output
     '''
-    print(provanence)
     if provanence:
         clade_final = provanence.pop(-1)  # get the last clade
     else:
@@ -278,3 +278,27 @@ def get_likeness(seq, provanence, clades_relatives, internal_clades):
         desig = clade_desig
 
     return(True, clade_desig, virus_like, desig)
+
+def read_in_mutations(lineage: str) -> dict:
+    '''
+    Reads in tab-seperated file containing subtype specific mutations
+
+    Parameters
+    ----------
+    clade_file : str
+        meta data file
+
+    Returns
+    -------
+    dict
+        {gene : pos, ...}
+    '''
+    mutation_file = data_path / f'mutations_{lineage}.tsv'
+    mutations = defaultdict(list)
+    
+    df = read_csv(mutation_file, sep='\t',  na_filter=False)
+    for index, row in df.iterrows():
+        mutations[row.gene].append(row.pos)
+    mutations.default_factory = None
+
+    return(mutations)

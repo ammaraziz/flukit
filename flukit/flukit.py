@@ -2,19 +2,17 @@
 
 import typer
 import pandas as pd
-from .utils.variants import get_variants, set_gene, get_vacc_ref
 from pathlib import Path
 from rich.progress import track
 from rich import print
 from Bio import SeqIO
+from .utils.variants import get_variants, set_gene, get_vacc_ref
 
 app = typer.Typer(
     help = "flukit - the influenza surveillance toolkit... kinda",
     add_completion=False)
 
-version = "0.0.1"
-
-@app.command(no_args_is_help=True, )
+@app.command(no_args_is_help=True)
 def main(
     sequences: Path = typer.Option(
         ...,
@@ -34,7 +32,7 @@ def main(
 
     ),
     batchNumber: str = typer.Option(
-        ...,
+        None,
         "-b",
         "--batchNumber",
         help="prefix used for output files, optional.")
@@ -46,16 +44,16 @@ def main(
             )
     if not Path(sequences).resolve():
         raise typer.BadParameter(
-            f"The path is not correct: {sequences}"
+            f"The path is not correct, please check: {sequences}"
         )
 
     # outputs
     if batchNumber is not None:
-        results_out = output / (batchNumber + "_results.csv")
-        clades_out = output / (batchNumber + "_clades.txt")
+        results_out = Path(output) / (batchNumber + "_results.csv")
+        clades_out = Path(output) / (batchNumber + "_clades.txt")
     else:
-        results_out = output / "results.csv"
-        clades_out = output / "clades.txt"
+        results_out = Path(output) / "results.csv"
+        clades_out = Path(output) / "clades.txt"
 
     # parse input sequences
     try:
@@ -63,10 +61,17 @@ def main(
         input_sequences = set_gene(input_sequences)
     except Exception:
         raise typer.BadParameter(
-            "Error reading in input sequences. Check input seqs are properly formatted"
+            "Error reading in input sequences. Check input seqs are properly formatted, headers must end in gene number"
             )
 
-    sample_records = pd.DataFrame.from_dict(data = {"ha_aa":[],"na":[],"mp":[],"pa":[],"vacc_ref":[]},
+    sample_records = pd.DataFrame.from_dict(
+        data = {
+            "ha_aa":[],
+            "na":[],
+            "mp":[],
+            "pa":[],
+            "vacc_ref":[]
+            },
         dtype=str)
     
     for record in track(input_sequences, description="Processing..."):
@@ -82,7 +87,7 @@ def main(
                 sample_records.at[record, 'ha_aa'] = get_variants(input_sequences[record], lineage)
                 sample_records.at[record, 'vacc_ref'] = get_vacc_ref(lineage)
         except Exception as e:
-            print(f"oops error: {e}")
+            print(f"Error: {e}")
             pass
     print("[bold green]All done![/bold green]")
     # write out

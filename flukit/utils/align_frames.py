@@ -4,9 +4,10 @@ from utils.utils import safe_translate, load_features
 from Bio import SeqIO, Seq, AlignIO
 from Bio.Align import MultipleSeqAlignment
 
+# from nextstrain influenza build
+
 scoring_params = {"score_match": 3, "score_mismatch": -
                   1, "score_gapext": -1, "score_gapopen": -10}
-
 
 def align_pairwise(seq1, seq2):
     from Bio import pairwise2
@@ -81,9 +82,6 @@ def premature_stop(seq, refstr, refAA):
     scoreAA, refalnAA, seqalnAA = align_pairwise(refAA, seqAA)
     return(refalnAA, seqalnAA)
 
-
-
-
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         description="Extract sample sequences by name",
@@ -105,9 +103,6 @@ if __name__ == '__main__':
     for seq in aln:
         seq_aln = codon_align(seq,  refstr, refAA, cds_start, cds_end)
         if seq_aln:
-            # if len(seq_aln)!=len(refstr):
-            #     print(seq.name, seq_aln, refstr)
-            # else:
                 seq.seq=Seq.Seq(seq_aln)
                 alignment.append(seq)
 
