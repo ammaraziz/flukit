@@ -1,19 +1,33 @@
 import sys
 from numpy import array, inf
-from flukit.utils.utils import safe_translate, load_features
+from .utils import safe_translate, load_features
 
-scoring_params = {"score_match": 3, "score_mismatch": -
-                  1, "score_gapext": -1, "score_gapopen": -10}
+# from nextstrain influenza build
+
+scoring_params = {
+    "score_match": 3, 
+    "score_mismatch": -1, 
+    "score_gapext": -1, 
+    "score_gapopen": -10
+    }
 
 
-def align_pairwise(seq1, seq2):
-    from Bio import pairwise2
-    aln = pairwise2.align.globalms(seq1, seq2,
-                                   scoring_params['score_match'], scoring_params['score_mismatch'],
-                                   scoring_params['score_gapopen'], scoring_params['score_gapext'],
-                                   penalize_end_gaps=False, one_alignment_only=True)[0]
-    return aln[2], aln[0], aln[1]
+def align_pairwise(seq1: str, seq2: str) -> tuple:
+    '''
+    Align sequences
+    returns: score, refaln, seqaln
+    '''
+    
+    from Bio.Align import PairwiseAligner
+    aligner = PairwiseAligner()
+    aligner.mode = "global"
+    aligner.match_score = scoring_params['score_match']
+    aligner.mismatch_score = scoring_params['score_mismatch']
+    aligner.open_gap_score = scoring_params['score_gapopen']
+    aligner.extend_gap_score = scoring_params['score_gapext']
+    aln = aligner.align(seq1, seq2)[0]
 
+    return(aln.score, aln[0], aln[1])
 
 def get_cds(ref, refname=None, input_gene=None):
     '''
@@ -29,8 +43,16 @@ def get_cds(ref, refname=None, input_gene=None):
         refstr, refCDS, refAA, cds_start, cds_end 
     '''
     # setup and vars
-    feature_dict = {'mp': 'M2', 'ns': 'NS1', 'pb2': 'PB2', 'pb1': 'PB1',
-                    'pa': 'PA', 'np': 'NP', 'na': 'NA', 'ha': 'HA'}
+    feature_dict = {
+        'mp': 'M2', 
+        'ns': 'NS1', 
+        'pb2': 'PB2', 
+        'pb1': 'PB1',
+        'pa': 'PA', 
+        'np': 'NP', 
+        'na': 'NA', 
+        'ha': 'HA'
+        }
 
     cds_start, cds_end = inf, 0
     input_gene = input_gene.lower()
@@ -57,13 +79,6 @@ def get_cds(ref, refname=None, input_gene=None):
         refCDS = refstr
         refAA = safe_translate(refstr)
         cds_start, cds_end = 0, len(refCDS)
-
-        # old code kept for reasons
-        # cds_start = feat[gene_feat].location.start
-        # cds_end = feat[gene_feat].location.end)
-        # refstr = str(ref.seq).upper()
-        # refCDS = refstr[cds_start:cds_end]
-        # refAA = safe_translate(refstr[cds_start:cds_end])
 
     else:
         raise ValueError("Error gene input or reference is wrong.")
@@ -92,8 +107,8 @@ def codon_align(seq, refstr, refAA, cds_start, cds_end):
 
     scoreAA, refalnAA, seqalnAA = align_pairwise(refAA, seqAA)
     if scoreAA < 0 or sum(seqAA.count(x) for x in ['*', 'X']) > 10 or refalnAA.count('-') > 10:
-        print(seq.id, "didn't translate properly", file=sys.stderr)
-        return None
+        #print(seq.id, "didn't translate properly", file=sys.stderr)
+        return('')
 
     seqCDS_aln = seq5pUTR
     pos = 0
@@ -112,33 +127,3 @@ def codon_align(seq, refstr, refAA, cds_start, cds_end):
             pos += 3
 
     return ''.join(seqCDS_aln)+seq3pUTR
-
-
-# if __name__ == '__main__':
-#     parser = argparse.ArgumentParser(
-#         description="Extract sample sequences by name",
-#         formatter_class=argparse.ArgumentDefaultsHelpFormatter
-#     )
-#     parser.add_argument("--sequences", required=True, help="FASTA file of aligned sequences")
-#     parser.add_argument("--reference", required=True, help="annotated genbank file")
-#     parser.add_argument("--output", required=True, help="FASTA file of extracted sample sequences")
-#     args = parser.parse_args()
-#
-#     aln = SeqIO.parse(args.sequences, 'fasta')
-#     ref = SeqIO.read(args.reference, 'genbank')
-#
-#     # get sequence as string, CDS seq, amino acid sequence, and start/end pos
-#     refstr, refCDS, refAA, cds_start, cds_end = get_cds(ref)
-#
-#     alignment = []
-#     for seq in aln:
-#         seq_aln = codon_align(seq,  refstr, refAA, cds_start, cds_end)
-#         if seq_aln:
-#             if len(seq_aln)!=len(refstr):
-#                 print(seq.name, seq_aln, refstr)
-#             else:
-#                 seq.seq=Seq.Seq(seq_aln)
-#                 alignment.append(seq)
-#
-#     # output
-#     AlignIO.write(MultipleSeqAlignment(alignment), args.output, 'fasta')
