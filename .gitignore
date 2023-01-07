@@ -6,3 +6,4 @@ flukit/launch.json
 .DS_Store
 .gitignore~
 **/.DS_Store
+.brename_detail.txt 

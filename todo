@@ -1,18 +1,7 @@
 ### improvements
 
-- Use a tsv file for specifying the mutations to call
 - Include option for full/subset output
-	- full is all mutations in PA gene
 	- mutations of interest in HA gene
 	- association with flusurver database
-
-- incorporate nextclade for clade calling 
-	- how to parse nextclade output?
-	- look at nextstrain builds!
-
-### fix
-
-- fix B mut calling
-- ... something else
 
 
