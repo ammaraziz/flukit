@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 
 import typer
-import pandas as pd
+import pandas
 from pathlib import Path
-from rich.progress import track
 from rich import print
 from Bio import SeqIO
-from .utils.variants import get_variants, set_gene, get_vacc_ref
+from .utils.variants import set_gene
+from .utils.run import call_variants, call_clades
 
 app = typer.Typer(
     help = "flukit - the influenza surveillance toolkit... kinda",
@@ -59,36 +59,28 @@ def main(
     try:
         input_sequences = SeqIO.to_dict(SeqIO.parse(sequences, "fasta"))
         input_sequences = set_gene(input_sequences)
+    except FileNotFoundError:
+        print(f"[bold yellow]File does not exist. Check input: {sequences} [/bold yellow]")
+        raise typer.Exit()
     except Exception:
-        raise typer.BadParameter(
-            "Error reading in input sequences. Check input seqs are properly formatted, headers must end in gene number"
-            )
-
-    sample_records = pd.DataFrame.from_dict(
-        data = {
-            "ha_aa":[],
-            "na":[],
-            "mp":[],
-            "pa":[],
-            "vacc_ref":[]
-            },
-        dtype=str)
+        typer.BadParameter(f"[bold yellow] Error reading in fasta file. Check input: {sequences} [/bold yellow]")
+        raise typer.Exit()
     
-    for record in track(input_sequences, description="Processing..."):
-        gene = input_sequences[record].gene
-        try:
-            if gene == 'MP':
-                sample_records.at[record, 'mp'] = get_variants(input_sequences[record], lineage)
-            if gene == 'NA':
-                sample_records.at[record, 'na'] = get_variants(input_sequences[record], lineage)
-            if gene == 'PA':
-                sample_records.at[record, 'pa'] = get_variants(input_sequences[record], lineage)
-            if gene == 'HA':
-                sample_records.at[record, 'ha_aa'] = get_variants(input_sequences[record], lineage)
-                sample_records.at[record, 'vacc_ref'] = get_vacc_ref(lineage)
-        except Exception as e:
-            print(f"Error: {e}")
-            pass
+    # call variants
+    variants, ha_records = call_variants(input_sequences, lineage)
+    
+    # call clades
+    clades = call_clades(ha_records, lineage)
+    
+    # combine dataframes
+    results = pandas.merge(
+        variants, clades, 
+        how="left", left_index=True, 
+        right_on="seqName", 
+        suffixes=(False, False)
+        )
+    results.insert(0, 'seqName', results.pop('seqName')) # reorder 
+    
+    # write results
+    results.to_csv(results_out, sep=',', index=False)
     print("[bold green]All done![/bold green]")
-    # write out
-    sample_records.to_csv(results_out, sep=',', index_label="seqno")

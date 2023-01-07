@@ -1,10 +1,11 @@
-import argparse
 from numpy import inf
-from utils.utils import safe_translate, load_features
-from Bio import SeqIO, Seq, AlignIO
-from Bio.Align import MultipleSeqAlignment
+from Bio import SeqRecord
+from typing import Tuple
+from .utils import safe_translate, load_features, get_reference
+from .codon_align import get_cds, codon_align, safe_translate
 
-# from nextstrain influenza build
+
+# alignment code from nextstrain influenza build
 
 scoring_params = {"score_match": 3, "score_mismatch": -
                   1, "score_gapext": -1, "score_gapopen": -10}
@@ -65,7 +66,6 @@ def get_cds(ref, refname=None, input_gene=None):
 
     return refstr, refCDS, refAA, cds_start, cds_end
 
-
 def premature_stop(seq, refstr, refAA):
     '''
     Check to see if aa sequence has premature stop compared to aa ref sequence
@@ -82,29 +82,22 @@ def premature_stop(seq, refstr, refAA):
     scoreAA, refalnAA, seqalnAA = align_pairwise(refAA, seqAA)
     return(refalnAA, seqalnAA)
 
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser(
-        description="Extract sample sequences by name",
-        formatter_class=argparse.ArgumentDefaultsHelpFormatter
-    )
-    parser.add_argument("--sequences", required=True, help="FASTA file of aligned sequences")
-    parser.add_argument("--reference", required=True, help="annotated genbank file")
-    parser.add_argument("--output", required=True, help="FASTA file of extracted sample sequences")
-    parser.add_argument("--gene", required=True, help="Gene")
-    args = parser.parse_args()
+def align(lineage: str, input_record: SeqRecord) -> Tuple[str, str]:
+    '''
+    align gene to reference
+    returns seqAA and refAA
+    '''
 
-    aln = SeqIO.parse(args.sequences, 'fasta')
-    ref = SeqIO.read(args.reference, 'genbank')
+    refname, ref = get_reference(lineage, input_record.gene)
+    refstr, refCDS, refAA, cds_start, cds_end = get_cds(
+        ref=ref, refname=refname, input_gene=input_record.gene)
+    try:
+        seq_aln = codon_align(input_record, refCDS, refAA, 0, cds_end)
+    except Exception:
+        raise ValueError("Sequence didn't align.")
+    except seq_aln is None:
+        raise ValueError(f"didn't translate properly - {input_record}")
 
-    # get sequence as string, CDS seq, amino acid sequence, and start/end pos
-    refstr, refCDS, refAA, cds_start, cds_end = get_cds(ref, refname = args.reference, input_gene=args.gene)
+    seqAA = safe_translate(seq_aln)
 
-    alignment = []
-    for seq in aln:
-        seq_aln = codon_align(seq,  refstr, refAA, cds_start, cds_end)
-        if seq_aln:
-                seq.seq=Seq.Seq(seq_aln)
-                alignment.append(seq)
-
-    # output
-    AlignIO.write(MultipleSeqAlignment(alignment), args.output, 'fasta')
+    return(seqAA, refAA)

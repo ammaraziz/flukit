@@ -1,6 +1,6 @@
 import sys
 from numpy import array, inf
-from flukit.utils.utils import safe_translate, load_features
+from .utils import safe_translate, load_features
 
 # from nextstrain influenza build
 
@@ -107,7 +107,7 @@ def codon_align(seq, refstr, refAA, cds_start, cds_end):
 
     scoreAA, refalnAA, seqalnAA = align_pairwise(refAA, seqAA)
     if scoreAA < 0 or sum(seqAA.count(x) for x in ['*', 'X']) > 10 or refalnAA.count('-') > 10:
-        print(seq.id, "didn't translate properly", file=sys.stderr)
+        #print(seq.id, "didn't translate properly", file=sys.stderr)
         return('')
 
     seqCDS_aln = seq5pUTR

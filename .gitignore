@@ -3,3 +3,6 @@ flukit/.vscode/
 *.todo
 flukit/launch.json
 *.egg-info/
+.DS_Store
+.gitignore~
+**/.DS_Store
