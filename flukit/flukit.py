@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 
+import sys
 import typer
 import pandas
+
 from pathlib import Path
 from rich import print
 from Bio import SeqIO
@@ -37,15 +39,12 @@ def main(
         "--batchNumber",
         help="prefix used for output files, optional.")
      ):
+
     # input checks
     if lineage not in ['h1n1', 'h3n2', 'vic']:
-        raise typer.BadParameter(
-            f"{lineage} is not valid. You must choose from h1n1, h3n2, vic"
-            )
+        raise typer.BadParameter(f"Linease '{lineage}' is not valid. You must choose from: \n h1n1\n h3n2\n vic")
     if not Path(sequences).resolve():
-        raise typer.BadParameter(
-            f"The path is not correct, please check: {sequences}"
-        )
+        raise typer.BadParameter(f"The path is not correct, please check: {sequences}")
 
     # outputs
     if batchNumber is not None:
@@ -60,11 +59,12 @@ def main(
         input_sequences = SeqIO.to_dict(SeqIO.parse(sequences, "fasta"))
         input_sequences = set_gene(input_sequences)
     except FileNotFoundError:
-        print(f"[bold yellow]File does not exist. Check input: {sequences} [/bold yellow]")
-        raise typer.Exit()
-    except Exception:
-        typer.BadParameter(f"[bold yellow] Error reading in fasta file. Check input: {sequences} [/bold yellow]")
-        raise typer.Exit()
+        raise typer.BadParameter(f"Check input: {sequences} \nFile does not exist.")
+    except ValueError as error:
+        raise typer.BadParameter(f'''Check input: {sequences} \nError: {error}''')
+    except:
+        raise typer.BadParameter(f"[bold yellow] Error reading in fasta file. Check input: {sequences} \nError: {sys.exc_info()[0]}")
+
     
     # call variants
     variants, ha_records = call_variants(input_sequences, lineage)

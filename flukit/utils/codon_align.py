@@ -17,7 +17,6 @@ def align_pairwise(seq1: str, seq2: str) -> tuple:
     Align sequences
     returns: score, refaln, seqaln
     '''
-    
     from Bio.Align import PairwiseAligner
     aligner = PairwiseAligner()
     aligner.mode = "global"
@@ -87,8 +86,10 @@ def get_cds(ref, refname=None, input_gene=None):
 
 
 def codon_align(seq, refstr, refAA, cds_start, cds_end):
+
     seqstr = str(seq.seq).upper()
     score, refaln, seqaln = align_pairwise(refstr, seqstr)
+
     if score < 0:  # did not align
         return None
     ref_aln_array = array(list(refaln))

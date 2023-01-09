@@ -28,14 +28,15 @@ def call_variants(sequences: dict, lineage: str) -> tuple[DataFrame, list]:
 
     for record in track(sequences, description="Processing..."):
         gene = sequences[record].gene
-
+        
         try:
             seqAA, refAA = align(lineage = lineage, input_record = sequences[record])
+
             if len(seqAA) == 0:
                 print(f"[bold yellow]{record} failed to translate. Out of frame.[/bold yellow]")
                 continue            
         except Exception as error:
-            print(f"[bold yellow]Unable to align {record}. Error: {error}[/bold yellow]")
+            print(f"[bold yellow]Error: {error} - {record} [/bold yellow]")
             break
 
         try:

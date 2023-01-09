@@ -91,6 +91,7 @@ def align(lineage: str, input_record: SeqRecord) -> Tuple[str, str]:
     refname, ref = get_reference(lineage, input_record.gene)
     refstr, refCDS, refAA, cds_start, cds_end = get_cds(
         ref=ref, refname=refname, input_gene=input_record.gene)
+
     try:
         seq_aln = codon_align(input_record, refCDS, refAA, 0, cds_end)
     except Exception:
