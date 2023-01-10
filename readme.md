@@ -10,6 +10,11 @@ Used interally at WHOFLUCC. Not recommended for external usage.
 ```
 cd flukit && python -m pip install .
 ```
+3. Install `nextclade`:
+
+```
+conda install -c bioconda nextclade
+```
 
 ### usage
 
