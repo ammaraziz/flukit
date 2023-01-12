@@ -65,7 +65,6 @@ def main(
     except:
         raise typer.BadParameter(f"[bold yellow] Error reading in fasta file. Check input: {sequences} \nError: {sys.exc_info()[0]}")
 
-    
     # call variants
     variants, ha_records = call_variants(input_sequences, lineage)
     
