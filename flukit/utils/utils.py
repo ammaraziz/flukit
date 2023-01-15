@@ -173,11 +173,22 @@ def write_fasta(sequences: list, output: Path = None) -> Path:
 
     return(file.name)
 
-def locate_fasta(dir: Path, match: list, batch_num: str = None) -> list:
+def locate_fasta(
+    dir: Path, 
+    match: list, 
+    batch_num: str = None
+    ) -> list:
     '''
     Match fasta files in a dir returning a list of full paths.
     match is a list of seqno's eg ['N1000.4', 'N1000.6', ...]
     '''
+
+    # usage 
+    # try:
+    #     fasta_files = locate_fasta(input_dir_new, want)
+    # except AttributeError:
+    #     fasta_files = locate_fasta(input_dir_ngs, batch_num)
+
     # individual fastas
     if batch_num is None:
         matched = [i + ".fasta" for i in match]
@@ -193,22 +204,32 @@ def locate_fasta(dir: Path, match: list, batch_num: str = None) -> list:
     else:
         raise AttributeError
 
-def read_meta(metadata: Path, column: str = None):
+def read_meta(input_csv: Path, return_column: str = None):
     '''
-    wrapper function to safely read in fasta files and optionally return a specific column
+    wrapper function to safely read in meta files and optionally return a specific column
 
     Return either pandas dataframe or list
     '''
-    if metadata.name.split('.')[1] == 'csv':
+    # replace with this read
+    #    meta = pd.read_csv(
+    #     input_csv, 
+    #     infer_datetime_format = True, 
+    #     parse_dates = ['Sample Date'], 
+    #     date_parser=dateparse, 
+    #     dtype=str,
+    #     na_filter=False,
+    #     )
+
+    if input_csv.name.split('.')[1] == 'csv':
         sep = ","
     else:
         sep = "\t"
 
     try:
-        meta = read_csv(metadata, sep = sep, na_filter=False)
-        if column:
-            print(column)
-            return(list(meta[column]))
+        meta = read_csv(input_csv, sep = sep, na_filter=False)
+        if return_column:
+            print(return_column)
+            return(list(meta[return_column]))
         else:
             return(meta)
 
