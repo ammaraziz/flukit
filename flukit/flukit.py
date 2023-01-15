@@ -12,7 +12,8 @@ from .utils.run import call_variants, call_clades
 
 app = typer.Typer(
     help = "flukit - the influenza surveillance toolkit... kinda",
-    add_completion=False)
+    add_completion=False
+    )
 
 @app.command(no_args_is_help=True)
 def main(
@@ -63,8 +64,11 @@ def main(
     except ValueError as error:
         raise typer.BadParameter(f'''Check input: {sequences} \nError: {error}''')
     except:
-        raise typer.BadParameter(f"[bold yellow] Error reading in fasta file. Check input: {sequences} \nError: {sys.exc_info()[0]}")
-
+        raise typer.BadParameter(
+            f"""
+            [bold yellow] Error reading in fasta file. Check input: {sequences} \nError: {sys.exc_info()[0]}
+            """
+        )
     # call variants
     variants, ha_records = call_variants(input_sequences, lineage)
     
