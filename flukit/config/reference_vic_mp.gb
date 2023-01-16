@@ -48,10 +48,10 @@ FEATURES             Location/Qualifiers
                      RAARSSVPGVRREMQMVSAMNTAKTMNGMGKGEDVQKLAEELQSNIGVLRSLGASQKNG
                      EGIAKDVMEVLKQSSMGNSALVKKYL"
      gene            750..1079
-                     /gene="BM2"
+                     /gene="M2"
      CDS             750..1079
                      /codon_start=1
-                     /gene="BM2"
+                     /gene="M2"
                      /product="BM2 protein"
                      /protein_id="ABL77323.1"
                      /translation="MLEPFQILSICSFILSALHFIAWIIGHLSQIKRGVNLKIRIRNPN

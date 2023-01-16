@@ -27,7 +27,6 @@ def call_variants(sequences: dict, lineage: str) -> tuple[DataFrame, list]:
 
     for record in track(sequences, description="Processing..."):
         gene = sequences[record].gene
-        
         try:
             seqAA, refAA = align(lineage = lineage, input_record = sequences[record])
 
@@ -40,11 +39,11 @@ def call_variants(sequences: dict, lineage: str) -> tuple[DataFrame, list]:
 
         try:
             if gene in ['PB2', 'PB1', 'NS', 'NP']:
-                return('')
+                pass
             elif gene in ['MP', 'NA']:
                 results.at[record, gene] = get_snps(seqAA, gene, lineage)
             elif gene == 'PA':
-                results.at[record, gene] = get_pa_snps(seqAA, lineage)
+                results.at[record, gene] = get_pa_snps(seqAA, refAA, lineage)
             elif gene == 'HA':
                 results.at[record, 'ha_aa'] = get_ha_snps(seqAA, refAA)
                 results.at[record, 'vacc_ref'] = get_ref(lineage)

@@ -115,9 +115,13 @@ def get_snps(
         'H' or 'Y', 'S' or 'N', 'I' or 'X'
     '''
 
-    gene_pos = read_in_mutations(lineage)
-    if gene.upper() not in gene_pos.keys():
-        raise ValueError("Unrecognised Gene: " + gene.upper() + ". Only NA, PA, MP are allowed")
-    mutations = [sample[val] for val in gene_pos[gene]]
+    mutations = read_in_mutations(lineage)
     
-    return(";".join(mutations))
+    variants = []
+    if gene in mutations:
+        for pos in mutations[gene]:
+            variants.append(sample[pos])
+    else:
+        variants = ['']
+    
+    return(";".join(variants))
