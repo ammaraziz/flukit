@@ -47,7 +47,6 @@ def detect_passage(passage: str) -> str:
     else:
         return('')
 
-
 # recode to accept input as SeqRecords instead of reading from path
 # record to return renamed SeqRecords
 def rename_fasta(

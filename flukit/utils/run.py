@@ -1,31 +1,21 @@
 from rich import print
 from pathlib import Path
-from shutil import copyfile
 from pandas import DataFrame
 from rich.progress import track
 
 from .variants import get_ref, get_snps, get_ha_snps, get_pa_snps
 from .align_frames import align
-from .utils import write_fasta, read_meta
+from .utils import write_temp_fasta, read_meta
 from .clades import run_nextclade, update_dataset
-from .rename import find_fasta, rename_fasta, write_sequences, write_meta
+from .rename import find_fasta, rename_fasta, write_sequences, write_meta, fuzee_get
 
-# process data
 def call_variants(sequences: dict, lineage: str) -> tuple[DataFrame, list]:
     results = DataFrame.from_dict(
-        data = {
-            "ha_aa":[],
-            "NA":[],
-            "MP":[],
-            "PA":[],
-            "vacc_ref":[]
-            }, 
-            dtype=str
+        data = {"ha_aa":[],"NA":[],"MP":[],"PA":[],"vacc_ref":[]}, 
+        dtype=str
             )
 
-    # List to write out ha sequences
     ha_records = []
-
     for record in track(sequences, description="Processing..."):
         gene = sequences[record].gene
         
@@ -68,7 +58,7 @@ def call_clades(
     The list of `sequences` are written to temp file for nextclade. 
     '''
 
-    ha_temp = write_fasta(ha_records)
+    ha_temp = write_temp_fasta(ha_records)
 
     if update:
         update_dataset(lineage)
@@ -76,41 +66,40 @@ def call_clades(
     tsv = run_nextclade(ha_temp, lineage, output)
     return(tsv)
 
-'''
-    --input-dir {Path} \
-    --input-meta {tsv or csv} \ 
-    --batch-num {num} \
-    --output-dir {Path} \
-    --split-by gene
-'''
 
-# find and rename fasta
-# flukit find \
-#     --input-dir {Path} \
-#     --input-meta {tsv or csv} \ 
-#     --batch-num {num} \
-#     --output-dir {Path} \
-#     --split-by gene
-
-## work in progress
-def find(
+## work in progress - master function for calling directly
+def findrename(
     input_dir: Path, 
-    input_csv: Path, 
-    batch_num: str, 
+    input_meta: Path, 
     output_dir: Path, 
-    split_by: str,
+    # split_by: str,
+    # split_output: Path = None,
+    batch_num: str = None,
     rename: bool = True,
     ):
     '''
     Find and rename fasta files
     '''
+
+    # flukit find \
+    #     --input-dir {Path} \
+    #     --batch-num {num} \
+    #     --output-dir {Path} \
+    #     --split-by gene
     
-    meta = read_meta(input_csv)
+    # checks
+    if batch_num and input_meta:
+        print(f"specify either but not both: batch_num/input_meta")
+    if batch_num: # not implemented
+        meta = fuzee_get(batch_num)
+    if input_meta:
+        meta = read_meta(input_meta)
+    
     seq_no = list(meta['Seq No'])
     sequences, matched = find_fasta(seq_no=seq_no, input_dir=input_dir)
     if rename:
         sequences = rename_fasta(...)
     
-    write_fasta(sequences, output_dir)
-    write_meta(meta, output_dir, split_by)
+    write_temp_fasta(sequences, output_dir)
+    write_meta(meta, output_dir)
     
