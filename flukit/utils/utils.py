@@ -173,47 +173,39 @@ def write_temp_fasta(sequences: list, output: Path = None) -> Path:
 
     return(file.name)
 
-def locate_fasta(dir: Path, match: list, batch_num: str = None) -> list:
-    '''
-    Match fasta files in a dir returning a list of full paths.
-    match is a list of seqno's eg ['N1000.4', 'N1000.6', ...]
-    '''
-    # individual fastas
-    if batch_num is None:
-        matched = [i + ".fasta" for i in match]
-        files = [file for file in dir.glob('*.fasta') if file.name in matched]
-
-    # mutlifasta search
-    if batch_num:
-        files = [file for file in dir.glob('*.fasta') if re.search(batch_num, file.name)]
-
-    # do check for output
-    if files:
-        return(files)
-    else:
-        raise AttributeError
-
-def read_meta(metadata: Path, column: str = None):
+def read_meta(meta_data: Path, column: str = None):
     '''
     wrapper function to safely read in fasta files and optionally return a specific column
 
     Return either pandas dataframe or list
     '''
-    if metadata.name.split('.')[1] == 'csv':
+    import pandas as pd
+    import datetime
+    dateparse = lambda x: datetime.strptime(x, '%d/%m/%Y')
+
+    if meta_data.name.split('.')[1] == 'csv':
         sep = ","
     else:
         sep = "\t"
 
     try:
-        meta = read_csv(metadata, sep = sep, na_filter=False)
+        meta = pd.read_csv(
+            meta_data, 
+            infer_datetime_format = True, 
+            parse_dates = ['Sample Date'], 
+            date_parser=dateparse, 
+            dtype=str,
+            na_filter=False,
+            sep=sep,
+            )
+            
         if column:
-            print(column)
             return(list(meta[column]))
         else:
             return(meta)
 
     except OSError as error:
         raise OSError(f"File does not exist. Error: {error}")
-    except Exception as errpr:
+    except Exception as error:
         raise Exception(f"Uncontrolled error detected: Error: {error}")
  

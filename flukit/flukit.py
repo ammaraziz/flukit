@@ -11,12 +11,17 @@ from .utils.variants import set_gene
 from .utils.run import call_variants, call_clades
 
 app = typer.Typer(
-    help = "flukit - the influenza surveillance toolkit... kinda",
-    add_completion=False
+    help = "flukit - the influenza surveillance toolkit",
+    add_completion=False,
+    no_args_is_help=True,
     )
 
-@app.command(no_args_is_help=True)
-def main(
+@app.callback()
+def main():
+    pass
+
+@app.command(no_args_is_help=True, help = "Call variants, mutations and clades on sequences (all genes)")
+def variants(
     sequences: Path = typer.Option(
         ...,
         "-s",
@@ -87,3 +92,33 @@ def main(
     # write results
     results.to_csv(results_out, sep=',', index=False)
     print("[bold green]All done![/bold green]")
+
+@app.command(no_args_is_help=True, help = "Find and rename fasta files")
+def find(
+    input_dir4: Path = typer.Option(
+        ...,
+        "-i",
+        "--input-dir",
+        help="Input directory containing fasta files"), 
+    output_dir: Path = typer.Option(
+        ...,
+        "-o",
+        "--output-dir",
+        help="Output directory for fasta and meta files"), 
+    split_by: str = typer.Option(
+        ...,
+        "-sb",
+        "--split-by",
+        help="Split fasta by single, gene, multifasta"), 
+    batch_num: str = typer.Option(
+        ...,
+        "-b",
+        "--batch-num",
+        help="Batch number, if specified will retreive meta data from Fuzee via API"), 
+    rename: bool = typer.Option(
+        ...,
+        "-n",
+        "--rename",
+        help="Rename fasta"),
+        ):
+        pass
