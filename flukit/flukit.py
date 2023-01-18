@@ -95,7 +95,7 @@ def variants(
 
 @app.command(no_args_is_help=True, help = "Find and rename fasta files")
 def find(
-    input_dir4: Path = typer.Option(
+    input_dir: Path = typer.Option(
         ...,
         "-i",
         "--input-dir",
