@@ -1,11 +1,9 @@
 import re
 import pandas as pd
-
 import Bio
 from Bio import SeqIO
-from datetime import datetime
 from pathlib import Path
-from utils import read_meta
+from .utils import read_meta
 
 #  meta['Seq No'].values.tolist()
 
@@ -47,68 +45,52 @@ def detect_passage(passage: str) -> str:
     else:
         return('')
 
-# recode to accept input as SeqRecords instead of reading from path
-# record to return renamed SeqRecords
 def rename_fasta(
-    input_fasta: Path, 
-    input_csv: Path, 
-    output_fasta: Path,
+    sequences: Bio.SeqRecord, 
+    meta_data: pd.DataFrame, 
     add_gene: bool = True, 
     add_passage: bool = True,
     add_month: bool = True,
-    ):
+    ) -> list[Bio.SeqRecord]:
     '''
     rename fasta
     '''
-    dateparse = lambda x: datetime.strptime(x, '%d/%m/%Y')
 
-    sequences = SeqIO.parse(input_fasta, "fasta")
-    # replace with utils.read_meta
-    meta = pd.read_csv(
-        input_csv, 
-        infer_datetime_format = True, 
-        parse_dates = ['Sample Date'], 
-        date_parser=dateparse, 
-        dtype=str,
-        na_filter=False,
-        )
-
-    meta[['id','segment']] = meta['Seq No'].str.split('.',expand=True)
-    meta['gene'] = meta['segment'].map(segements_genes)
-    meta['Month'] = meta['Sample Date'].dt.strftime('%b').str.lower()
-    meta['passage_short'] = meta['Passage History'].apply(detect_passage)
-    meta['new_designation'] = meta['Designation'].replace(" ", "_")
+    meta_data[['id','segment']] = meta_data['Seq No'].str.split('.',expand=True)
+    meta_data['gene'] = meta_data['segment'].map(segements_genes)
+    meta_data['Month'] = meta_data['Sample Date'].dt.strftime('%b').str.lower()
+    meta_data['passage_short'] = meta_data['Passage History'].apply(detect_passage)
+    meta_data['new_designation'] = meta_data['Designation'].replace(" ", "_")
 
     if add_month:
-        meta['new_designation'] = meta['new_designation'] + meta['passage_short']
+        meta_data['new_designation'] = meta_data['new_designation'] + meta_data['passage_short']
     if add_passage:
-        meta['new_designation'] = meta['new_designation'] + '_' + meta['Month']
+        meta_data['new_designation'] = meta_data['new_designation'] + '_' + meta_data['Month']
     if add_gene:
-        meta['new_designation'] = meta['new_designation'] + '_' + meta['gene']
+        meta_data['new_designation'] = meta_data['new_designation'] + '_' + meta_data['gene']
 
-    designations = dict(zip(meta['Seq No'], meta['new_designation']))
+    designations = dict(zip(meta_data['Seq No'], meta_data['new_designation']))
 
-    with open(output_fasta, 'w') as handle:
-        for seq in sequences:
-            seq.id,seq.description  = designations[seq.id], designations[seq.id]
-            SeqIO.write(seq, handle, 'fasta')
+    for seq in sequences:
+        seq.id, seq.description  = designations[seq.id], designations[seq.id]
+    
+    return(sequences)
 
-def write_meta(meta: pd.DataFrame, output: Path, split_by = None):
+def write_meta(meta: pd.DataFrame, output_dir: Path, split_by):
     '''
     write metadata to file
     optionally split by gene
     '''
 
-    if not split_by:
-        meta.to_csv(output, sep=',', index=False, na_rep='')
+    if split_by in ['multi', 'single']:
+        meta.to_csv(output_dir / "meta.tsv", sep='\t', index=False, na_rep='')
     if split_by == 'gene':
         meta_split = [x for _, x in meta.groupby(meta['segment'])]
         for df in meta_split:
             segment = df['segment'].unique()[0]
             gene = segements_genes[segment].lower()
-
-            output_name = output / f"{gene}.csv"
-            df.to_csv(output_name, sep = ",", index=False)
+            output_name = output_dir / f"{gene}.tsv"
+            df.to_csv(output_name, sep = "\t", index=False)
 
 def write_sequences(
     sequences: list[Bio.SeqRecord], 
@@ -116,19 +98,17 @@ def write_sequences(
     split_by: str = None):
     '''
     write sequences to file
-    optionally, split output by gene, or single
+    optionally, split output by: single, gene, multi
     '''
-    # write out one file
-    if not split_by:
-        with open(output, 'w') as handle:
+    # multifasta output
+    if not split_by or split_by == 'multi':
+        with open(output / "multi.fasta", 'w') as handle:
             SeqIO.write(sequences, handle, 'fasta')
-    # write out individual files
+    # individual fasta output
     elif split_by == 'single':
         for seq in sequences:
-            print(seq.id)
-            print(output / f"{seq.id}.fasta")
             SeqIO.write(seq, output / f"{seq.id}.fasta", "fasta")
-    # write out files as genes
+    # gene fasta output
     elif split_by == 'gene':
         for seq in sequences:
             segment = seq.id.split(".")[1]
@@ -138,7 +118,7 @@ def write_sequences(
             with open(gene_output, 'a') as handle:
                 SeqIO.write(seq, handle, "fasta")
     else:
-        print("error hit")
+        print("error hit? search for this haha")
 
 def fuzee_get(
     batch_num: int
@@ -151,32 +131,28 @@ def fuzee_get(
     pass
 
 def find_fasta(
-    seq_no: list,
+    seq_num: list,
     input_dir: Path = None
-    ) -> tuple(list, set):
+    ) -> tuple[list, set]:
     '''
     find and concat fasta files across multiple dirs from a list of csv inputs 
-    return - list(SeqIO.SeqRecord)
+    return - list(SeqIO.SeqRecord), list()
 
     seq_no    : list - if not specified then get from fuzee 
     input_dir : Path - optional, specify to search specific dir
                      - default to search predefined locations
     '''
     
-    # read in meta file
-    sequence_names =  [seq + '.fasta' for seq in seq_no] 
+    sequence_names =  [num + '.fasta' for num in seq_num] 
 
-    # find fasta files 
     if input_dir:
-        fasta_files = input_dir.glob("*.fasta")
+        fasta_paths = input_dir.glob("*.fasta")
     if not input_dir:
         for path in DEFAULT_FASTA_PATHS:
-            fasta_files = path.glob("*.fasta")
+            fasta_paths = path.glob("*.fasta")
     
-    matched = set([f.name for f in fasta_files]) & set(sequence_names)
-    seq_paths = [input_dir / match for match in matched]
+    matched = set([p.name for p in fasta_paths]) & set(sequence_names)
+    seq_paths = [input_dir / m for m in matched]
     sequences = [SeqIO.read(seq, "fasta") for seq in seq_paths]
 
     return(sequences, matched)
-
-

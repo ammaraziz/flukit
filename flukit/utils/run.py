@@ -1,3 +1,4 @@
+import typer
 from rich import print
 from pathlib import Path
 from pandas import DataFrame
@@ -71,34 +72,43 @@ def findrename(
     input_dir: Path, 
     input_meta: Path, 
     output_dir: Path, 
-    # split_by: str,
-    # split_output: Path = None,
+    split_by: str,
     batch_num: str = None,
     rename: bool = True,
     ):
     '''
     Find and rename fasta files
     '''
-
-    # flukit find \
-    #     --input-dir {Path} \
-    #     --batch-num {num} \
-    #     --output-dir {Path} \
-    #     --split-by gene
     
-    # checks
     if batch_num and input_meta:
-        print(f"specify either but not both: batch_num/input_meta")
+        raise typer.BadParameter(f"specify either but not both: batch_num/input_meta")
+    
     if batch_num: # not implemented
         meta = fuzee_get(batch_num)
-    if input_meta:
+    else:
         meta = read_meta(input_meta)
-    
     seq_no = list(meta['Seq No'])
-    sequences, matched = find_fasta(seq_no=seq_no, input_dir=input_dir)
-    if rename:
-        sequences = rename_fasta(...)
+
+    sequences, matched = find_fasta(seq_no=seq_no, input_dir2=input_dir2)
     
-    write_temp_fasta(sequences, output_dir)
-    write_meta(meta, output_dir)
+    if rename:
+        if split_by == "gene":
+            sequences = rename_fasta(
+                sequences=sequences, 
+                meta_data=meta, 
+                add_gene=False, 
+                add_month=True, 
+                add_passage=True
+                )
+        if split_by == 'multi':
+             sequences = rename_fasta(
+                sequences=sequences, 
+                meta_data=meta, 
+                add_gene=True, 
+                add_month=True, 
+                add_passage=True
+                )
+    # write out
+    write_sequences(sequences=sequences, output=output_dir, split_by=split_by)
+    write_meta(meta=meta, output_dir=output_dir, split_by=split_by)
     
