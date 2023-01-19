@@ -89,7 +89,7 @@ def findrename(
         meta = read_meta(input_meta)
     seq_no = list(meta['Seq No'])
 
-    sequences, matched = find_fasta(seq_no=seq_no, input_dir2=input_dir2)
+    sequences, matched = find_fasta(seq_no=seq_no, input_dir=input_dir)
     
     if rename:
         if split_by == "gene":
