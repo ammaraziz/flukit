@@ -73,26 +73,34 @@ def findrename(
     input_meta: Path, 
     output_dir: Path, 
     split_by: str,
-    batch_num: str = None,
-    rename: bool = True,
+    batch_num: str,
+    rename: bool,
     ):
     '''
     Find and rename fasta files
+    rename if split_by is gene or multi else do not rename output as is
     '''
     
     if batch_num and input_meta:
         raise typer.BadParameter(f"specify either but not both: batch_num/input_meta")
-    
     if batch_num: # not implemented
         meta = fuzee_get(batch_num)
     else:
         meta = read_meta(input_meta)
-    seq_no = list(meta['Seq No'])
-
-    sequences, matched = find_fasta(seq_no=seq_no, input_dir=input_dir)
+    
+    seq_num = list(meta['Seq No'])
+    sequences, matched = find_fasta(seq_num=seq_num, input_dir=input_dir)
     
     if rename:
-        if split_by == "gene":
+        if split_by in ["multi"]:
+            sequences = rename_fasta(
+                sequences=sequences, 
+                meta_data=meta, 
+                add_gene=True, 
+                add_month=True, 
+                add_passage=True
+            )
+        if split_by in ["gene"]:
             sequences = rename_fasta(
                 sequences=sequences, 
                 meta_data=meta, 
@@ -100,15 +108,13 @@ def findrename(
                 add_month=True, 
                 add_passage=True
                 )
-        if split_by == 'multi':
-             sequences = rename_fasta(
-                sequences=sequences, 
-                meta_data=meta, 
-                add_gene=True, 
-                add_month=True, 
-                add_passage=True
-                )
     # write out
-    write_sequences(sequences=sequences, output=output_dir, split_by=split_by)
-    write_meta(meta=meta, output_dir=output_dir, split_by=split_by)
+    write_sequences(
+        sequences=sequences, 
+        output=output_dir, 
+        split_by=split_by)
+    write_meta(
+        meta=meta, 
+        output_dir=output_dir, 
+        split_by='multi')
     

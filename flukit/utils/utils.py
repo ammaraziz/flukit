@@ -180,7 +180,7 @@ def read_meta(meta_data: Path, column: str = None):
     Return either pandas dataframe or list
     '''
     import pandas as pd
-    import datetime
+    from datetime import datetime
     dateparse = lambda x: datetime.strptime(x, '%d/%m/%Y')
 
     if meta_data.name.split('.')[1] == 'csv':
