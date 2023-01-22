@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import os
 import sys
 import typer
 import pandas
@@ -7,8 +8,9 @@ import pandas
 from pathlib import Path
 from rich import print
 from Bio import SeqIO
+
 from .utils.variants import set_gene
-from .utils.run import call_variants, call_clades
+from .utils import run
 
 app = typer.Typer(
     help = "flukit - the influenza surveillance toolkit",
@@ -37,7 +39,6 @@ def variants(
         "-o",
         "--output",
         help="output path"
-
     ),
     batchNumber: str = typer.Option(
         None,
@@ -75,10 +76,10 @@ def variants(
             """
         )
     # call variants
-    variants, ha_records = call_variants(input_sequences, lineage)
+    variants, ha_records = run.call_variants(input_sequences, lineage)
     
     # call clades
-    clades = call_clades(ha_records, lineage)
+    clades = run.call_clades(ha_records, lineage)
     
     # combine dataframes
     results = pandas.merge(
@@ -100,25 +101,52 @@ def find(
         "-i",
         "--input-dir",
         help="Input directory containing fasta files"), 
+    input_meta: Path = typer.Option(
+        ...,
+        "-m",
+        "--input-meta",
+        help="tsv file with the following headers: seqno, designation, date, passage"
+    ),
     output_dir: Path = typer.Option(
         ...,
         "-o",
         "--output-dir",
         help="Output directory for fasta and meta files"), 
     split_by: str = typer.Option(
-        ...,
+        'gene',
         "-sb",
         "--split-by",
-        help="Split fasta by single, gene, multifasta"), 
+        help="Split fasta by: gene, multi"), 
     batch_num: str = typer.Option(
-        ...,
+        None,
         "-b",
         "--batch-num",
-        help="Batch number, if specified will retreive meta data from Fuzee via API"), 
+        help="If specified will retreive meta data from Fuzee via API"), 
     rename: bool = typer.Option(
-        ...,
-        "-n",
-        "--rename",
+        False,
         help="Rename fasta"),
         ):
-        pass
+
+        os.makedirs(output_dir, exist_ok=True)
+        # checks
+        for dir in [input_dir, input_meta]:
+            if not Path(dir).resolve():
+                raise typer.BadParameter(f"The path is not correct, please check: {dir}")
+        if split_by not in ['gene', 'multi']:
+            raise typer.BadParameter(
+                f"""Not acceptable value given:  {split_by}
+                please choose from:
+                [gene]      output file per gene
+                [multi]     single multifasta file
+                """
+                )
+        # run
+        run.findrename(
+            input_dir=input_dir,
+            input_meta = input_meta,
+            output_dir=output_dir,
+            split_by=split_by,
+            batch_num=batch_num,
+            rename=rename
+        )
+        print("[bold green]All done![/bold green]")

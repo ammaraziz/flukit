@@ -1,18 +1,15 @@
 import re
+import typer
 import pandas as pd
 import Bio
 from Bio import SeqIO
 from pathlib import Path
+from collections import defaultdict
+
 from .utils import read_meta
 
-#  meta['Seq No'].values.tolist()
 
-DEFAULT_FASTA_PATHS = [
-    Path('S:/Shared/WHOFLU/mol_biol/00-New Sequences/'),
-    Path('/mnt/Sdrive/WHOFLU/mol_biol/00-New Sequences/'),
-    Path('S:/Shared/WHOFLU/mol_biol/Sequencing-NGS/'),
-    Path('/mnt/Sdrive/WHOFLU/mol_biol/Sequencing-NGS/'),
-    ]
+#  meta['Seq No'].values.tolist()
 
 segements_genes = {
     '4' : 'HA',
@@ -48,9 +45,9 @@ def detect_passage(passage: str) -> str:
 def rename_fasta(
     sequences: Bio.SeqRecord, 
     meta_data: pd.DataFrame, 
-    add_gene: bool = True, 
-    add_passage: bool = True,
-    add_month: bool = True,
+    add_gene: bool, 
+    add_passage: bool,
+    add_month: bool,
     ) -> list[Bio.SeqRecord]:
     '''
     rename fasta
@@ -58,6 +55,7 @@ def rename_fasta(
 
     meta_data[['id','segment']] = meta_data['Seq No'].str.split('.',expand=True)
     meta_data['gene'] = meta_data['segment'].map(segements_genes)
+    # what if the date is missing?
     meta_data['Month'] = meta_data['Sample Date'].dt.strftime('%b').str.lower()
     meta_data['passage_short'] = meta_data['Passage History'].apply(detect_passage)
     meta_data['new_designation'] = meta_data['Designation'].replace(" ", "_")
@@ -70,11 +68,17 @@ def rename_fasta(
         meta_data['new_designation'] = meta_data['new_designation'] + '_' + meta_data['gene']
 
     designations = dict(zip(meta_data['Seq No'], meta_data['new_designation']))
-
-    for seq in sequences:
-        seq.id, seq.description  = designations[seq.id], designations[seq.id]
     
-    return(sequences)
+    # rename
+    sequences_dict = defaultdict(list)
+    for seq in sequences:
+        
+        segment = segements_genes[seq.id.split(".")[1]]
+        seq.id = designations[seq.id]
+        seq.description = ''
+        
+        sequences_dict[segment].append(seq)
+    return(sequences_dict)
 
 def write_meta(meta: pd.DataFrame, output_dir: Path, split_by):
     '''
@@ -82,7 +86,7 @@ def write_meta(meta: pd.DataFrame, output_dir: Path, split_by):
     optionally split by gene
     '''
 
-    if split_by in ['multi', 'single']:
+    if split_by in ['multi', 'individual']:
         meta.to_csv(output_dir / "meta.tsv", sep='\t', index=False, na_rep='')
     if split_by == 'gene':
         meta_split = [x for _, x in meta.groupby(meta['segment'])]
@@ -93,30 +97,27 @@ def write_meta(meta: pd.DataFrame, output_dir: Path, split_by):
             df.to_csv(output_name, sep = "\t", index=False)
 
 def write_sequences(
-    sequences: list[Bio.SeqRecord], 
+    sequences: dict[Bio.SeqRecord], 
     output: Path, 
-    split_by: str = None):
+    split_by: str,
+    ):
     '''
     write sequences to file
-    optionally, split output by: single, gene, multi
+    optionally, split output by: ind, gene, multi
     '''
-    # multifasta output
-    if not split_by or split_by == 'multi':
-        with open(output / "multi.fasta", 'w') as handle:
-            SeqIO.write(sequences, handle, 'fasta')
     # individual fasta output
-    elif split_by == 'single':
+    if split_by == 'ind':
         for seq in sequences:
             SeqIO.write(seq, output / f"{seq.id}.fasta", "fasta")
-    # gene fasta output
+    # multifasta output
+    elif split_by == 'multi':
+        with open(output / "multi.fasta", 'w') as handle:
+            SeqIO.write(sequences.values(), handle, 'fasta')
+    # gene fasta output if not renamed
     elif split_by == 'gene':
-        for seq in sequences:
-            segment = seq.id.split(".")[1]
-            gene = segements_genes[segment].lower()
-            gene_output = output / f"{gene}.fasta"
-
-            with open(gene_output, 'a') as handle:
-                SeqIO.write(seq, handle, "fasta")
+        for item in sequences:
+            with open(output / f"{item}.fasta", 'a') as handle:
+                SeqIO.write(sequences[item], handle, "fasta")
     else:
         print("error hit? search for this haha")
 
@@ -128,11 +129,11 @@ def fuzee_get(
     '''
     # use the Data > 'GA - Sequencing' page to download all data
     # apply the same parsing settings as utils.read_meta
-    pass
+    raise typer.BadParameter("This feature is not implemented.")
 
 def find_fasta(
     seq_num: list,
-    input_dir: Path = None
+    input_dir: Path,
     ) -> tuple[list, set]:
     '''
     find and concat fasta files across multiple dirs from a list of csv inputs 
@@ -147,9 +148,6 @@ def find_fasta(
 
     if input_dir:
         fasta_paths = input_dir.glob("*.fasta")
-    if not input_dir:
-        for path in DEFAULT_FASTA_PATHS:
-            fasta_paths = path.glob("*.fasta")
     
     matched = set([p.name for p in fasta_paths]) & set(sequence_names)
     seq_paths = [input_dir / m for m in matched]
