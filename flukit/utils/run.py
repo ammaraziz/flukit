@@ -87,9 +87,10 @@ def findrename(
         meta = fuzee_get(batch_num)
     else:
         meta = read_meta(input_meta)
-    
+
     seq_num = list(meta['Seq No'])
     sequences, matched = find_fasta(seq_num=seq_num, input_dir=input_dir)
+    
     if rename:
         if split_by == "multi":
             sequences_renamed = rename_fasta(

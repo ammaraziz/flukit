@@ -1,7 +1,7 @@
 import os
-import re
 import tempfile
 import numpy as np
+from rich import print
 from Bio import SeqIO, Seq, SeqRecord
 from collections import defaultdict
 from pandas import read_csv
@@ -180,8 +180,10 @@ def read_meta(meta_data: Path, column: str = None):
     Return either pandas dataframe or list
     '''
     import pandas as pd
-    from datetime import datetime
-    dateparse = lambda x: datetime.strptime(x, '%d/%m/%Y')
+    #from datetime import datetime
+    #dateparse = lambda x: datetime.strptime(x, '%d/%m/%Y')
+    def dateparse(date):
+            return pd.to_datetime(date, errors="raise", dayfirst=True)
 
     if meta_data.name.split('.')[1] == 'csv':
         sep = ","
@@ -198,12 +200,10 @@ def read_meta(meta_data: Path, column: str = None):
             na_filter=False,
             sep=sep,
             )
-            
         if column:
             return(list(meta[column]))
         else:
             return(meta)
-
     except OSError as error:
         raise OSError(f"File does not exist. Error: {error}")
     except Exception as error:

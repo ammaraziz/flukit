@@ -42,6 +42,16 @@ def detect_passage(passage: str) -> str:
     else:
         return('')
 
+def sanatise_designations(designation: str) -> str:
+    '''
+    remove/replace unwanted characters and spaces from designations
+    " " -> "_"
+    "'" -> ""
+    '''
+    designation = designation.replace(" ", "_")
+    designation = designation.replace("'", "")
+    return(designation)
+
 def rename_fasta(
     sequences: Bio.SeqRecord, 
     meta_data: pd.DataFrame, 
@@ -55,20 +65,19 @@ def rename_fasta(
 
     meta_data[['id','segment']] = meta_data['Seq No'].str.split('.',expand=True)
     meta_data['gene'] = meta_data['segment'].map(segements_genes)
-    # what if the date is missing?
     meta_data['Month'] = meta_data['Sample Date'].dt.strftime('%b').str.lower()
     meta_data['passage_short'] = meta_data['Passage History'].apply(detect_passage)
-    meta_data['new_designation'] = meta_data['Designation'].replace(" ", "_")
+    meta_data['new_designation'] = meta_data['Designation'].apply(sanatise_designations)
 
-    if add_month:
-        meta_data['new_designation'] = meta_data['new_designation'] + meta_data['passage_short']
     if add_passage:
-        meta_data['new_designation'] = meta_data['new_designation'] + '_' + meta_data['Month']
+        meta_data['new_designation'] = meta_data['new_designation'] + meta_data['passage_short']
+    if add_month:
+        # handle missing date/month by replacin nan with ''
+        meta_data['new_designation'] = meta_data['new_designation'] + ('_' + meta_data['Month']).fillna('')
     if add_gene:
         meta_data['new_designation'] = meta_data['new_designation'] + '_' + meta_data['gene']
-
     designations = dict(zip(meta_data['Seq No'], meta_data['new_designation']))
-    
+
     # rename
     sequences_dict = defaultdict(list)
     for seq in sequences:
