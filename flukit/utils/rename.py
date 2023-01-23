@@ -1,15 +1,15 @@
 import re
+import Bio
+import rich
 import typer
 import pandas as pd
-import Bio
 from Bio import SeqIO
 from pathlib import Path
 from collections import defaultdict
 
 from .utils import read_meta
 
-
-#  meta['Seq No'].values.tolist()
+# meta['Seq No'].values.tolist()
 
 segements_genes = {
     '4' : 'HA',
@@ -72,7 +72,7 @@ def rename_fasta(
     if add_passage:
         meta_data['new_designation'] = meta_data['new_designation'] + meta_data['passage_short']
     if add_month:
-        # handle missing date/month by replacin nan with ''
+        # handle missing date/month by replacing nan with ''
         meta_data['new_designation'] = meta_data['new_designation'] + ('_' + meta_data['Month']).fillna('')
     if add_gene:
         meta_data['new_designation'] = meta_data['new_designation'] + '_' + meta_data['gene']
@@ -88,20 +88,20 @@ def rename_fasta(
         sequences_dict[segment].append(seq)
     return(sequences_dict)
 
-def write_meta(meta: pd.DataFrame, output_dir: Path, split_by):
+def write_meta(meta: pd.DataFrame, output: Path, split_by):
     '''
     write metadata to file
     optionally split by gene
     '''
 
     if split_by in ['multi', 'ind']:
-        meta.to_csv(output_dir / "meta.tsv", sep='\t', index=False, na_rep='')
+        meta.to_csv(output, sep='\t', index=False, na_rep='')
     if split_by == 'gene':
         meta_split = [x for _, x in meta.groupby(meta['segment'])]
         for df in meta_split:
             segment = df['segment'].unique()[0]
             gene = segements_genes[segment].lower()
-            output_name = output_dir / f"{gene}.tsv"
+            output_name = output.parent / f"{gene}.tsv"
             df.to_csv(output_name, sep = "\t", index=False)
 
 def write_sequences(
@@ -145,20 +145,31 @@ def find_fasta(
     ) -> tuple[list, set]:
     '''
     find and concat fasta files across multiple dirs from a list of csv inputs 
-    return - list(SeqIO.SeqRecord), list()
 
     seq_no    : list - if not specified then get from fuzee 
-    input_dir : Path - optional, specify to search specific dir
-                     - default to search predefined locations
+    input_dir : Path - specify to search specific dir
     '''
     
     sequence_names =  [num + '.fasta' for num in seq_num] 
 
     if input_dir:
         fasta_paths = input_dir.glob("*.fasta")
-
-    matched = set([p.name for p in fasta_paths]) & set(sequence_names)
+    fasta_names = [p.name for p in fasta_paths]
+    #matched = set(fasta_names) & set(sequence_names)
+    unmatched = []
+    matched = []
+    for name in sequence_names:
+        if name in fasta_names:
+            matched.append(name)
+        else:
+            rich.print(f"[yellow] WARNING: Missing {input_dir}/{name} [/yellow]")
+            unmatched.append(name)
+            
     seq_paths = [input_dir / m for m in matched]
     sequences = [SeqIO.read(seq, "fasta") for seq in seq_paths]
-
-    return(sequences, matched)
+    
+    return(
+        sequences,
+        [m.replace(".fasta","") for m in matched], 
+        [m.replace(".fasta","") for m in unmatched]
+        )

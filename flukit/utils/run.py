@@ -89,8 +89,8 @@ def findrename(
         meta = read_meta(input_meta)
 
     seq_num = list(meta['Seq No'])
-    sequences, matched = find_fasta(seq_num=seq_num, input_dir=input_dir)
-    
+    sequences, matched, unmatched = find_fasta(seq_num=seq_num, input_dir=input_dir)
+
     if rename:
         if split_by == "multi":
             sequences_renamed = rename_fasta(
@@ -108,13 +108,22 @@ def findrename(
                 add_month=True, 
                 add_passage=True
                 )
-    # write out
+    meta_matched = meta[ meta["Seq No"].isin(matched) ]
+    meta_unmatched = meta[ meta["Seq No"].isin(unmatched) ]
+
     write_sequences(
         sequences=sequences_renamed, 
         output=output_dir, 
-        split_by=split_by)
+        split_by=split_by
+        )
     write_meta(
-        meta=meta, 
-        output_dir=output_dir, 
-        split_by='multi')
+        meta=meta_matched, 
+        output=output_dir / "meta_matched.tsv", 
+        split_by='multi'
+        )
+    write_meta(
+        meta=meta_unmatched, 
+        output=output_dir / "meta_unmatched.tsv", 
+        split_by='multi'
+        )
     
