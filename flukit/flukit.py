@@ -123,7 +123,7 @@ def find(
         "--batch-num",
         help="If specified will retreive meta data from Fuzee via API"), 
     rename: bool = typer.Option(
-        False,
+        True,
         help="Rename fasta"),
         ):
 

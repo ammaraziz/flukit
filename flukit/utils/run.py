@@ -90,18 +90,17 @@ def findrename(
     
     seq_num = list(meta['Seq No'])
     sequences, matched = find_fasta(seq_num=seq_num, input_dir=input_dir)
-    
     if rename:
-        if split_by in ["multi"]:
-            sequences = rename_fasta(
+        if split_by == "multi":
+            sequences_renamed = rename_fasta(
                 sequences=sequences, 
                 meta_data=meta, 
                 add_gene=True, 
                 add_month=True, 
                 add_passage=True
             )
-        if split_by in ["gene"]:
-            sequences = rename_fasta(
+        if split_by == "gene":
+            sequences_renamed = rename_fasta(
                 sequences=sequences, 
                 meta_data=meta, 
                 add_gene=False, 
@@ -110,7 +109,7 @@ def findrename(
                 )
     # write out
     write_sequences(
-        sequences=sequences, 
+        sequences=sequences_renamed, 
         output=output_dir, 
         split_by=split_by)
     write_meta(

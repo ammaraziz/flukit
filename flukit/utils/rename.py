@@ -72,7 +72,6 @@ def rename_fasta(
     # rename
     sequences_dict = defaultdict(list)
     for seq in sequences:
-        
         segment = segements_genes[seq.id.split(".")[1]]
         seq.id = designations[seq.id]
         seq.description = ''
@@ -86,7 +85,7 @@ def write_meta(meta: pd.DataFrame, output_dir: Path, split_by):
     optionally split by gene
     '''
 
-    if split_by in ['multi', 'individual']:
+    if split_by in ['multi', 'ind']:
         meta.to_csv(output_dir / "meta.tsv", sep='\t', index=False, na_rep='')
     if split_by == 'gene':
         meta_split = [x for _, x in meta.groupby(meta['segment'])]
@@ -115,9 +114,9 @@ def write_sequences(
             SeqIO.write(sequences.values(), handle, 'fasta')
     # gene fasta output if not renamed
     elif split_by == 'gene':
-        for item in sequences:
-            with open(output / f"{item}.fasta", 'a') as handle:
-                SeqIO.write(sequences[item], handle, "fasta")
+        for key, value in sequences.items():
+            with open(output / f"{key}.fasta", 'a') as handle:
+                SeqIO.write(value, handle, "fasta")
     else:
         print("error hit? search for this haha")
 
@@ -148,7 +147,7 @@ def find_fasta(
 
     if input_dir:
         fasta_paths = input_dir.glob("*.fasta")
-    
+
     matched = set([p.name for p in fasta_paths]) & set(sequence_names)
     seq_paths = [input_dir / m for m in matched]
     sequences = [SeqIO.read(seq, "fasta") for seq in seq_paths]
