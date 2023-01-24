@@ -4,7 +4,7 @@ import tempfile
 import numpy as np
 from Bio import SeqIO, Seq, SeqRecord
 from collections import defaultdict
-from pandas import read_csv
+from pandas import read_csv, DataFrame
 from pathlib import Path
 from importlib_resources import files
 
@@ -106,7 +106,7 @@ def safe_translate(sequence, report_exceptions=False):
     else:
         return translated_sequence
 
-def get_reference(input_lineage: str, input_gene: str) -> SeqRecord:
+def get_reference(input_lineage: str, input_gene: str) -> SeqRecord.SeqRecord:
     '''
     Parameters
         input_lineage : str
@@ -173,7 +173,7 @@ def write_temp_fasta(sequences: list, output: Path = None) -> Path:
 
     return(file.name)
 
-def read_meta(meta_data: Path, column: str = None):
+def read_meta(meta_data: Path) -> DataFrame:
     '''
     wrapper function to safely read in fasta files and optionally return a specific column
 
@@ -198,12 +198,7 @@ def read_meta(meta_data: Path, column: str = None):
             na_filter=False,
             sep=sep,
             )
-            
-        if column:
-            return(list(meta[column]))
-        else:
-            return(meta)
-
+        return(meta)
     except OSError as error:
         raise OSError(f"File does not exist. Error: {error}")
     except Exception as error:

@@ -82,7 +82,7 @@ def premature_stop(seq, refstr, refAA):
     scoreAA, refalnAA, seqalnAA = align_pairwise(refAA, seqAA)
     return(refalnAA, seqalnAA)
 
-def align(lineage: str, input_record: SeqRecord) -> Tuple[str, str]:
+def align(lineage: str, input_record: SeqRecord.SeqRecord) -> Tuple[str, str]:
     '''
     align gene to reference
     returns seqAA and refAA
@@ -94,10 +94,11 @@ def align(lineage: str, input_record: SeqRecord) -> Tuple[str, str]:
 
     try:
         seq_aln = codon_align(input_record, refCDS, refAA, 0, cds_end)
+        if seq_aln is None:
+            raise ValueError(f"didn't translate properly - {input_record}")
     except Exception:
         raise ValueError("Sequence didn't align.")
-    except seq_aln is None:
-        raise ValueError(f"didn't translate properly - {input_record}")
+        
 
     seqAA = safe_translate(seq_aln)
 

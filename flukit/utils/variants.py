@@ -95,7 +95,7 @@ def get_pa_snps(
     return(";".join(pa_snps))
 
 def get_snps(
-    sample: SeqRecord, 
+    sample: SeqRecord.SeqRecord, 
     gene: str, 
     lineage: str) -> List[str]:
     '''

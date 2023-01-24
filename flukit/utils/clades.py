@@ -61,8 +61,8 @@ def update_dataset(lineage: str):
 def run_nextclade(
     sequences: Path, 
     lineage: str, 
-    output_dir: Path = None
-    ) -> DataFrame:
+    output_dir: Path = None, # type: ignore
+    ) -> DataFrame: # type: ignore
     '''
     run nextclade
 

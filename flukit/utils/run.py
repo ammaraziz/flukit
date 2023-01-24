@@ -13,7 +13,7 @@ from .rename import find_fasta, rename_fasta, write_sequences, write_meta, fuzee
 def call_variants(sequences: dict, lineage: str) -> tuple[DataFrame, list]:
     results = DataFrame.from_dict(
         data = {"ha_aa":[],"NA":[],"MP":[],"PA":[],"vacc_ref":[]}, 
-        dtype=str
+        dtype='str'
             )
 
     ha_records = []
@@ -52,7 +52,7 @@ def call_clades(
     ha_records: list, 
     lineage: str,
     output: Path = None,
-    update: bool = False):
+    update: bool = False) -> DataFrame:
     '''
     Call clades with nextclade. 
     The list of `sequences` are written to temp file for nextclade. 
@@ -75,7 +75,7 @@ def findrename(
     split_by: str,
     batch_num: str,
     rename: bool,
-    ):
+    ) -> None:
     '''
     Find and rename fasta files
     rename if split_by is gene or multi else do not rename output as is
