@@ -48,6 +48,8 @@ def sanatise_designations(designation: str) -> str:
     " " -> "_"
     "'" -> ""
     '''
+    if designation == '':
+        return("MISSING_DESIGNATION")
     designation = designation.replace(" ", "_")
     designation = designation.replace("'", "")
     return(designation)
@@ -60,7 +62,7 @@ def rename_fasta(
     add_month: bool,
     ) -> Dict[str,SeqRecord.SeqRecord]:
     '''
-    rename fasta
+    rename seq records
     '''
 
     meta_data[['id','segment']] = meta_data['Seq No'].str.split('.',expand=True)
@@ -76,9 +78,10 @@ def rename_fasta(
         meta_data['new_designation'] = meta_data['new_designation'] + ('_' + meta_data['Month']).fillna('')
     if add_gene:
         meta_data['new_designation'] = meta_data['new_designation'] + '_' + meta_data['gene']
+    
     designations = dict(zip(meta_data['Seq No'], meta_data['new_designation']))
 
-    # rename
+    # rename seq records
     sequences_dict = defaultdict(list)
     for seq in sequences:
         segment = segements_genes[seq.id.split(".")[1]]
@@ -166,7 +169,6 @@ def find_fasta(
             unmatched.append(name)
     
     if unmatched:
-        print("got matched")
         m = ', '.join(unmatched)
         rich.print(f"""[yellow]WARNING: The following are missing from: {input_dir}/ \n{m} [/yellow] \n[green]See unmatched.tsv[/green]\n""")
 

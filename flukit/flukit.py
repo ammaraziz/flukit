@@ -140,7 +140,7 @@ def find(
                 [multi]     single multifasta file
                 """
                 )
-        # run
+        # run``
         run.findrename(
             input_dir=input_dir,
             input_meta = input_meta,
