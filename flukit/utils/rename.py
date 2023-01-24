@@ -155,16 +155,22 @@ def find_fasta(
     if input_dir:
         fasta_paths = input_dir.glob("*.fasta")
     fasta_names = [p.name for p in fasta_paths]
-    #matched = set(fasta_names) & set(sequence_names)
+
     unmatched = []
     matched = []
+    
     for name in sequence_names:
         if name in fasta_names:
             matched.append(name)
         else:
-            rich.print(f"[yellow] WARNING: Missing {input_dir}/{name} [/yellow]")
             unmatched.append(name)
-            
+    
+    if unmatched:
+        print("got matched")
+        m = ', '.join(unmatched)
+        rich.print(f"""[yellow]WARNING: The following are missing from: {input_dir}/ \n{m} [/yellow] \n[green]See unmatched.tsv[/green]\n""")
+
+
     seq_paths = [input_dir / m for m in matched]
     sequences = [SeqIO.read(seq, "fasta") for seq in seq_paths]
     
