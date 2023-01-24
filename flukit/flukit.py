@@ -105,7 +105,7 @@ def find(
         ...,
         "-m",
         "--input-meta",
-        help="tsv file with the following headers: seqno, designation, date, passage"
+        help="csv/tsv file with the following headers: Seq No, Designation, Sample Date, Passage History"
     ),
     output_dir: Path = typer.Option(
         ...,

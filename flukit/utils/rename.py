@@ -6,9 +6,8 @@ import pandas as pd
 from Bio import SeqIO, SeqRecord
 from pathlib import Path
 from collections import defaultdict
-from typing import List, Set, Tuple, Union, Iterable, Dict
+from typing import List, Set, Tuple, Union, Dict, Union
 
-from .utils import read_meta
 #  meta['Seq No'].values.tolist()
 
 
@@ -106,33 +105,33 @@ def write_meta(meta: pd.DataFrame, output: Path, split_by):
             df.to_csv(output_name, sep = "\t", index=False)
 
 def write_sequences(
-    sequences: SeqRecord.SeqRecord, 
-    output: Path, 
+    sequences: Union[Dict[str, SeqRecord.SeqRecord], List[SeqRecord.SeqRecord]],
+    output: Path,
     split_by: str,
-    ):
+    ) -> None:
     '''
     write sequences to file
-    optionally, split output by: ind, gene, multi
+    split output by: ind, gene, multi
     '''
     # individual fasta output
-    if split_by == 'ind':
+    if split_by == 'ind' and isinstance(sequences, list):
         for seq in sequences:
             SeqIO.write(seq, output / f"{seq.id}.fasta", "fasta")
     # multifasta output
-    elif split_by == 'multi':
+    elif split_by == 'multi' and isinstance(sequences, dict):
         with open(output / "multi.fasta", 'w') as handle:
             SeqIO.write(sequences.values(), handle, 'fasta')
    # gene fasta output if not renamed
-    elif split_by == 'gene':
+    elif split_by == 'gene' and isinstance(sequences, dict):
         for key, value in sequences.items():
             with open(output / f"{key}.fasta", 'a') as handle:
                 SeqIO.write(value, handle, "fasta")
     else:
-        print("error hit? search for this haha")
+        print(f"Error, unable to write out sequences. Input is of type f{type(sequences)}")
 
 def fuzee_get(
     batch_num: str
-    ):
+    ) -> None:
     '''
     get batch data from fuzee api
     '''
@@ -143,7 +142,7 @@ def fuzee_get(
 def find_fasta(
     seq_num: List[str],
     input_dir: Path,
-    ) -> Tuple[List[SeqRecord.SeqRecord], Set]:
+    ) -> Tuple[List[SeqRecord.SeqRecord], Set, Set]:
     '''
     find and concat fasta files across multiple dirs from a list of csv inputs 
 
