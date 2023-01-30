@@ -94,7 +94,7 @@ def variants(
     results.to_csv(results_out, sep=',', index=False)
     print("[bold green]All done![/bold green]")
 
-@app.command(no_args_is_help=True, help = "Find and rename fasta files")
+@app.command(no_args_is_help=True, help = "Find and rename fasta files. Default: find, do not rename, output as a single multi.fasta")
 def find(
     input_dir: Path = typer.Option(
         ...,
@@ -113,7 +113,7 @@ def find(
         "--output-dir",
         help="Output directory for fasta and meta files"), 
     split_by: str = typer.Option(
-        'gene',
+        'multi',
         "-sb",
         "--split-by",
         help="Split fasta by: gene, multi"), 
@@ -123,7 +123,7 @@ def find(
         "--batch-num",
         help="If specified will retreive meta data from Fuzee via API"), 
     rename: bool = typer.Option(
-        True,
+        False,
         help="Rename fasta"),
         ):
 

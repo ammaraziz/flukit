@@ -108,6 +108,9 @@ def findrename(
                 add_month=True, 
                 add_passage=True
                 )
+    else:
+        sequences_renamed = sequences
+
     meta_matched = meta[ meta["Seq No"].isin(matched) ]
     meta_unmatched = meta[ meta["Seq No"].isin(unmatched) ]
 
@@ -121,9 +124,10 @@ def findrename(
         output=output_dir / "meta_matched.tsv", 
         split_by='multi'
         )
-    write_meta(
-        meta=meta_unmatched, 
-        output=output_dir / "meta_unmatched.tsv", 
-        split_by='multi'
-        )
+    if not meta_unmatched.empty:
+        write_meta(
+            meta=meta_unmatched, 
+            output=output_dir / "meta_unmatched.tsv", 
+            split_by='multi'
+            )
     

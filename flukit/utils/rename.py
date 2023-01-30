@@ -123,7 +123,12 @@ def write_sequences(
     # multifasta output
     elif split_by == 'multi' and isinstance(sequences, dict):
         with open(output / "multi.fasta", 'w') as handle:
-            SeqIO.write(sequences.values(), handle, 'fasta')
+            for seq in sequences.values():
+                SeqIO.write(seq, handle, 'fasta')
+    elif split_by == 'multi' and isinstance(sequences, list):
+        # with open(output / "multi.fasta", 'w') as handle:
+        #     for seq in sequences.values():
+            SeqIO.write(sequences, output / "multi.fasta", 'fasta')
    # gene fasta output if not renamed
     elif split_by == 'gene' and isinstance(sequences, dict):
         for key, value in sequences.items():
