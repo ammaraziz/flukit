@@ -69,8 +69,9 @@ def rename_fasta(
 
     meta_data[['id','segment']] = meta_data['Seq No'].str.split('.',expand=True)
     meta_data['gene'] = meta_data['segment'].map(segements_genes)
-    meta_data['Month'] = meta_data['Sample Date'].dt.strftime('%b').str.lower()
     meta_data['passage_short'] = meta_data['Passage History'].apply(detect_passage)
+    # only add month to original/cell (not egg and qmc)
+    meta_data['Month'] = meta_data[meta_data['passage_short'].isin(['', 'o'])]['Sample Date'].dt.strftime('%b').str.lower()
     meta_data['new_designation'] = meta_data['Designation'].apply(sanatise_designations)
 
     if add_passage:
