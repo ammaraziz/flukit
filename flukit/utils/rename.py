@@ -37,6 +37,8 @@ def detect_passage(passage: str) -> str:
         return('o')
     if re.search(r'[Ee]\d', passage):
         return('e')
+    if re.search(r'[Qq][Mm][Cc]', passage):
+        return('q')
     if re.search(r'cs', passage):
         return('o')
     else:
@@ -120,15 +122,15 @@ def write_sequences(
     if split_by == 'ind' and isinstance(sequences, list):
         for seq in sequences:
             SeqIO.write(seq, output / f"{seq.id}.fasta", "fasta")
+    
     # multifasta output
     elif split_by == 'multi' and isinstance(sequences, dict):
         with open(output / "multi.fasta", 'w') as handle:
             for seq in sequences.values():
                 SeqIO.write(seq, handle, 'fasta')
     elif split_by == 'multi' and isinstance(sequences, list):
-        # with open(output / "multi.fasta", 'w') as handle:
-        #     for seq in sequences.values():
             SeqIO.write(sequences, output / "multi.fasta", 'fasta')
+   
    # gene fasta output if not renamed
     elif split_by == 'gene' and isinstance(sequences, dict):
         for key, value in sequences.items():
