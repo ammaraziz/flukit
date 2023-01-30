@@ -35,12 +35,15 @@ def detect_passage(passage: str) -> str:
         return('o')
     if re.search(r'[Ss]pecimen', passage):
         return('o')
+    if re.search(r'cs', passage):
+        return('o')
+    if re.search(r'', passage):
+        return('o')
     if re.search(r'[Ee]\d', passage):
         return('e')
     if re.search(r'[Qq][Mm][Cc]', passage):
         return('q')
-    if re.search(r'cs', passage):
-        return('o')
+
     else:
         return('')
 
