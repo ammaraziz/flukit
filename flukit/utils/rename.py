@@ -37,7 +37,7 @@ def detect_passage(passage: str) -> str:
         return('o')
     if re.search(r'cs', passage):
         return('o')
-    if re.search(r'', passage):
+    if passage == '':
         return('o')
     if re.search(r'[Ee]\d', passage):
         return('e')
