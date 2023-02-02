@@ -8,9 +8,8 @@ import pandas
 from pathlib import Path
 from rich import print
 from Bio import SeqIO
-
-from .utils.variants import set_gene
-from .utils import run
+from flukit.utils.variants import set_gene
+import flukit.utils.run as run
 
 app = typer.Typer(
     help = "flukit - the influenza surveillance toolkit",
