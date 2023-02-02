@@ -12,7 +12,7 @@ from pathlib import Path
 # search path so that we load augur from there instead of any installed
 # system-wide.
 try:
-    dev_path = Path(__file__).parent.parent
+    dev_path = Path(__file__).parent
 
     # Raises an exception if the path doesn't exist.
     (dev_path / "flukit/flukit.py").resolve()
@@ -21,5 +21,5 @@ except:
 else:
     path.insert(0, str(dev_path))
 
-from flukit import app
+from flukit.flukit import app
 exit( app() )
