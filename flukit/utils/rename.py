@@ -6,6 +6,7 @@ import pandas as pd
 from Bio import SeqIO, SeqRecord
 from pathlib import Path
 from collections import defaultdict
+from typing import Dict, List, Tuple, Union, Set
 
 #  meta['Seq No'].values.tolist()
 
@@ -169,9 +170,7 @@ def find_fasta(
     '''
     
     sequence_names =  [num + '.fasta' for num in seq_num] 
-
-    if input_dir:
-        fasta_paths = input_dir.glob("*.fasta")
+    fasta_paths = input_dir.glob("*.fasta")
     fasta_names = [p.name for p in fasta_paths]
 
     unmatched = []

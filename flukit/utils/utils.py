@@ -38,7 +38,7 @@ def load_features(reference, feature_names=None):
     return features
 
 
-def safe_translate(sequence, report_exceptions=False):
+def safe_translate(sequence, report_exceptions=False) -> str:
     """Returns an amino acid translation of the given nucleotide sequence accounting
     for gaps in the given sequence.
 
@@ -108,7 +108,7 @@ def safe_translate(sequence, report_exceptions=False):
     else:
         return translated_sequence
 
-def get_reference(input_lineage: str, input_gene: str) -> SeqRecord.SeqRecord:
+def get_reference(input_lineage: str, input_gene: str) -> Tuple[str, SeqRecord.SeqRecord]:
     '''
     Parameters
         input_lineage : str

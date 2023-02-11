@@ -18,54 +18,6 @@ def align_pairwise(seq1, seq2):
                                    penalize_end_gaps=False, one_alignment_only=True)[0]
     return aln[2], aln[0], aln[1]
 
-
-def get_cds(ref, refname=None, input_gene=None):
-    '''
-    assuming there is one contiguous coding region which might be
-    split into multiple sub-proteins like HA1 and HA2.
-    loop over all features, pull out min and max of their union
-
-    Parameters
-        ref     :   Seq.Record of reference 
-        gene    :   str
-            'pb2', 'pb1', 'pa', 'ha', 'np', 'na', 'mp', 'ns'
-    Return
-        refstr, refCDS, refAA, cds_start, cds_end 
-    '''
-    # setup and vars
-    feature_dict = {'mp': 'M2', 'ns': 'NS1', 'pb2': 'PB2', 'pb1': 'PB1',
-                    'pa': 'PA', 'np': 'NP', 'na': 'NA', 'ha': 'HA'}
-
-    cds_start, cds_end = inf, 0
-    input_gene = input_gene.lower()
-    feature_name = feature_dict[input_gene]
-
-    if input_gene is None or input_gene == 'ha':
-        for feature in ref.features:
-            if feature.type == 'CDS':
-                # skip over Sigpep so we can get the correct positions
-                if 'SigPep' not in feature.qualifiers['gene']:
-                    if feature.location.start < cds_start:
-                        cds_start = feature.location.start
-                    if feature.location.end > cds_end:
-                        cds_end = feature.location.end
-
-        refstr = str(ref.seq).upper()
-        refCDS = refstr[cds_start:cds_end]
-        refAA = safe_translate(refstr[cds_start:cds_end])
-
-    elif input_gene in feature_dict.keys():
-        feat = load_features(refname, feature_name)
-        refstr = str(feat[feature_name].extract(ref).seq).upper()
-        refCDS = refstr  # why?
-        refAA = safe_translate(refstr)
-        cds_start, cds_end = 0, len(refCDS)
-
-    else:
-        raise ValueError("Error gene input or reference is wrong.")
-
-    return refstr, refCDS, refAA, cds_start, cds_end
-
 def premature_stop(seq, refstr, refAA):
     '''
     Check to see if aa sequence has premature stop compared to aa ref sequence

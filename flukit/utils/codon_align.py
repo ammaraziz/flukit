@@ -60,7 +60,6 @@ def get_cds(ref, refname=None, input_gene=None):
     if input_gene is None or input_gene == 'ha':
         for feature in ref.features:
             if feature.type == 'CDS':
-
                 # skip over Sigpep so we can get the correct positions
                 if 'SigPep' not in feature.qualifiers['gene']:
                     if feature.location.start < cds_start:
