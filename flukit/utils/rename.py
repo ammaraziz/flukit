@@ -73,12 +73,6 @@ def rename_fasta(
     meta_data[['id','segment']] = meta_data['Seq No'].str.split('.',expand=True)
     meta_data['gene'] = meta_data['segment'].map(segements_genes)
     meta_data['passage_short'] = meta_data['Passage History'].apply(detect_passage)
-    # only add month to original/cell (not egg and qmc)
-    #data.query("passage.isna() or passage == 'o'")["Sample Date"].{otherstuff}
-    # or split across multiple lines
-    # o_passage = data['passage'].isin(['', 'o'])
-    # sample_dates = data[o_passage]['Sample Date']
-    # sample_dates.{otherstuff}
     meta_data['Month'] = meta_data[meta_data['passage_short'].isin(['', 'o'])]['Sample Date'].dt.strftime('%b').str.lower()
     meta_data['new_designation'] = meta_data['Designation'].apply(sanatise_designations)
 
@@ -98,7 +92,6 @@ def rename_fasta(
         segment = segements_genes[seq.id.split(".")[1]]
         seq.id = designations[seq.id]
         seq.description = ''
-        
         sequences_dict[segment].append(seq)
     return(sequences_dict) # type: ignore
     
@@ -132,21 +125,28 @@ def write_sequences(
         for seq in sequences:
             SeqIO.write(seq, output / f"{seq.id}.fasta", "fasta")
     
-    # multifasta output
-    elif split_by == 'multi' and isinstance(sequences, dict):
-        with open(output / "multi.fasta", 'w') as handle:
-            for seq in sequences.values():
-                SeqIO.write(seq, handle, 'fasta')
-    elif split_by == 'multi' and isinstance(sequences, list):
-            SeqIO.write(sequences, output / "multi.fasta", 'fasta')
+    elif split_by == 'multi':
+        if isinstance(sequences, dict):
+            with open(output / "all.fasta", 'w') as handle:
+                for seq in sequences.values():
+                    SeqIO.write(seq, handle, 'fasta')
+        if isinstance(sequences, list):
+            SeqIO.write(sequences, output / "all.fasta", 'fasta')
    
-   # gene fasta output if not renamed
-    elif split_by == 'gene' and isinstance(sequences, dict):
-        for key, value in sequences.items():
-            with open(output / f"{key}.fasta", 'a') as handle:
-                SeqIO.write(value, handle, "fasta")
+    elif split_by == 'gene':
+        # renamed
+        if isinstance(sequences, dict):
+            for key, value in sequences.items():
+                with open(output / f"{key}.fasta", 'a') as handle:
+                    SeqIO.write(value, handle, "fasta")
+        # renamed
+        if isinstance(sequences, list):
+            for item in sequences:
+                print(item)
+                SeqIO.write(item, output / f"{item}.fasta", "fasta")
+    
     else:
-        print(f"Error, unable to write out sequences. Input is of type f{type(sequences)}")
+        print(f"Error, unable to write out sequences. Input is of {type(sequences)}")
 
 def fuzee_get(
     batch_num: str

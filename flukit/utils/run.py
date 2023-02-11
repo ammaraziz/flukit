@@ -3,12 +3,24 @@ from rich import print
 from pathlib import Path
 from pandas import DataFrame
 from rich.progress import track
+from collections import defaultdict
 
 from .variants import get_ref, get_snps, get_ha_snps, get_pa_snps
 from .align_frames import align
 from .utils import write_temp_fasta, read_meta
 from .clades import run_nextclade, update_dataset
 from .rename import find_fasta, rename_fasta, write_sequences, write_meta, fuzee_get
+
+segements_genes = {
+    '4' : 'HA',
+    '6' : 'NA',
+    '1' : 'PB2',
+    '2' : 'PB1',
+    '3' : 'PA',
+    '5' : 'NP',
+    '7' : 'MP',
+    '8' : 'NS',
+    }
 
 def call_variants(sequences: dict, lineage: str) -> tuple[DataFrame, list]:
     results = DataFrame.from_dict(
@@ -108,6 +120,14 @@ def findrename(
                 add_month=True, 
                 add_passage=True
                 )
+    elif not rename:
+        if split_by == "gene":
+            sequences_renamed = defaultdict(list)
+            for seq in sequences:
+                segment = segements_genes[seq.id.split(".")[1]]
+                sequences_renamed[segment].append(seq)
+        if split_by == "multi":
+            sequences_renamed = sequences
     else:
         sequences_renamed = sequences
 
