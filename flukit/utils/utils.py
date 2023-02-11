@@ -7,6 +7,8 @@ from collections import defaultdict
 from pandas import read_csv, DataFrame
 from pathlib import Path
 from importlib_resources import files
+from typing import List, Set, Tuple, Union, Dict
+
 
 config_path = files('flukit').joinpath('config')
 
@@ -157,7 +159,7 @@ def read_in_mutations(lineage: str) -> dict:
 
     return(mutations)
 
-def write_temp_fasta(sequences: list, output: Path = None) -> Path:
+def write_temp_fasta(sequences: List[SeqRecord.SeqRecord], output: Path = None) -> Path:
     '''
     Write out SeqIO.dict object to file and return location. 
     If path is None use temp file.

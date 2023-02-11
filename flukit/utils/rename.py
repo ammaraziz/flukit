@@ -6,7 +6,6 @@ import pandas as pd
 from Bio import SeqIO, SeqRecord
 from pathlib import Path
 from collections import defaultdict
-from typing import List, Set, Tuple, Union, Dict, Union
 
 #  meta['Seq No'].values.tolist()
 
