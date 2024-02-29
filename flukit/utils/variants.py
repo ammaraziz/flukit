@@ -89,13 +89,32 @@ def get_pa_snps(
 
     pa_snps = []
     for pos in pa_pos:
-        variant = ref[pos] + str(pos+1) + sample[pos]
+        variant = ref[int(pos)] + str(int(pos)+1) + sample[int(pos)]
         pa_snps.append(variant)
 
-    return(";".join(pa_snps))
+    return(":".join(pa_snps))
+    
+def get_na_mp_snps(
+    sample: SeqRecord, 
+    ref: SeqRecord, 
+    gene,
+    lineage: str) -> str:
+    '''
+    get NA or MP mutations of interest
+    '''
+
+    gene_pos = read_in_mutations(lineage)
+    g_pos = gene_pos[gene]
+
+    g_snps = []
+    for pos in g_pos:
+        variant = ref[int(pos)] + str(int(pos)+1) + sample[int(pos)]
+        g_snps.append(variant)
+
+    return(":".join(g_snps))
 
 def get_snps(
-    sample: SeqRecord, 
+    sample: SeqRecord.SeqRecord, 
     gene: str, 
     lineage: str) -> List[str]:
     '''
@@ -120,8 +139,38 @@ def get_snps(
     variants = []
     if gene in mutations:
         for pos in mutations[gene]:
-            variants.append(sample[pos])
+            variants.append(sample[int(pos)])
     else:
         variants = ['']
+
+def get_na_snps(
+    sample: SeqRecord.SeqRecord, 
+    gene: str, 
+    lineage: str) -> List[str]:
+    '''
+    Get aa from aligned sequence for
+        NA      H275Y
+        MP      S31N
+
+    Parameters
+        sample : SeqRecord
+            aligned amino acid sequence (string)
+        gene : str
+            name of gene - NA, PA, MP
+        lineage: str
+            list of h1n1, h3n2, vic, yam
+
+    Return - list[str]
+        'H' or 'Y', 'S' or 'N', 'I' or 'X'
+    '''
+    if lineage == 'h1n1':
+        pos_na = 274
+    if lineage == 'h3n2':
+        pos_na = 273
+    if lineage == 'vic':
+        pos_na = 272 
     
-    return(";".join(variants))
+    
+    variants = sample[int(pos_na)]
+    
+    return(variants)

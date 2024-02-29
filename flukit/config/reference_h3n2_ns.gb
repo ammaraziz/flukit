@@ -1,86 +1,86 @@
-LOCUS       CY113681                 864 bp    DNA              VRL 04-APR-2012
-DEFINITION  Influenza A virus (A/Beijing/32/1992(H3N2)) nuclear export protein
-            (NEP) and nonstructural protein 1 (NS1) genes, complete cds.
-ACCESSION   CY113681
-VERSION     CY113681.1
+LOCUS       OQ350036                 838 bp    cRNA    linear   VRL 04-FEB-2023
+DEFINITION  Influenza A virus (A/SWITZERLAND/9715293/2013(H3N2)) segment 8
+            nuclear export protein (NEP) and nonstructural protein 1 (NS1)
+            genes, complete cds.
+ACCESSION   OQ350036
+VERSION     OQ350036.1
+DBLINK      BioProject: PRJNA317734
 KEYWORDS    .
-SOURCE      Influenza A virus (A/Beijing/32/1992(H3N2))
-  ORGANISM  Influenza A virus (A/Beijing/32/1992(H3N2))
-            Viruses; ssRNA viruses; ssRNA negative-strand viruses;
-            Orthomyxoviridae; Influenzavirus A.
-REFERENCE   1  (bases 1 to 864)
-  AUTHORS   Wentworth,D.E., Dugan,V., Halpin,R., Lin,X., Bera,J., Ghedin,E.,
-            Fedorova,N., Overton,L., Tsitrin,T., Stockwell,T., Amedeo,P.,
-            Bishop,B., Chen,H., Edworthy,P., Gupta,N., Katzel,D., Li,K.,
-            Schobel,S., Shrivastava,S., Thovarai,V., Wang,S., Westgeest,K.B.,
-            van Beek,R., Bestebroer,T.M., de Jong,J.C., Rimmelzwaan,G.F.,
-            Osterhaus,A.D.M.E., Fouchier,R.A.M., Bao,Y., Sanders,R.,
-            Dernovoy,D., Kiryutin,B., Lipman,D.J. and Tatusova,T.
-  TITLE     The NIAID Influenza Genome Sequencing Project
-  JOURNAL   Unpublished
-REFERENCE   2  (bases 1 to 864)
-  CONSRTM   The NIAID Influenza Genome Sequencing Consortium
+SOURCE      Influenza A virus
+  ORGANISM  Influenza A virus
+            Viruses; Riboviria; Orthornavirae; Negarnaviricota;
+            Polyploviricotina; Insthoviricetes; Articulavirales;
+            Orthomyxoviridae; Alphainfluenzavirus; Alphainfluenzavirus
+            influenzae.
+REFERENCE   1  (bases 1 to 838)
+  AUTHORS   Hu,M., Russell,C., Kercher,L., Mukherjee,N. and Webby,R.
+  CONSRTM   NIAID Centers of Excellence for Influenza Research and Response
+            (CEIRR)
   TITLE     Direct Submission
-  JOURNAL   Submitted (04-APR-2012) on behalf of JCVI/Erasmus Medical
-            College/NCBI, National Center for Biotechnology Information, NIH,
-            Bethesda, MD 20894, USA
-COMMENT     This work was supported by the National Institute of Allergy and
-            Infectious Diseases (NIAID), Genome Sequencing Centers for
-            Infectious Diseases (GSCID) program.
+  JOURNAL   Submitted (30-JAN-2023) CEIRS Data Processing and Coordinating
+            Center, St. Jude Center of Excellence for Influenza Research and
+            Surveillance (CEIRS), Memphis, TN 38105, USA
+COMMENT     This submission was made by the CEIRR Influenza Data Processing and
+            Communication Center (iDPCC) on behalf of the St. Jude Center of
+            Excellence for Influenza Research and Surveillance (CEIRS). This
+            work was supported by National Institute of Allergy and Infectious
+            Diseases, National Institutes of Health, grant HHSN272201400006C.
+            
+            ##Assembly-Data-START##
+            Assembly Method       :: CLC Workbench v. 22
+            Sequencing Technology :: Illumina
+            ##Assembly-Data-END##
 FEATURES             Location/Qualifiers
-     source          1..864
-                     /bio_material="CEIRS#CIP047BE3292#"
-                     /collection_date="1992"
-                     /country="China: Beijing"
-                     /db_xref="taxon:380950"
-                     /host="Homo sapiens"
-                     /lab_host="xtMK3 MDCK1 passage(s)"
+     source          1..838
+                     /organism="Influenza A virus"
                      /mol_type="viral cRNA"
-                     /organism="Influenza A virus (A/Beijing/32/1992(H3N2))"
-                     /segment="8"
+                     /strain="A/SWITZERLAND/9715293/2013"
                      /serotype="H3N2"
-                     /strain="A/Beijing/32/1992"
-     misc_feature    1..864
-                     /db_xref="IRD:NIGSP_CEIRS_CIP047_RFH3_00116.NS"
-     gene            12..849
+                     /host="Homo sapiens"
+                     /db_xref="taxon:11320"
+                     /segment="8"
+                     /country="USA"
+                     /collection_date="2013"
+                     /note="passage_history:E4/E3/E1/C1"
+     gene            1..838
                      /gene="NEP"
                      /gene_synonym="NS2"
-     CDS             join(12..41,514..849)
-                     /codon_start=1
+     CDS             join(1..30,503..838)
                      /gene="NEP"
                      /gene_synonym="NS2"
                      /note="nonstructural protein 2"
-                     /product="nuclear export protein"
-                     /protein_id="AFG99683.1"
-                     /translation="MDSNTVSSFQDILLRMSKMQLGSSSEDLNGMITQFESLKIYRDSL
-                     GEAVMRMGDLHLLQNRNGKWREQLGQKFEEIRWLIEEVRHRLKTTENSFEQITFMQALQ
-                     LLFEVEQEIRTFSFQLI"
-     gene            12..704
-                     /gene="NS1"
-     CDS             12..704
                      /codon_start=1
+                     /product="nuclear export protein"
+                     /protein_id="WCF71254.1"
+                     /translation="MDSNTVSSFQDILLRMSKMQLGSSSEDLNGMITQFESLKIYRDS
+                     LGEAVMRMGDLHLLQNRNGKWREQLGQKFEEIRWLIEEVRHRLRTTENSFEQITFMQA
+                     LQLLFEVEQEIRTFSFQLI"
+     gene            1..693
                      /gene="NS1"
+     CDS             1..693
+                     /gene="NS1"
+                     /codon_start=1
                      /product="nonstructural protein 1"
-                     /protein_id="AFG99682.1"
-                     /translation="MDSNTVSSFQVDCFLWHIRKQVVDQELSDAPFLDRLRRDQRSLRG
-                     RGNTLGLDIKAATHVGKQIVEKILKEESDEALKMTMASTPASRYITDMTIEELSRNWFM
-                     LMPKQKVEGPLCIRMDQAIMEKNIMLKANFSVIFDRLETLVLLRAFTEEGAIVGEISPL
-                     PSFPGHTIEDVKNAIGVLIGGLEWNDNTVRVSKNLQRFAWRSSNENGGPPLTPKQKRKM
-                     ARTARSKV"
-ORIGIN
-        1 acaaagacat aatggattcc aacactgtgt caagtttcca ggtagattgc tttctttggc
-       61 atatccggaa acaagttgta gaccaagaac tgagtgatgc cccattcctt gatcggcttc
-      121 gccgagatca gaggtcccta aggggaagag gcaacactct cggtctagac atcaaagcag
-      181 ccacccatgt tggaaagcag atagtagaaa agattctgaa ggaagaatct gatgaggcac
-      241 ttaaaatgac catggcctcc acacctgctt cgcgatacat aactgacatg actattgagg
-      301 aattgtcaag aaactggttc atgctaatgc ccaagcagaa agtggaagga cctctttgca
-      361 tcagaatgga ccaggcaatc atggagaaaa acatcatgtt gaaagcgaat ttcagtgtga
-      421 tctttgaccg actagagacc ctagtattac taagggcttt caccgaagag ggagcaattg
-      481 ttggcgaaat ctcaccattg ccttcttttc caggacatac tattgaggat gtcaaaaatg
-      541 caattggggt cctcatcgga ggacttgaat ggaatgataa cacagttcga gtctctaaaa
-      601 atctacagag attcgcttgg agaagcagta atgagaatgg gggacctcca cttactccaa
-      661 aacagaaacg gaaaatggcg agaacagcta ggtcaaaagt ttgaagagat aagatggctg
-      721 attgaagaag tgagacacag actaaaaaca actgagaata gttttgagca aataacattc
-      781 atgcaagcat tacagctgct gtttgaagtg gaacaggaga taagaacttt ctcatttcag
-      841 cttatttaat gataaaaaac accc
+                     /protein_id="WCF71253.1"
+                     /translation="MDSNTVSSFQVDCFLWHIRKQVVDQKLSDAPFLDRLRRDQRSLR
+                     GRGNTLGLDIKAATHVGKQIVEKILKEESDEALKMTMVSTPASRYITDMTIEELSRNW
+                     FMLMPKQKVEGPLCIRMDQAIIEKNIMLKANFNVIFGRLETIVLLRAFTEEGAIVGEI
+                     SPLPSFPGHTIEDVKNAIGVLIGGLEWNDNTVRVSKNLQRFAWRSSNENGGPPLTPKQ
+                     KREMARTARSEV"
+ORIGIN      
+        1 atggattcca acactgtgtc aagtttccag gtagattgct ttctttggca tatccggaaa
+       61 caagttgtag accaaaaact gagtgatgcc ccattccttg atcggcttcg ccgagatcag
+      121 aggtccctaa ggggaagagg caatactctc ggtctagaca tcaaagcagc cacccatgtt
+      181 ggaaagcaaa ttgtagaaaa gattctgaaa gaagaatctg atgaggcact taaaatgacc
+      241 atggtctcaa cacctgcttc gcgatacata actgacatga ctattgagga attgtcaaga
+      301 aactggttca tgctaatgcc caagcagaaa gtggaaggac ctctttgcat cagaatggac
+      361 caggcaatca ttgagaaaaa catcatgtta aaagcgaatt tcaatgtgat ttttggccga
+      421 ctagagacca tagtattact aagggctttc accgaagagg gagcaattgt tggcgaaatc
+      481 tcaccattgc cttcttttcc aggacatact attgaggatg tcaaaaatgc aattggggtc
+      541 ctcatcggag gacttgaatg gaatgataac acagttcgag tctctaaaaa tctacagaga
+      601 ttcgcttgga gaagcagtaa tgagaatggg ggacctccac ttactccaaa acagaaacgg
+      661 gaaatggcga gaacagctag gtcagaagtt tgaagagata agatggctaa ttgaagaagt
+      721 gagacacaga ttaagaacaa ctgaaaatag ctttgaacaa ataacattca tgcaagcatt
+      781 acaactgctg tttgaagtgg aacaggagat aagaactttc tcatttcagc ttatttaa
 //
+

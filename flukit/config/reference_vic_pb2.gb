@@ -1,100 +1,120 @@
-LOCUS       CY018820                2355 bp    DNA              VRL 29-DEC-2006
-DEFINITION  Influenza B virus (B/Hong Kong/02/1993) segment 2, complete
-            sequence.
-ACCESSION   CY018820
-VERSION     CY018820.1
+LOCUS       KC866604                2396 bp    cRNA    linear   VRL 19-JUN-2013
+DEFINITION  Influenza B virus (B/Brisbane/60/2008) segment 2 polymerase PB2
+            (PB2) gene, complete cds.
+ACCESSION   KC866604
+VERSION     KC866604.1
 KEYWORDS    .
-SOURCE      Influenza B virus (B/Hong Kong/02/1993)
-  ORGANISM  Influenza B virus (B/Hong Kong/02/1993)
-            Viruses; ssRNA viruses; ssRNA negative-strand viruses;
-            Orthomyxoviridae; Influenzavirus B.
-REFERENCE   1  (bases 1 to 2355)
-  AUTHORS   Spiro,D., Sengamalay,N., Boyne,A., Bera,J., Halpin,R., Wang,S.,
-            Ghedin,E., Zaborsky,J., Subbu,V., Sparenborg,J., Gallagher,T.,
-            Overton,L., Althoff,R., Liu,X., Salzberg,S.L., Sitz,J., Katzel,D.,
-            Neupane,R., Shumway,M., Koo,H., Griesemer,S., St. George,K.,
-            Bennett,R., Taylor,J., Klimov,A., Hall,H., Balish,A., Xu,X.,
-            Shaw,M., Cox,N., Bao,Y., Bolotov,P., Dernovoy,D., Kiryutin,B.,
-            Lipman,D.J. and Tatusova,T.
-  TITLE     The NIAID Influenza Genome Sequencing Project
+SOURCE      Influenza B virus (B/Brisbane/60/2008)
+  ORGANISM  Influenza B virus (B/Brisbane/60/2008)
+            Viruses; Riboviria; Orthornavirae; Negarnaviricota;
+            Polyploviricotina; Insthoviricetes; Articulavirales;
+            Orthomyxoviridae; Betainfluenzavirus; Betainfluenzavirus
+            influenzae.
+REFERENCE   1  (bases 1 to 2396)
+  AUTHORS   Dormitzer,P.R., Suphaphiphat,P., Gibson,D.G., Wentworth,D.E.,
+            Stockwell,T.B., Algire,M.A., Alperovich,N., Barro,M., Brown,D.M.,
+            Craig,S., Dattilo,B.M., Denisova,E.A., De Souza,I., Eickmann,M.,
+            Dugan,V.G., Ferrari,A., Gomila,R.C., Han,L., Judge,C., Mane,S.,
+            Matrosovich,M., Merryman,C., Palladino,G., Palmer,G.A., Spencer,T.,
+            Strecker,T., Trusheim,H., Uhlendorff,J., Wen,Y., Yee,A.C.,
+            Zaveri,J., Zhou,B., Becker,S., Donabedian,A., Mason,P.W.,
+            Glass,J.I., Rappuoli,R. and Venter,J.C.
+  TITLE     Synthetic generation of influenza vaccine viruses for rapid
+            response to pandemics
+  JOURNAL   Sci Transl Med 5 (185), 185RA68 (2013)
+   PUBMED   23677594
+REFERENCE   2  (bases 1 to 2396)
+  AUTHORS   Dormitzer,P. and Suphaphiphat,P.
+  TITLE     Synthetic influenza vaccine viruses for rapid pandemic response
   JOURNAL   Unpublished
-REFERENCE   2  (bases 1 to 2355)
-  CONSRTM   The NIAID Influenza Genome Sequencing Consortium
+REFERENCE   3  (bases 1 to 2396)
+  AUTHORS   Dormitzer,P.R., Suphaphiphat,P., Gibson,D., Wentworth,D.E.,
+            Stockwell,T.B., Algire,M.A., Alperovich,N., Barro,M., Brown,D.M.,
+            Craig,S., Dattilo,B.M., Denisova,E.A., De Souza,I., Eickmann,M.,
+            Dugan,V.G., Ferrari,A., Gomila,R.C., Han,L., Judge,C., Mane,S.,
+            Matrosovich,M., Merryman,C., Palladino,G., Palmer,G.A., Spencer,T.,
+            Trusheim,H., Uhlendorff,J., Wen,Y., Yee,A.C., Zaveri,J., Zhou,B.,
+            Becker,S., Donabedian,A., Mason,P.W., Glass,J.I., Rappuoli,R. and
+            Venter,J.C.
   TITLE     Direct Submission
-  JOURNAL   Submitted (29-DEC-2006) on behalf of TIGR/Wadsworth-NYSDOH and
-            CDC/NCBI, National Center for Biotechnology Information, NIH,
-            Bethesda, MD 20894, USA
+  JOURNAL   Submitted (01-APR-2013) Research, Novartis Vaccines & Diagnostics,
+            45 Sidney St., Cambridge, MA 02139, USA
+COMMENT     ##Assembly-Data-START##
+            Assembly Method       :: Sequencher v. 4.0
+            Sequencing Technology :: Sanger dideoxy sequencing
+            ##Assembly-Data-END##
 FEATURES             Location/Qualifiers
-     source          1..2355
-                     /collection_date="15-Feb-1993"
-                     /country="Hong Kong: Hong Kong"
-                     /db_xref="taxon:416687"
-                     /host="Homo sapiens"
-                     /lab_host="MDCK 4 passage(s)"
+     source          1..2396
+                     /organism="Influenza B virus (B/Brisbane/60/2008)"
                      /mol_type="viral cRNA"
-                     /organism="Influenza B virus (B/Hong Kong/02/1993)"
+                     /strain="B/Brisbane/60/2008"
+                     /host="Homo sapiens"
+                     /db_xref="taxon:604436"
                      /segment="2"
-                     /strain="Influenza B virus (B/Hong Kong/02/1993)"
-     gene            2..2314
+                     /country="Australia: Brisbane"
+                     /collection_date="2008"
+                     /note="passage history: EX/CX"
+     gene            24..2336
                      /gene="PB2"
-     CDS             2..2314
+     CDS             24..2336
+                     /gene="PB2"
                      /codon_start=1
-                     /gene="PB2"
                      /product="polymerase PB2"
-                     /protein_id="ABL77331.1"
-                     /translation="MTLAKIELLKQLLRDNEAKTVLKQTTVDQYNIIRKFNTSRIEKNP
-                     SLRMKWAMCSNFPLALTKGDMANRIPLEYKGIQLKTNAEDIGTKGQMCSIAAVTWWNTY
-                     GPIGDTEGFERVYESFFLRKMRLDNATWGRITFGPVERVRKRVLLNPLTKEMPPDEASN
-                     VIMEILFPKEAGIPRESTWIHRELIKEKREKLKGTMITPIVLAYMLERELVARRRFLPV
-                     AGATSAEFIEMLHCLQGENWRQIYHPGGNKLTESRSQSMIVACRKIIRRAIVASNPLEL
-                     AVEIANKTVIDTEPLKSCLAAIDGGDVACDIIRAALGLKIRQRQRFGRLELKRISGRGF
-                     KNDEEILIGNGTIQKIGIWDGEEEFHVRCGECRGILKKSKMRLEKLLINSAKKEDMRDL
-                     IILCMVFSQDTRMFQGVRGEINFLNRAGQLLSPMYQLQRYFLNRSNDLFDQWGYEESPK
-                     ASELHGINESMNASDYTLKGVVVTKNVIDDFSSTETEKVSITKNLSLIKRTGEVIMGAN
-                     DVSELESQAQLMITYDTPKMWEMGTTKELVQNTYQWVLKNLVTLKAQFLLGKEDMFQWD
-                     AFEAFESIIPQKMAGQYSGFARAVLKQMRDQEVMKTDQFIKLLPFCFSPPKLRSNGEPY
-                     QFLKLMLKGGGENFIEVRKGSPLFSYNPQTEVLTICGRMMSLKGKIEDEERNRSMGNAV
-                     LAGFLVSGKYDPDLGDFKTIEELEKLKPGEKANILLYQGKPVKVVKRKRYSALSNDISQ
-                     GIKRQRMTVESMGWALS"
-ORIGIN
-        1 gatgacattg gccaaaattg aattgttaaa acaactgtta agggacaatg aagctaaaac
-       61 ggttttgaag caaacaacag tagaccaata taacataata agaaaattca atacatcaag
-      121 aattgaaaag aacccttcat taaggatgaa gtgggccatg tgttctaatt ttcccttggc
-      181 tctaaccaag ggtgatatgg caaacagaat ccccttggaa tacaagggaa tacaacttaa
-      241 aacaaatgct gaagacatag gaaccaaagg ccaaatgtgc tcaatagcag cagttacttg
-      301 gtggaataca tatggaccaa taggagatac tgaaggtttc gaaagggtct acgaaagctt
-      361 ttttctcaga aaaatgagac ttgacaatgc cacttggggc cgaataactt ttggcccagt
-      421 tgaaagagtg agaaaaaggg tactgctaaa ccctctcacc aaggaaatgc ctccagatga
-      481 ggcgagcaat gtgataatgg aaatattgtt ccctaaagaa gcaggaatac caagagaatc
-      541 tacttggata catagggaac tgataaaaga aaaaagagaa aaattgaaag gaacgatgat
-      601 aactcccatt gtactggcat acatgcttga gagagaactg gttgcccgaa gaagattctt
-      661 gccagtggca ggagcaacat cagctgagtt catagaaatg ctacactgct tacaaggtga
-      721 aaattggaga caaatatacc acccaggagg gaataaatta actgagtcta ggtctcaatc
-      781 aatgatagta gcttgtagaa aaataatcag aagagcaata gtcgcgtcaa acccactaga
-      841 gctagctgta gaaattgcaa acaagactgt gatagatact gaacctttaa aatcatgtct
-      901 ggcagccata gacggaggtg atgtagcctg tgacataata agagctgcat taggactaaa
-      961 gatcaggcaa agacaaagat ttggacggct tgagctaaaa agaatatcag gaagaggatt
-     1021 caaaaatgat gaagaaatat tgatcgggaa cggaacaata cagaagattg gaatatggga
-     1081 cggagaagag gagttccatg taagatgtgg tgaatgcagg ggaatattaa aaaagagcaa
-     1141 aatgagactg gaaaagctac taataaattc agccaaaaag gaggatatga gagatttaat
-     1201 aatcttgtgc atggtatttt ctcaagatac taggatgttc caaggagtga gaggagaaat
-     1261 aaattttctt aatcgagcag gccaactttt atctccaatg taccaactcc aacgatattt
-     1321 tttgaatagg agcaacgacc tttttgatca atgggggtat gaggaatcac ccaaagcaag
-     1381 tgaactacat ggtataaatg aatcaatgaa tgcatctgac tatacgttga aaggagttgt
-     1441 agtaacaaaa aatgtgattg acgactttag ctctactgaa acagaaaaag tatccataac
-     1501 aaaaaatctt agtttaataa aaaggactgg ggaagtcata atgggggcta atgacgtaag
-     1561 tgaattagaa tcacaagcac agctgatgat aacatatgat acacctaaga tgtgggaaat
-     1621 gggaacaaca aaagaactgg tgcaaaacac ctatcaatgg gtgctgaaaa acttggtaac
-     1681 actgaaggct cagtttcttc taggaaaaga ggacatgttc caatgggatg catttgaagc
-     1741 atttgagagc ataattcccc agaaaatggc tggccagtac agtggatttg caagagcagt
-     1801 gctcaaacaa atgagagacc aagaggttat gaaaactgac cagttcataa agttgctgcc
-     1861 cttctgtttc tcaccaccaa aattaagaag caatggggag ccttatcaat tcttgaagct
-     1921 tatgttaaag ggaggagggg aaaatttcat cgaagtaagg aaagggtccc ctctattctc
-     1981 ctataatcca caaacagaag tcctaactat atgcggcaga atgatgtcat taaaagggaa
-     2041 aattgaagat gaagaaagga atagatcaat ggggaatgca gtattggcag gctttctcgt
-     2101 tagtggcaag tatgacccag atcttggaga tttcaaaact attgaagagc ttgaaaagct
-     2161 gaaaccgggg gaaaaggcaa acatcttact ttatcaagga aagccagtta aagtagttaa
-     2221 aaggaaaaga tatagtgctt tatccaatga catttcacaa ggaattaaga gacaaagaat
-     2281 gacagttgag tccatggggt gggccttgag ctaatataaa tttatccatt aattcaatga
-     2341 acacaattga gtgaa
+                     /protein_id="AGK63063.1"
+                     /translation="MTLAKIELLKQLLRDNEAKTVLKQTTVDQYNIIRKFNTSRIEKN
+                     PSLRMKWAMCSNFPLALTKGDMANRIPLEYKGIQLKTNAEDIGTKGQMCSIAAVTWWN
+                     TYGPIGDTEGFERVYESFFLRKMRLDNATWGRITFGPVERVRKRVLLNPLTKEMPPDE
+                     ASNVIMEILFPKEAGIPRESTWIHRELIKEKREKLKGTMITPIVLAYMLERELVARRR
+                     FLPVAGATSAEFIEMLHCLQGENWRQIYHPGGNKLTESRSQSMIVACRKIIRRSIVAS
+                     NPLELAVEIANKTVIDTEPLKSCLAAIDGGDVACDIIRAALGLKIRQRQRFGRLELKR
+                     ISGRGFKNDEEILIGNGTIQKIGIWDGEEEFHVRCGECRGILKKSKMKLEKLLINSAK
+                     KEDMRDLIILCMVFSQDTRMFQGVRGEINFLNRAGQLLSPMYQLQRYFLNRSNDLFDQ
+                     WGYEESPKASELHGINESMNASDYTLKGIVVTRNVIDDFSSIETEKVSITKNLSLIKR
+                     TGEVIMGANDVSELESQAQLMITYDTPKMWEMGTTKELVQNTYQWVLKNLVTLKAQFL
+                     LGKEDMFQWDAFEAFESIIPQKMAGQYSGFARAVLKQMRDQEVMKTDQFIKLLPFCFS
+                     PPKLRSNGEPYQFLKLVLKGGGENFIEVRKGSPLFSYNPQTEVLTICGRMMSLKGKIE
+                     DEERNRSMGNAVLAGFLVSGKYDPDLGDFKTIEELEKLKPGEKANILLYQGKPVKVVK
+                     RKRYSALSNDISQGIKRQRMTVESMGWALS"
+ORIGIN      
+        1 agcagaagcg gagcgttttc aagatgacat tggccaaaat tgaattgtta aaacaactgc
+       61 taagggacaa tgaagccaaa acagttttga agcaaacaac ggtagaccaa tataacataa
+      121 taagaaaatt caatacatca aggattgaaa agaatccttc actaaggatg aagtgggcca
+      181 tgtgttctaa ttttcccttg gctctaacca agggcgatat ggcaaacaga atccccttgg
+      241 aatacaaagg gatacaactt aaaacaaatg ctgaagacat aggaaccaaa ggccaaatgt
+      301 gctcaatagc agcagttact tggtggaata catatggacc aataggagat actgaaggtt
+      361 tcgaaagggt ctacgaaagc ttttttctca gaaaaatgag acttgacaac gccacttggg
+      421 gccgaataac ttttggccca gttgaaagag tgagaaaaag ggtactgcta aaccctctca
+      481 ccaaggaaat gcctccggat gaggcgagca atgtgataat ggaaatattg ttccctaaag
+      541 aagcaggaat accaagagaa tccacttgga tacataggga actgataaaa gaaaaaagag
+      601 aaaaattgaa aggaacaatg ataactccaa tcgtactggc atacatgctt gaaagagaac
+      661 tggttgctcg aagaagattc ttgccagtgg caggagcaac atcagctgag ttcatagaaa
+      721 tgctacactg cttacaaggt gaaaattgga gacaaatata tcacccagga gggaataaat
+      781 taactgagtc caggtctcaa tcaatgatag tagcttgtag aaaaataatc agaagatcaa
+      841 tagtcgcttc aaacccactg gagctagctg tagaaattgc aaacaagact gtgatagata
+      901 ctgaaccttt aaagtcatgt ctggcagcca tagacggagg tgatgtagct tgtgacataa
+      961 taagagctgc attaggacta aagatcagac aaagacaaag atttggacgg cttgagctaa
+     1021 aaagaatatc aggaagagga ttcaaaaatg atgaagaaat attaataggg aacggaacaa
+     1081 tacagaagat tggaatatgg gacggggaag aggagttcca tgtaagatgt ggtgaatgca
+     1141 ggggaatatt aaaaaagagt aaaatgaaac tggaaaaact actgataaat tcagccaaaa
+     1201 aggaggatat gagagattta ataatcttat gcatggtatt ttctcaagac actaggatgt
+     1261 tccaaggagt gagaggagaa ataaattttc ttaatcgagc aggccaactt ttatctccaa
+     1321 tgtaccaact ccaacgatat tttttgaata gaagcaacga cctttttgat caatgggggt
+     1381 atgaggaatc acccaaagca agtgaactac atgggataaa tgaatcaatg aatgcatctg
+     1441 actatacatt gaaagggatt gtagtgacaa gaaatgtaat tgacgacttt agctctattg
+     1501 aaacagaaaa agtatccata acaaaaaatc ttagtttaat aaaaaggact ggggaagtca
+     1561 taatgggagc taatgacgtg agtgaattag aatcacaagc acagctgatg ataacatatg
+     1621 atacacctaa aatgtgggaa atgggaacaa ccaaagaact ggtgcaaaac acttatcaat
+     1681 gggtgctaaa aaacttggtg acactgaagg ctcagtttct tctaggaaaa gaggacatgt
+     1741 tccaatggga tgcatttgaa gcatttgaga gcataattcc tcagaagatg gctggtcagt
+     1801 acagtggatt tgcaagagca gtgctcaaac aaatgagaga ccaggaggtt atgaaaactg
+     1861 accagttcat aaagttgttg cctttttgtt tctcaccacc aaaattaagg agcaatgggg
+     1921 agccttatca attcttaaaa cttgtgttga aaggaggagg ggaaaatttc atcgaagtaa
+     1981 ggaaagggtc ccctctattt tcctataatc cacaaacaga agtcctaact atatgcggca
+     2041 gaatgatgtc attaaaaggg aaaattgaag atgaagaaag gaatagatca atgggtaatg
+     2101 cagtattagc aggctttctc gttagtggca agtatgaccc agatcttgga gatttcaaaa
+     2161 ctattgaaga acttgaaaag ctgaaaccgg gggaaaaggc aaacatctta ctttatcaag
+     2221 gaaaaccagt taaagtagtt aaaaggaaaa ggtatagtgc tttgtccaat gacatttcac
+     2281 aaggaattaa gagacaaaga atgacagttg agtctatggg gtgggccttg agctaatata
+     2341 aatttatcca ttaattcaat gaacgcaatt gagtgaaaaa tgctcgtgtt tctact
 //
+

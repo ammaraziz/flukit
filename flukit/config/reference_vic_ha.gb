@@ -1,82 +1,98 @@
-LOCUS       CY018813                1842 bp    DNA              VRL 29-DEC-2006
-DEFINITION  Influenza B virus (B/Hong Kong/02/1993) segment 4, complete
-            sequence.
-ACCESSION   CY018813
-VERSION     CY018813.1
+LOCUS       KX058884                1885 bp    cRNA    linear   VRL 08-MAY-2016
+DEFINITION  Influenza B virus (B/Brisbane/60/2008) segment 4 hemagglutinin (HA)
+            gene, complete cds.
+ACCESSION   KX058884
+VERSION     KX058884.1
 KEYWORDS    .
-SOURCE      Influenza B virus (B/Hong Kong/02/1993)
-  ORGANISM  Influenza B virus (B/Hong Kong/02/1993)
-            Viruses; ssRNA viruses; ssRNA negative-strand viruses;
-            Orthomyxoviridae; Influenzavirus B.
-REFERENCE   1  (bases 1 to 1842)
-  AUTHORS   Spiro,D., Sengamalay,N., Boyne,A., Bera,J., Halpin,R., Wang,S.,
-            Ghedin,E., Zaborsky,J., Subbu,V., Sparenborg,J., Gallagher,T.,
-            Overton,L., Althoff,R., Liu,X., Salzberg,S.L., Sitz,J., Katzel,D.,
-            Neupane,R., Shumway,M., Koo,H., Griesemer,S., St. George,K.,
-            Bennett,R., Taylor,J., Klimov,A., Hall,H., Balish,A., Xu,X.,
-            Shaw,M., Cox,N., Bao,Y., Bolotov,P., Dernovoy,D., Kiryutin,B.,
-            Lipman,D.J. and Tatusova,T.
-  TITLE     The NIAID Influenza Genome Sequencing Project
+SOURCE      Influenza B virus (B/Brisbane/60/2008)
+  ORGANISM  Influenza B virus (B/Brisbane/60/2008)
+            Viruses; Riboviria; Orthornavirae; Negarnaviricota;
+            Polyploviricotina; Insthoviricetes; Articulavirales;
+            Orthomyxoviridae; Betainfluenzavirus; Betainfluenzavirus
+            influenzae.
+REFERENCE   1  (bases 1 to 1885)
+  AUTHORS   Pirada,S., Lynne,W., Ivna,D.S., Rodney,D.S., Philip,D.R. and
+            Ethan,S.C.
+  TITLE     Antigenic Characterization of Influenza Viruses Produced Using
+            Synthetic DNA and Novel Backbones
   JOURNAL   Unpublished
-REFERENCE   2  (bases 1 to 1842)
-  CONSRTM   The NIAID Influenza Genome Sequencing Consortium
+REFERENCE   2  (bases 1 to 1885)
+  AUTHORS   Suphaphiphat,P.
   TITLE     Direct Submission
-  JOURNAL   Submitted (29-DEC-2006) on behalf of TIGR/Wadsworth-NYSDOH and
-            CDC/NCBI, National Center for Biotechnology Information, NIH,
-            Bethesda, MD 20894, USA
+  JOURNAL   Submitted (11-APR-2016) Research, Seqirus Inc., 45 Sidney Street,
+            Cambridge, MA 02139, USA
+COMMENT     ##Assembly-Data-START##
+            Sequencing Technology :: Sanger dideoxy sequencing
+            ##Assembly-Data-END- assume split position##
 FEATURES             Location/Qualifiers
-     source          1..1842
-                     /collection_date="15-Feb-1993"
-                     /country="Hong Kong: Hong Kong"
-                     /db_xref="taxon:416687"
-                     /host="Homo sapiens"
-                     /lab_host="MDCK 4 passage(s)"
+     source          1..1885
+                     /organism="Influenza B virus (B/Brisbane/60/2008)"
                      /mol_type="viral cRNA"
-                     /organism="Influenza B virus (B/Hong Kong/02/1993)"
+                     /strain="B/Brisbane/60/2008"
+                     /host="Homo sapiens"
+                     /db_xref="taxon:604436"
                      /segment="4"
-                     /strain="Influenza B virus (B/Hong Kong/02/1993)"
-     gene            12..1769
+                     /country="Australia"
+                     /collection_date="2008"
+     gene            79..1791
                      /gene="HA"
-     CDS             12..57
+     misc_feature    1..1791
+                     /gene="HA"
+                     /codon_start=1
+                     /product="hemagglutinin"
+                     /protein_id="ANC28539.1"
+                     /translation="MKAIIVLLMVVTSNDRICTGITSSNSPHVVKTATQGEVNVTGV
+                     IPLTTTPTKSHFANLKGTETRGKLCPKCLNCTDLDVALGRPKCTGKIPSARVSILHEV
+                     RPVTSGCFPIMHDRTKIRQLPNLLRGYEHIRLSTHNVINAENAPGGPYKIGTSGSCPN
+                     ITNGNGFFATMAWAVPKNDKNKTATNPLTIEVPYICTEGEDQITVWGFHSDNEAQMAK
+                     LYGDSKPQKFTSSANGVTTHYVSQIGGFPNQTEDGGLPQSGRIVVDYMVQKSGKTGTI
+                     TYQRGILLPQKVWCASGRSKVIKGSLPLIGEADCLHEKYGGLNKSKPYYTGEHAKAIG
+                     NCPIWVKTPLKLANGTKYRPPAKLLKERGFFGAIAGFLEGGWEGMIAGWHGYTSHGAH
+                     GVAVAADLKSTQEAINKITKNLNSLSELEVKNLQRLSGAMDELHNEILELDEKVDDLR
+                     ADTISSQIELAVLLSNEGIINSEDEHLLALERKLKKMLGPSAVEIGNGCFETKHKCNQ
+                     TCLDRIAAGTFDAGEFSLPTFDSLNITAASLNDDGLDNHTILLYYSTAASSLAVTLMI
+                     AIFVVYMVSRDNVSCSICL"
+     CDS             1..78
                      /product="Signal peptide"
                      /gene="SigPep"
-     CDS             57..1095
+     CDS             79..1032
                      /product="HA1 protein"
                      /gene="HA1"
-     CDS             1095..1769
+     CDS             1033..1791
                      /product="HA2 protein"
-                     /gene="HA2"                     
-                     
-ORIGIN
-        1 atatccacaa aatgaaggca ataattgtac tactcatggt agtaacatcc aatgcagatc
-       61 gaatctgcac tgggataaca tcgtcaaact caccccatgt ggtcaaaact gctactcaag
-      121 gggaagtcaa tgtgactggt gtgataccac tgacaacaac acccaccaaa tctcattttg
-      181 caaatctcaa aggaacaaaa accagaggga aactatgccc aaagtgtctc aactgcacag
-      241 atctggacgt ggccttgggc agaccaaaat gcacggggac cataccttcg gcaaaagttt
-      301 caatactcca cgaagtcaaa cctgttacat ctgggtgctt tcctataatg cacgacagaa
-      361 caaaaattag acagctgccc aatcttctca gaggatacga acatatcagg ttatcaaccc
-      421 ataacgttat caacgcagaa aaggcaccag gaggacccta caaaattgga acctcagggt
-      481 cttgccctaa cattaccaat ggaaacggat tcttcgcaac aatggcttgg gctgtcccaa
-      541 aaaacgacaa caacaaaaca gcaacaaatt cattaacagt agaagtacca tacatttgta
-      601 cagaaggaga agaccaaatt accgtttggg ggttccactc tgataacgaa acccaaatgg
-      661 caaaactcta tggagactca aaacctcaga agttcacctc atctgccaac ggagtgacca
-      721 cacattacgt ttcacagatt ggtggcttcc caaatcaagc agaagacgga gggctaccac
-      781 aaagtggtag aattgttgtt gattacatgg tgcaaaaatc tggaaaaaca ggaacaatta
-      841 cctaccaaag aggtatttta ttgcctcaaa aagtgtggtg cgcaagtggc aggagcaagg
-      901 taataaaagg atccttgcct ttaattggcg aagcagattg cctccacgaa aaatacggtg
-      961 gattaaacaa aagcaagcct tactacacag gggaacatgc aaaagccata ggaaattgcc
-     1021 caatatgggt gaaaacaccc ttgaatctgg ccaatggaac caaatataga cctcctgcaa
-     1081 aactattaaa agaaaggggt ttcttcggag ctattgctgg tttcttagaa ggaggatggg
-     1141 aaggaatgat tgcaggttgg cacggataca catcccatgg agcacatgga gtagcagtgg
-     1201 cagcagacct taagagtaca caagaagcca taaacaagat aacaaaaaat ctcaactctt
-     1261 tgagtgagct tgaagtaaag aatcttcaaa gactaagcgg tgccatggat gaactccaca
-     1321 acgaaatact cgaactggat gagaaagtgg atgatctcag agctgacaca ataagctcgc
-     1381 aaatagagct cgcagtcttg ctttccaatg aaggaataat aaacagcgaa gatgagcatc
-     1441 tcttggcact tgaaagaaaa ctgaagaaaa tgctgggccc ctctgctgta gagataggga
-     1501 atggatgctt cgaaaccaaa cacaagtgca accagacctg cctcgacaga atagctgctg
-     1561 gcacctttaa tgcaggagaa ttttctctcc ccacctttga ttcattaaat attactgctg
-     1621 catctttaaa tgatgatgga ttggataatc atactatact gctttactac tcaactgctg
-     1681 cttccagttt ggctgtaaca ttgatgatag ctatctttat tgtttatatg gtctccagag
-     1741 acaatgtttc ttgctccatc tgtctataag gaaagttaag ccctgtattt tcctttattg
-     1801 tagtgcttgt ttgcttgtta ccattacaaa aaacgttatt ga
+                     /gene="HA2" 
+ORIGIN      
+        1 agcagaagca gagcattttc taatatccac aaaatgaagg caataattgt actactcatg
+       61 gtagtaacat ccaatgcaga tcgaatctgc actgggataa catcgtcaaa ctcaccacat
+      121 gtcgtcaaaa ctgctactca aggggaggtc aatgtgactg gtgtaatacc actgacaaca
+      181 acacccacca aatctcattt tgcaaatctc aaaggaacag aaaccagggg gaaactatgc
+      241 ccaaaatgcc tcaactgcac agatctggac gtagccttgg gcagaccaaa atgcacgggg
+      301 aaaataccct cggcaagagt ttcaatactc catgaagtca gacctgttac atctgggtgc
+      361 tttcctataa tgcacgacag aacaaaaatt agacagctgc ctaaccttct ccgaggatac
+      421 gaacatatca ggttatcaac ccataacgtt atcaatgcag aaaatgcacc aggaggaccc
+      481 tacaaaattg gaacctcagg gtcttgccct aacattacca atggaaacgg atttttcgca
+      541 acaatggctt gggccgtccc aaaaaacgac aaaaacaaaa cagcaacaaa tccattaaca
+      601 atagaagtac catacatttg tacagaagga gaagaccaaa ttaccgtttg ggggttccac
+      661 tctgacaacg aggcccaaat ggcaaagctc tatggggact caaagcccca gaagttcacc
+      721 tcatctgcca acggagtgac cacacattac gtttcacaga ttggtggctt cccaaatcaa
+      781 acagaagacg gaggactacc acaaagtggt agaattgttg ttgattacat ggtgcaaaaa
+      841 tctgggaaaa caggaacaat tacctatcaa aggggtattt tattgcctca aaaggtgtgg
+      901 tgcgcaagtg gcaggagcaa ggtaataaaa ggatccttgc ctttaattgg agaagcagat
+      961 tgcctccacg aaaaatacgg tggattaaac aaaagcaagc cttactacac aggggaacat
+     1021 gcaaaggcca taggaaattg cccaatatgg gtgaaaacac ccttgaagct ggccaatgga
+     1081 accaaatata gacctcctgc aaaactatta aaggaaaggg gtttcttcgg agctattgct
+     1141 ggtttcttag aaggaggatg ggaaggaatg attgcaggtt ggcacggata cacatcccat
+     1201 ggggcacatg gagtagcggt ggcagcagac cttaagagca ctcaagaggc cataaacaag
+     1261 ataacaaaaa atctcaactc tttgagtgag ctggaagtaa agaatcttca aagactaagc
+     1321 ggtgccatgg atgaactcca caacgaaata ctagaactag atgagaaagt ggatgatctc
+     1381 agagctgata caataagctc acaaatagaa ctcgcagtcc tgctttccaa tgaaggaata
+     1441 ataaacagtg aagatgaaca tctcttggcg cttgaaagaa agctgaagaa aatgctgggc
+     1501 ccctctgctg tagagatagg gaatggatgc tttgaaacca aacacaagtg caaccagacc
+     1561 tgtctcgaca gaatagctgc tggtaccttt gatgcaggag aattttctct ccccaccttt
+     1621 gattcactga atattactgc tgcatcttta aatgacgatg gattggataa tcatactata
+     1681 ctgctttact actcaactgc tgcctccagt ttggctgtaa cactgatgat agctatcttt
+     1741 gttgtttata tggtctccag agacaatgtt tcttgctcca tctgtctata agggaagtta
+     1801 agccctgtat tttcctttat tgtagtgctt gtttacttgt tgtcattaca aagaaacgtt
+     1861 attgaaaaat gctcttgtta ctact
 //
+
